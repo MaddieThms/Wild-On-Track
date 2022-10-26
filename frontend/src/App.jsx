@@ -1,10 +1,10 @@
-
 import Home from "./pages/Home";
 import MesCarnets from "./pages/MesCarnets";
 import "./App.css";
-import Header from "@components/Header";
-import Footer from "@components/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import FlightPage from "./pages/FlightPage";
+import MesHotels from "./pages/MesHotels";
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
       <Home />
       <MesCarnets />
       <FlightPage />
+      <MesHotels />
       <Footer />
     </div>
   );
