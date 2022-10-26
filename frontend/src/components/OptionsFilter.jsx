@@ -4,9 +4,9 @@ import "./OptionsFilter.css";
 function OptionsFilter() {
   return (
     <>
-      <h2>Mets en favoris tes vols :</h2>
+      <h2>Mets en favoris tes XXXX :</h2>
       <p>
-        <a href="crée-ton-voyage">Modifier mes filtres</a>
+        <a href="xxxxx">Modifier mes filtres</a>
       </p>
     </>
   );

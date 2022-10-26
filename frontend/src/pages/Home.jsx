@@ -14,6 +14,5 @@ export default function Home() {
         <div className="voyage" />
       </div>
     </div>
-
   );
 }
