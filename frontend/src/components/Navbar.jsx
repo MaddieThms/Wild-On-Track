@@ -108,7 +108,6 @@ export default function PersistentDrawerRight() {
           </IconButton>
         </Toolbar>
       </AppBar>
-
       <Drawer
         sx={{
           width: drawerWidth,
