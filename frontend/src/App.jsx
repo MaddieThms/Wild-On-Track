@@ -1,3 +1,5 @@
+import React from "react";
+import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import MesCarnets from "./pages/MesCarnets";
 import "./App.css";
@@ -14,6 +16,7 @@ function App() {
       <MesCarnets />
       <FlightPage />
       <MesHotels />
+      <Contact />
       <Footer />
     </div>
   );
