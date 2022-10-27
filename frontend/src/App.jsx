@@ -1,10 +1,15 @@
-import MesCarnets from "./pages/MesCarnets";
+import React from "react";
+import Header from "./components/Header";
 import "./App.css";
+import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div className="App">
-      <MesCarnets />
+      <Header />
+      <Contact />
+      <Footer />
     </div>
   );
 }
