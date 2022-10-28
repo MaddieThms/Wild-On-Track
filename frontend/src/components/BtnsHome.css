@@ -1,7 +1,6 @@
 .ContainerBtnstrip {
   display: flex;
   flex-direction: column;
-  margin-top: 10vh;
 }
 
 .ContainerBtnstrip .Btnstrip1 {
@@ -10,16 +9,26 @@
   border-radius: 0 25px 0 25px;
   margin-top: 20px;
   padding: 10px 40px;
+  width: 70vw;
+  color: black;
+  font-size: 0.8rem;
   text-align: center;
-  justify-content: space-between;
 }
 
 .ContainerBtnstrip .Btnstrip2 {
   background-color: white;
-  color: black;
   margin: auto;
   border-radius: 0 25px 0 25px;
   margin-top: 20px;
   padding: 10px 40px;
-  border: solid 1px #eba226;
+  width: 70vw;
+  color: black;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  border: 0;
+  color: black;
 }

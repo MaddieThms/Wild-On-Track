@@ -6,10 +6,10 @@ export default function Btnstrip() {
   return (
     <div className="ContainerBtnstrip">
       <Button className="Btnstrip1" variant="contained">
-        Créer ton voyage
+        <a href="/nouveau-voyage">Créer ton voyage</a>
       </Button>
       <Button className="Btnstrip2" variant="contained">
-        Mes carnets de voyage
+        <a href="/mes-carnets">Mes carnets de voyage</a>
       </Button>
     </div>
   );
