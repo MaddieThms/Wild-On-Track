@@ -1,10 +1,9 @@
-import Header from "../components/Header";
 import "./Home.css";
+import Btnstrip from "../components/BtnsHome";
 
 export default function Home() {
   return (
     <div className="home">
-      <Header />
       <div className="titles">
         <h1 className="title">Créé ton propre carnet de voyage</h1>
         <h2 className="little-title">
@@ -13,6 +12,7 @@ export default function Home() {
         </h2>
         <div className="voyage" />
       </div>
+      <Btnstrip />
     </div>
   );
 }

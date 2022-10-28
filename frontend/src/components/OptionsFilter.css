@@ -4,7 +4,7 @@ h2 {
   color: black;
 }
 
-a {
+a .optionlien {
   text-decoration: none;
   border-radius: 30px;
   border: #eaa226 solid;
@@ -12,17 +12,17 @@ a {
   padding: 2px 10px 2px 10px;
 }
 
-a:link {
+a .optionlien:link {
   text-decoration: none;
   color: #40a798;
 }
 
-a:active {
+a .optionlien :active {
   text-decoration: none;
   color: #40a798;
 }
 
-a:visited {
+a .optionlien :visited {
   text-decoration: none;
   color: #40a798;
 }
