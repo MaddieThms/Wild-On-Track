@@ -8,11 +8,13 @@ import Footer from "./components/Footer";
 import FlightPage from "./pages/FlightPage";
 import BtnsHome from "./components/BtnsHome";
 import MesHotels from "./pages/MesHotels";
+import CreateTravel from "./pages/CreateTravel";
 import DataNote from "./components/DataNote";
 
 function App() {
   return (
     <div className="App">
+      <CreateTravel />
       <Header />
       <Home />
       <BtnsHome />

@@ -1,30 +1,25 @@
 .ContainerBtnstrip {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10vh;
-  }
-  
-  .ContainerBtnstrip .Btnstrip1{
-    background-color: #EBA226;
-      margin: auto;
-      border-radius: 0 25px 0 25px;
-      margin-top: 20px;
-      padding: 10px 40px;
-      text-align: center;
-    justify-content: space-between;
-    
-    }
-    
-    
-    
-    .ContainerBtnstrip .Btnstrip2{
-        background-color: white;
-        color:black;
-      margin: auto;
-      border-radius: 0 25px 0 25px;
-      margin-top: 20px;
-      padding: 10px 40px;
-      border : solid 1px #EBA226
-    
-    }
-    
+  display: flex;
+  flex-direction: column;
+  margin-top: 10vh;
+}
+
+.ContainerBtnstrip .Btnstrip1 {
+  background-color: #eba226;
+  margin: auto;
+  border-radius: 0 25px 0 25px;
+  margin-top: 20px;
+  padding: 10px 40px;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.ContainerBtnstrip .Btnstrip2 {
+  background-color: white;
+  color: black;
+  margin: auto;
+  border-radius: 0 25px 0 25px;
+  margin-top: 20px;
+  padding: 10px 40px;
+  border: solid 1px #eba226;
+}

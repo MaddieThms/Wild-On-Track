@@ -1,0 +1,10 @@
+.travelSearch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20vh;
+}
+
+p {
+  color: rgb(25, 25, 25);
+}
