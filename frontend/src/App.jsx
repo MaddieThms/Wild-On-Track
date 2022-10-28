@@ -1,4 +1,3 @@
-
 import React from "react";
 import Contact from "./pages/Contact";
 
@@ -12,7 +11,8 @@ import FlightPage from "./pages/FlightPage";
 import BtnsHome from "./components/BtnsHome";
 
 import MesHotels from "./pages/MesHotels";
-
+import TitleResume from "./components/TitleResume";
+import Budget from "./components/Budget";
 
 function App() {
   return (
@@ -23,6 +23,8 @@ function App() {
       <MesCarnets />
       <FlightPage />
       <MesHotels />
+      <TitleResume />
+      <Budget />
       <Contact />
       <Footer />
     </div>
