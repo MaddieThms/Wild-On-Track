@@ -6,7 +6,7 @@ function OptionsFilter() {
     <>
       <h2>Mets en favoris tes XXXX :</h2>
       <p>
-        <a href="xxxxx">Modifier mes filtres</a>
+        <a href="/nouveau-voyage">Modifier mes filtres</a>
       </p>
     </>
   );
