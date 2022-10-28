@@ -1,10 +1,10 @@
-import Btnstrip from "./components/BtnsTrip";
+import CreateTravel from "./pages/CreateTravel";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Btnstrip />
+      <CreateTravel />
     </div>
   );
 }
