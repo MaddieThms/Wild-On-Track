@@ -13,6 +13,7 @@ export default function BasicDatePicker() {
       <p>Dates</p>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DatePicker
+          className="label-form"
           label="Basic example"
           value={value}
           onChange={(newValue) => {

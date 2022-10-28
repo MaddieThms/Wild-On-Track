@@ -15,6 +15,7 @@ function NumberTravelers() {
       <div>
         <p>Voyageurs</p>
         <TextField
+          className="label-form"
           id="filled-search"
           label="Search field"
           type="search"

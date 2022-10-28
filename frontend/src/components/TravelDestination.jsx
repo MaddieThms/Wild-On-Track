@@ -15,6 +15,7 @@ function TravelDestination() {
       <div>
         <p>Choisi ta destination</p>
         <TextField
+          className="label-form"
           id="filled-search"
           label="Search field"
           type="search"
