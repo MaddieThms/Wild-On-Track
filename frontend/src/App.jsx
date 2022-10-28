@@ -9,6 +9,7 @@ import FlightPage from "./pages/FlightPage";
 import BtnsHome from "./components/BtnsHome";
 import MesHotels from "./pages/MesHotels";
 import CreateTravel from "./pages/CreateTravel";
+import DataNote from "./components/DataNote";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <MesHotels />
       <Contact />
       <Footer />
+      <DataNote />
     </div>
   );
 }

@@ -1,11 +1,9 @@
 Button.searchButton {
-    background-color: #eba226;
+  background-color: #eba226;
 }
 
-
 Button.searchButton:hover {
-    background-color: rgb(255, 251, 251);
-    border-color:#eba226;
-    color:#eba226
-
+  background-color: rgb(255, 251, 251);
+  border-color: #eba226;
+  color: #eba226;
 }
