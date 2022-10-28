@@ -17,12 +17,18 @@
 
 .ContainerBtnstrip .Btnstrip2 {
   background-color: white;
-  color: black;
   margin: auto;
-  width: 70vw;
-  font-size: 0.8rem;
   border-radius: 0 25px 0 25px;
   margin-top: 20px;
   padding: 10px 40px;
-  border: solid 1px #eba226;
+  width: 70vw;
+  color: black;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  border: 0;
+  color: black;
 }
