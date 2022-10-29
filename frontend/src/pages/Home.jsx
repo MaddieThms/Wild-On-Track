@@ -1,5 +1,5 @@
 import "./Home.css";
-import Btnstrip from "@components/BtnsHome";
+import Btnstrip from "../components/BtnsHome";
 
 export default function Home() {
   return (
