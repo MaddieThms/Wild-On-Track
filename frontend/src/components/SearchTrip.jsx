@@ -5,13 +5,17 @@ import NumberTravelers from "./NumberTravelers";
 import SearchButton from "./SearchButton";
 import TravelDestination from "./TravelDestination";
 import "./SearchTrip.css";
+import TravelDeparture from "./TravelDeparture";
+import BasicDatePickerRoundTrip from "./TravelRoundtrip";
 
 function SearchTrip() {
   return (
     <Box sx={{ width: "100%" }}>
       <Stack id="formStructure">
+        <TravelDeparture />
         <TravelDestination />
         <TravelDate />
+        <BasicDatePickerRoundTrip />
         <NumberTravelers />
         <Stack id="formButtons">
           <SearchButton />
