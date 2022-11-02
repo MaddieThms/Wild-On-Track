@@ -8,20 +8,21 @@ import MesCarnets from "./pages/MesCarnets";
 import Contact from "./pages/Contact";
 import MesHotels from "./pages/MesHotels";
 import CreateTravel from "./pages/CreateTravel";
+import Navbar from "./components/Navbar";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <BrowserRouter>
+    <Navbar />
     <Routes>
-      <Route path="/" element={<App />}>
-        <Route path="home" element={<Home />} />
-        <Route path="nouveau-voyage" element={<CreateTravel />} />
-        <Route path="flights" element={<FlightPage />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="mes-carnets" element={<MesCarnets />} />
-        <Route path="mes-hotels" element={<MesHotels />} />
-      </Route>
+      <Route path="/" element={<App />} />
+      <Route path="home" element={<Home />} />
+      <Route path="nouveau-voyage" element={<CreateTravel />} />
+      <Route path="flights" element={<FlightPage />} />
+      <Route path="contact" element={<Contact />} />
+      <Route path="mes-carnets" element={<MesCarnets />} />
+      <Route path="mes-hotels" element={<MesHotels />} />
     </Routes>
   </BrowserRouter>
 );

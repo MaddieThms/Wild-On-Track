@@ -26,7 +26,7 @@ const navigateItems = [
     index: 0,
     icon: <Home />,
     label: "Accueil",
-    route: "home",
+    route: "/",
   },
   {
     index: 1,
