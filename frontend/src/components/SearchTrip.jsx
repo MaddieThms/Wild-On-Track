@@ -6,7 +6,7 @@ import SearchButton from "./SearchButton";
 import TravelDestination from "./TravelDestination";
 import "./SearchTrip.css";
 import TravelDeparture from "./TravelDeparture";
-import BasicDatePickerRoundTrip from "./TravelRoudtrip";
+import BasicDatePickerRoundTrip from "./TravelRoundtrip";
 
 function SearchTrip() {
   return (
