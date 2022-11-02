@@ -4,12 +4,12 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
-export default function BasicDatePicker() {
+export default function BasicDatePickerRoundTrip() {
   const [value, setValue] = React.useState(null);
 
   return (
     <div>
-      <p>Date de départ</p>
+      <p>Date de retour</p>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DatePicker
           className="label-form"
