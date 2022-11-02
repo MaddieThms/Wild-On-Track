@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
-import Home from "./pages/Home";
 import FlightPage from "./pages/FlightPage";
 import MesCarnets from "./pages/MesCarnets";
 import Contact from "./pages/Contact";
@@ -17,7 +16,6 @@ root.render(
     <Navbar />
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="home" element={<Home />} />
       <Route path="nouveau-voyage" element={<CreateTravel />} />
       <Route path="flights" element={<FlightPage />} />
       <Route path="contact" element={<Contact />} />
