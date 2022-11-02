@@ -1,14 +1,13 @@
 import React from "react";
 import "./OptionsFilter.css";
+import { Link } from "react-router-dom";
 
 function OptionsFilter() {
   return (
     <>
       <h2>Mets en favoris tes XXXX :</h2>
       <p>
-        <a classeName="optionlien" href="/nouveau-voyage">
-          Modifier mes filtres
-        </a>
+        <Link to="/nouveau-voyage">Modifier mes filtres</Link>
       </p>
     </>
   );
