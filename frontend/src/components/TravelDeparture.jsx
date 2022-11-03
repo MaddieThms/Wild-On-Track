@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
-function TravelDeparture() {
+function TravelDeparture(props) {
+  const { departure, setDeparture } = props;
   return (
     <Box
       component="form"
@@ -20,10 +22,11 @@ function TravelDeparture() {
           label="Search field"
           type="search"
           variant="outlined"
+          value={departure}
+          onChange={(event) => setDeparture(event.target.value)}
         />
       </div>
     </Box>
   );
 }
-
 export default TravelDeparture;
