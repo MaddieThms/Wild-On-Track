@@ -29,4 +29,5 @@ function TravelDeparture(props) {
     </Box>
   );
 }
+
 export default TravelDeparture;
