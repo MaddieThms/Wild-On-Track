@@ -16,14 +16,6 @@ function SearchTrip() {
     redirect: "follow",
   };
 
-  const myHeadersCity = new Headers();
-  myHeadersCity.append("apikey", "S4_ycFnfXLe51IZIyjdezesd-2G0izxO");
-  const requestOptionsCity = {
-    method: "GET",
-    headers: myHeadersCity,
-    redirect: "follow",
-  };
-
   const [departure, setDeparture] = useState("");
   const [landing, setLanding] = useState("");
   const [dateFrom, setDateFrom] = useState("");
@@ -31,27 +23,7 @@ function SearchTrip() {
   const [airportName, setAirportName] = useState("");
   const [airportNameDestination, setAirportNameDestination] = useState("");
 
-  const urlCity = `https://api.tequila.kiwi.com/locations/query?term=${departure}`;
-  const urlCityDest = `https://api.tequila.kiwi.com/locations/query?term=${landing}`;
   const url = `https://api.tequila.kiwi.com/v2/search?flight_type=round&fly_from=${airportName}&fly_to=${airportNameDestination}&date_from=${dateFrom}&date_to=${dateFrom}&return_from=${returnFrom}&return_to=${returnFrom}&max_stopovers=2&sort=price`;
-
-  const findApiCity = () => {
-    fetch(urlCity, requestOptionsCity)
-      .then((response) => response.json())
-      .then((result) => {
-        setAirportName(result.locations[0].code);
-        console.warn(airportName);
-      })
-      .catch((error) => console.warn("error", error));
-
-    fetch(urlCityDest, requestOptionsCity)
-      .then((response) => response.json())
-      .then((result) => {
-        setAirportNameDestination(result.locations[0].code);
-        console.warn(airportNameDestination);
-      })
-      .catch((error) => console.warn("error", error));
-  };
 
   const findApi = () => {
     fetch(url, requestOptions)
@@ -65,8 +37,18 @@ function SearchTrip() {
   return (
     <Box sx={{ width: "100%" }}>
       <Stack id="formStructure">
-        <TravelDeparture departure={departure} setDeparture={setDeparture} />
-        <TravelDestination landing={landing} setLanding={setLanding} />
+        <TravelDeparture
+          departure={departure}
+          setDeparture={setDeparture}
+          setAirportName={setAirportName}
+          airportName={airportName}
+        />
+        <TravelDestination
+          landing={landing}
+          setLanding={setLanding}
+          setAirportNameDestination={setAirportNameDestination}
+          airportNameDestination={airportNameDestination}
+        />
         <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
         <BasicDatePickerRoundTrip
           returnFrom={returnFrom}
@@ -76,7 +58,6 @@ function SearchTrip() {
         <Stack id="formButtons">
           <Button
             onClick={() => {
-              findApiCity();
               findApi();
             }}
             className="searchButton"
