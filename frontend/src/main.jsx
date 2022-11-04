@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import MesHotels from "./pages/MesHotels";
 import CreateTravel from "./pages/CreateTravel";
 import Navbar from "./components/Navbar";
+import CarnetVoyage from "./pages/CarnetVoyage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -21,6 +22,7 @@ root.render(
       <Route path="contact" element={<Contact />} />
       <Route path="mes-carnets" element={<MesCarnets />} />
       <Route path="mes-hotels" element={<MesHotels />} />
+      <Route path="mon-carnet-de-voyage" element={<CarnetVoyage />} />
     </Routes>
   </BrowserRouter>
 );
