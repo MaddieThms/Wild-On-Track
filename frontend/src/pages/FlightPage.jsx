@@ -1,11 +1,13 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import ChooseFlight from "../components/ChooseFlight";
 import Footer from "../components/Footer";
 
-function FlightPage() {
+function FlightPage(props) {
+  const { dataFlight, setDataFlight } = props;
   return (
     <>
-      <ChooseFlight />
+      <ChooseFlight dataFlight={dataFlight} setDataFlight={setDataFlight} />
       <Footer />
     </>
   );

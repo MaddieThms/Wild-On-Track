@@ -1,13 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import CreateTravel from "./pages/CreateTravel";
+import FlightPage from "./pages/FlightPage";
+import Contact from "./pages/Contact";
+import MesCarnets from "./pages/MesCarnets";
+import MesHotels from "./pages/MesHotels";
+import CarnetVoyage from "./pages/CarnetVoyage";
 import Home from "./pages/Home";
 
 function App() {
+  const [dataFlight, setDataFlight] = useState([]);
   return (
     <div>
-      <Home />
-      <Outlet />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="nouveau-voyage"
+          element={
+            <CreateTravel
+              dataFlight={dataFlight}
+              setDataFlight={setDataFlight}
+            />
+          }
+        />
+        <Route
+          path="nouveau-voyage/flights"
+          element={
+            <FlightPage dataFlight={dataFlight} setDataFlight={setDataFlight} />
+          }
+        />
+        <Route path="contact" element={<Contact />} />
+        <Route path="mes-carnets" element={<MesCarnets />} />
+        <Route path="mes-hotels" element={<MesHotels />} />
+        <Route path="mon-carnet-de-voyage" element={<CarnetVoyage />} />
+      </Routes>
     </div>
   );
 }

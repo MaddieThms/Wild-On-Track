@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import DataFlight from "./DataFlight";
 
-function Flight() {
+function Flight(props) {
+  const { dataFlight, setDataFlight } = props;
   const [isFavorite, setIsFavorite] = useState(false);
-
   function handleFavorite() {
     setIsFavorite(!isFavorite);
   }
@@ -22,7 +23,7 @@ function Flight() {
         backgroundColor: "white",
       }}
     >
-      <DataFlight />
+      <DataFlight dataFlight={dataFlight} setDataFlight={setDataFlight} />
       <StarRateIcon
         onClick={() => handleFavorite()}
         sx={isFavorite ? { color: "#eaa226" } : { color: "#d1d1d1" }}

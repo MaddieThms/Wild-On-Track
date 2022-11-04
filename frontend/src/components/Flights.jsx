@@ -1,16 +1,14 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import Flight from "./Flight";
 
-function Flights() {
+function Flights(props) {
+  const { dataFlight, setDataFlight } = props;
   return (
     <div>
-      <Flight />
-      <br />
-      <Flight />
-      <br />
-      <Flight />
-      <br />
-      <Flight />
+      {dataFlight.map(() => (
+        <Flight dataFlight={dataFlight} setDataFlight={setDataFlight} />
+      ))}
     </div>
   );
 }
