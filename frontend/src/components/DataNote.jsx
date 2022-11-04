@@ -11,11 +11,13 @@ export default function DataNote() {
   //   };
   return (
     <div>
-      <h3 style={{ marginLeft: "10px" }}>Mes notes</h3>
+      <h3 style={{ marginLeft: "35vw", marginBottom: "10vw" }}>Mes notes</h3>
       <Box
+        display="flex"
+        justifyContent="center"
         component="form"
         sx={{
-          "& .MuiTextField-root": { m: 1, width: "95vw" },
+          "& .MuiTextField-root": { m: 1, width: "80vw", margin: "0 auto" },
         }}
         noValidate
         autoComplete="off"
