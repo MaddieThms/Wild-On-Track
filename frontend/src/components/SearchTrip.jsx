@@ -22,10 +22,29 @@ function SearchTrip() {
   const [returnFrom, setReturnFrom] = useState("");
   const [airportName, setAirportName] = useState("");
   const [airportNameDestination, setAirportNameDestination] = useState("");
+  const [cityId, setCityId] = useState("");
+
+  const optionsHôtels = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "42794bd385msh9f5e2e6a6dd07a5p11848fjsnb7f7488721b3",
+      "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
+    },
+  };
+
+  const findApiHotels = () => {
+    fetch(
+      `https://travel-advisor.p.rapidapi.com/hotels/get-details?location_id=${cityId}&checkin=${dateFrom}&adults=${numberTraveler}&currency=EUR&nights=2`,
+      optionsHôtels
+    )
+      .then((response) => response.json())
+      .then((result) => console.warn(result))
+      .catch((err) => console.error(err));
+  };
 
   const url = `https://api.tequila.kiwi.com/v2/search?flight_type=round&fly_from=${airportName}&fly_to=${airportNameDestination}&date_from=${dateFrom}&date_to=${dateFrom}&return_from=${returnFrom}&return_to=${returnFrom}&max_stopovers=2&sort=price&adults=${numberTraveler}&curr=EUR`;
 
-  const findApi = () => {
+  const findApiVols = () => {
     fetch(url, requestOptions)
       .then((response) => response.json())
       .then((result) => {
@@ -47,6 +66,8 @@ function SearchTrip() {
           landing={landing}
           setLanding={setLanding}
           setAirportNameDestination={setAirportNameDestination}
+          cityId={cityId}
+          setCityId={setCityId}
           airportNameDestination={airportNameDestination}
         />
         <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
@@ -61,14 +82,20 @@ function SearchTrip() {
         <Stack id="formButtons">
           <Button
             onClick={() => {
-              findApi();
+              findApiVols();
             }}
             className="searchButton"
             variant="contained"
           >
             Vol
           </Button>
-          <Button className="searchButton" variant="contained">
+          <Button
+            onClick={() => {
+              findApiHotels();
+            }}
+            className="searchButton"
+            variant="contained"
+          >
             Hotel
           </Button>
         </Stack>
