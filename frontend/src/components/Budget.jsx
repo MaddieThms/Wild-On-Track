@@ -1,5 +1,5 @@
 import React from "react";
-import Flight from "./Flight";
+import Flight from "./cardFlight/Flight";
 import Hotel from "./Hotel";
 
 export default function Budget() {

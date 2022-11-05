@@ -1,11 +1,16 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import ChooseFlight from "../components/ChooseFlight";
 import Footer from "../components/Footer";
 
-function FlightPage() {
+function FlightPage({ dataFlights, departure, landing }) {
   return (
     <>
-      <ChooseFlight />
+      <ChooseFlight
+        dataFlights={dataFlights}
+        departure={departure}
+        landing={landing}
+      />
       <Footer />
     </>
   );
