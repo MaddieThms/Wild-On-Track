@@ -2,12 +2,11 @@
 import React from "react";
 import Flight from "./Flight";
 
-function Flights(props) {
-  const { dataFlight, setDataFlight } = props;
+function Flights({ dataFlight }) {
   return (
     <div>
-      {dataFlight.map(() => (
-        <Flight dataFlight={dataFlight} setDataFlight={setDataFlight} />
+      {dataFlight.map((flight) => (
+        <Flight key={flight.id} flight={flight} />
       ))}
     </div>
   );

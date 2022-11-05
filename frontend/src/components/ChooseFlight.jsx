@@ -4,14 +4,13 @@ import OptionsFilter from "./OptionsFilter";
 import PageTitle from "./PageTitle";
 import Flights from "./Flights";
 
-function ChooseFlight(props) {
-  const { dataFlight, setDataFlight } = props;
+function ChooseFlight({ dataFlight }) {
   return (
     <div>
-      <PageTitle />
+      <PageTitle dataFlight={dataFlight} />
       <OptionsFilter />
       <br />
-      <Flights dataFlight={dataFlight} setDataFlight={setDataFlight} />
+      <Flights dataFlight={dataFlight} />
     </div>
   );
 }

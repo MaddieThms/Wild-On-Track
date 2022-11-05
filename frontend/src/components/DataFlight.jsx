@@ -1,29 +1,25 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 
-function DataFlight(props) {
-  // eslint-disable-next-line no-unused-vars
-  const { dataFlight, setDataFlight } = props;
+function DataFlight({ flight }) {
   return (
     <div>
-      {dataFlight.map((data) => (
-        <p style={{ textAlign: "right", color: "black", fontSize: "0.9em" }}>
-          {/* Vol {dataFlight[0].cityTo} pour le {dataFlight[0].local_arrival} */}
-          Vol {data.cityTo}
-        </p>
-      ))}
+      <p style={{ textAlign: "right", color: "black", fontSize: "0.9em" }}>
+        {/* Vol {dataFlight[0].cityTo} pour le {dataFlight[0].local_arrival} */}
+        Vol {flight.cityFrom} direction {flight.cityTo}
+      </p>
       <p style={{ margin: "6px" }} />
       <p style={{ textAlign: "right", color: "black", fontSize: "0.9em" }}>
-        Heure de départ : xxxh
+        Date de départ : {flight.local_departure}
       </p>
       <p style={{ textAlign: "right", color: "black", fontSize: "0.9em" }}>
-        Heure d'arrivée : xxxh
+        Date d'arrivée : {flight.local_arrival}
       </p>
       <p style={{ textAlign: "right", color: "black", fontSize: "0.9em" }}>
         Numéros de vol : xxx
       </p>
       <p style={{ textAlign: "right", color: "black", fontSize: "0.9em" }}>
-        Prix : xxx€
+        Prix : {flight.price}
       </p>
     </div>
   );

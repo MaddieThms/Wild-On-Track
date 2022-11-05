@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import DataFlight from "./DataFlight";
 
-function Flight(props) {
-  const { dataFlight, setDataFlight } = props;
+function Flight({ flight }) {
   const [isFavorite, setIsFavorite] = useState(false);
   function handleFavorite() {
     setIsFavorite(!isFavorite);
@@ -20,10 +19,11 @@ function Flight(props) {
         borderRadius: "10px",
         border: "solid #BF9767 2px",
         padding: "10px",
+        marginBottom: "15px",
         backgroundColor: "white",
       }}
     >
-      <DataFlight dataFlight={dataFlight} setDataFlight={setDataFlight} />
+      <DataFlight flight={flight} />
       <StarRateIcon
         onClick={() => handleFavorite()}
         sx={isFavorite ? { color: "#eaa226" } : { color: "#d1d1d1" }}
