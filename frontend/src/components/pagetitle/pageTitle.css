@@ -1,0 +1,23 @@
+/* color: "#40A798"  */
+/* color: "#eaa226" */
+.container-pageTitle {
+  text-align: center;
+  margin-top: 10vh;
+}
+
+.city {
+  color: black;
+  font-size: 35px;
+}
+
+.departure {
+  color: #40a798;
+}
+
+.landing {
+  color: #eaa226;
+}
+
+p {
+  color: black;
+}

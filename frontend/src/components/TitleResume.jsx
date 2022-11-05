@@ -1,5 +1,5 @@
 import React from "react";
-import PageTitle from "./PageTitle";
+import PageTitle from "./pagetitle/PageTitle";
 import PictureResumeTrip from "./PictureResumeTrip";
 
 export default function TitleResume() {

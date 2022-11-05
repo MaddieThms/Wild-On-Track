@@ -1,5 +1,8 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { Box, Button, Stack } from "@mui/material";
+import { Link } from "react-router-dom";
 import TravelDate from "./TravelDate";
 import NumberTravelers from "./NumberTravelers";
 import TravelDestination from "./TravelDestination";
@@ -7,7 +10,14 @@ import "./SearchTrip.css";
 import TravelDeparture from "./TravelDeparture";
 import BasicDatePickerRoundTrip from "./TravelRoundtrip";
 
-function SearchTrip() {
+function SearchTrip({
+  dataFlights,
+  setDataFlights,
+  departure,
+  setDeparture,
+  landing,
+  setLanding,
+}) {
   const myHeaders = new Headers();
   myHeaders.append("apikey", "9btTF3zU-5Ur_OwLyOdLWd8Pd2kC2ZJc");
   const requestOptions = {
@@ -16,8 +26,6 @@ function SearchTrip() {
     redirect: "follow",
   };
   const [numberTraveler, setNumberTraveler] = useState("");
-  const [departure, setDeparture] = useState("");
-  const [landing, setLanding] = useState("");
   const [dateFrom, setDateFrom] = useState("");
   const [returnFrom, setReturnFrom] = useState("");
   const [airportName, setAirportName] = useState("");
@@ -41,14 +49,14 @@ function SearchTrip() {
       .then((result) => console.warn(result))
       .catch((err) => console.error(err));
   };
-
-  const url = `https://api.tequila.kiwi.com/v2/search?flight_type=round&fly_from=${airportName}&fly_to=${airportNameDestination}&date_from=${dateFrom}&date_to=${dateFrom}&return_from=${returnFrom}&return_to=${returnFrom}&max_stopovers=2&sort=price&adults=${numberTraveler}&curr=EUR`;
+  const url = `https://api.tequila.kiwi.com/v2/search?flight_type=round&fly_from=${airportName}&fly_to=${airportNameDestination}&date_from=${dateFrom}&date_to=${dateFrom}&return_from=${returnFrom}&return_to=${returnFrom}&max_stopovers=2&sort=price&adults=${numberTraveler}&curr=EUR&limit=5`;
 
   const findApiVols = () => {
     fetch(url, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         console.warn(result);
+        setDataFlights(result.data);
       })
       .catch(console.error);
   };
@@ -87,7 +95,7 @@ function SearchTrip() {
             className="searchButton"
             variant="contained"
           >
-            Vol
+            <Link to="flights">Vol</Link>
           </Button>
           <Button
             onClick={() => {
