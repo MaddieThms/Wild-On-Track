@@ -3,11 +3,14 @@ import React from "react";
 import ChooseFlight from "../components/ChooseFlight";
 import Footer from "../components/Footer";
 
-function FlightPage(props) {
-  const { dataFlight, setDataFlight } = props;
+function FlightPage({ dataFlights, departure, landing }) {
   return (
     <>
-      <ChooseFlight dataFlight={dataFlight} setDataFlight={setDataFlight} />
+      <ChooseFlight
+        dataFlights={dataFlights}
+        departure={departure}
+        landing={landing}
+      />
       <Footer />
     </>
   );

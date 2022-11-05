@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import Flight from "./Flight";
+import "./flight.css";
 
-function Flights({ dataFlight }) {
+function Flights({ dataFlights }) {
   return (
-    <div>
-      {dataFlight.map((flight) => (
+    <div className="cardflights">
+      {dataFlights.map((flight) => (
         <Flight key={flight.id} flight={flight} />
       ))}
     </div>

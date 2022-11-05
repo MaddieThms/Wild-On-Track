@@ -10,8 +10,14 @@ import "./SearchTrip.css";
 import TravelDeparture from "./TravelDeparture";
 import BasicDatePickerRoundTrip from "./TravelRoundtrip";
 
-function SearchTrip(props) {
-  const { dataFlight, setDataFlight } = props;
+function SearchTrip({
+  dataFlights,
+  setDataFlights,
+  departure,
+  setDeparture,
+  landing,
+  setLanding,
+}) {
   const myHeaders = new Headers();
   myHeaders.append("apikey", "9btTF3zU-5Ur_OwLyOdLWd8Pd2kC2ZJc");
   const requestOptions = {
@@ -20,8 +26,6 @@ function SearchTrip(props) {
     redirect: "follow",
   };
   const [numberTraveler, setNumberTraveler] = useState("");
-  const [departure, setDeparture] = useState("");
-  const [landing, setLanding] = useState("");
   const [dateFrom, setDateFrom] = useState("");
   const [returnFrom, setReturnFrom] = useState("");
   const [airportName, setAirportName] = useState("");
@@ -33,7 +37,7 @@ function SearchTrip(props) {
       .then((response) => response.json())
       .then((result) => {
         console.warn(result);
-        setDataFlight(result.data);
+        setDataFlights(result.data);
       })
       .catch(console.error);
   };

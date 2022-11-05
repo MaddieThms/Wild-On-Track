@@ -11,7 +11,9 @@ import CarnetVoyage from "./pages/CarnetVoyage";
 import Home from "./pages/Home";
 
 function App() {
-  const [dataFlight, setDataFlight] = useState([]);
+  const [dataFlights, setDataFlights] = useState([]);
+  const [departure, setDeparture] = useState("");
+  const [landing, setLanding] = useState("");
   return (
     <div>
       <Navbar />
@@ -21,15 +23,26 @@ function App() {
           path="nouveau-voyage"
           element={
             <CreateTravel
-              dataFlight={dataFlight}
-              setDataFlight={setDataFlight}
+              dataFlights={dataFlights}
+              setDataFlights={setDataFlights}
+              departure={departure}
+              setDeparture={setDeparture}
+              landing={landing}
+              setLanding={setLanding}
             />
           }
         />
         <Route
           path="nouveau-voyage/flights"
           element={
-            <FlightPage dataFlight={dataFlight} setDataFlight={setDataFlight} />
+            <FlightPage
+              dataFlights={dataFlights}
+              setDataFlights={setDataFlights}
+              departure={departure}
+              setDeparture={setDeparture}
+              landing={landing}
+              setLanding={setLanding}
+            />
           }
         />
         <Route path="contact" element={<Contact />} />

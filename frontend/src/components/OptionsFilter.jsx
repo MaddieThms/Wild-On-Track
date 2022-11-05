@@ -4,12 +4,11 @@ import { NavLink } from "react-router-dom";
 
 function OptionsFilter() {
   return (
-    <>
-      <h2>Mets en favoris ton vol :</h2>
-      <p>
+    <div>
+      <p className="filter">
         <NavLink to="/nouveau-voyage">Modifier mes filtres</NavLink>
       </p>
-    </>
+    </div>
   );
 }
 
