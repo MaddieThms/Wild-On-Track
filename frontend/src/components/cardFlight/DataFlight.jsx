@@ -74,6 +74,8 @@ export default function FloatingActionButtonZoom({ flight }) {
   function handleFavorite() {
     setIsFavorite(!isFavorite);
   }
+  /* const create for bugs with stopovers */
+  const stopover = flight.route;
 
   return (
     <Box
@@ -134,18 +136,26 @@ export default function FloatingActionButtonZoom({ flight }) {
           <div className="cardinformationvol">
             <div className="informationsvol">
               <p className="date">
-                {dateExtraction(flight.route[2].local_departure)}
+                {stopover.length >= 4
+                  ? dateExtraction(flight.route[2].local_departure)
+                  : dateExtraction(flight.route[1].local_departure)}
               </p>
               <p className="hour">
-                {hoursExtraction(flight.route[2].local_departure)} départ de{" "}
-                {flight.cityFrom}
+                {stopover.length >= 4
+                  ? hoursExtraction(flight.route[2].local_departure)
+                  : hoursExtraction(flight.route[1].local_departure)}{" "}
+                départ de {flight.cityTo}
               </p>
               <p className="date">
-                {dateExtraction(flight.route[2].local_arrival)}
+                {stopover.length >= 4
+                  ? dateExtraction(flight.route[2].local_arrival)
+                  : dateExtraction(flight.route[1].local_arrival)}
               </p>
               <p className="hour">
-                {hoursExtraction(flight.route[3].local_arrival)} arrivé à{" "}
-                {flight.cityTo}
+                {stopover.length >= 4
+                  ? hoursExtraction(flight.route[3].local_arrival)
+                  : hoursExtraction(flight.route[1].local_arrival)}{" "}
+                arrivé à {flight.cityFrom}
               </p>
               Prix : <span className="price">{flight.price}€</span>
             </div>
