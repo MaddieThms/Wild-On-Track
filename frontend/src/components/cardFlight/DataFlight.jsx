@@ -32,7 +32,7 @@ function TabPanel(props) {
     </Typography>
   );
 }
-
+/* This is for the switch element MUI */
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.number.isRequired,
@@ -47,13 +47,17 @@ function a11yProps(index) {
 }
 
 export default function FloatingActionButtonZoom({ flight }) {
+  /*   function for date extraction */
   function dateExtraction(date) {
     const newDate = date.slice(0, 10);
     return newDate.split("-").reverse().join("-");
   }
+  /*   function for hour extraction */
   function hoursExtraction(hour) {
     return hour.slice(11, 16);
   }
+
+  /* This is for the element MUI */
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
@@ -65,6 +69,7 @@ export default function FloatingActionButtonZoom({ flight }) {
     setValue(index);
   };
 
+  /* This is for the favorite */
   const [isFavorite, setIsFavorite] = React.useState(false);
   function handleFavorite() {
     setIsFavorite(!isFavorite);

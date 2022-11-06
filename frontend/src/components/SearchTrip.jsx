@@ -18,6 +18,7 @@ function SearchTrip({
   landing,
   setLanding,
 }) {
+  /*   APIKey in the header of the API */
   const myHeaders = new Headers();
   myHeaders.append("apikey", "9btTF3zU-5Ur_OwLyOdLWd8Pd2kC2ZJc");
   const requestOptions = {
@@ -25,6 +26,7 @@ function SearchTrip({
     headers: myHeaders,
     redirect: "follow",
   };
+  /* Usestate declaration */
   const [numberTraveler, setNumberTraveler] = useState("");
   const [dateFrom, setDateFrom] = useState("");
   const [returnFrom, setReturnFrom] = useState("");
@@ -32,6 +34,7 @@ function SearchTrip({
   const [airportNameDestination, setAirportNameDestination] = useState("");
   const url = `https://api.tequila.kiwi.com/v2/search?flight_type=round&fly_from=${airportName}&fly_to=${airportNameDestination}&date_from=${dateFrom}&date_to=${dateFrom}&return_from=${returnFrom}&return_to=${returnFrom}&max_stopovers=2&sort=price&adults=${numberTraveler}&curr=EUR&limit=5`;
 
+  /* Call API with airportName recovered in Traveldeparture with the other API call */
   const findApi = () => {
     fetch(url, requestOptions)
       .then((response) => response.json())
@@ -67,6 +70,7 @@ function SearchTrip({
           setNumberTraveler={setNumberTraveler}
         />
         <Stack id="formButtons">
+          {/* call the API on click */}
           <Button
             onClick={() => {
               findApi();
