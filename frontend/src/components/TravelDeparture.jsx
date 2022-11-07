@@ -7,6 +7,7 @@ function TravelDeparture(props) {
   const { departure, setDeparture, airportName, setAirportName } = props;
   const urlCity = `https://api.tequila.kiwi.com/locations/query?term=${departure}`;
 
+  /*   APIKey in the header of the API */
   const myHeadersCity = new Headers();
   myHeadersCity.append("apikey", "S4_ycFnfXLe51IZIyjdezesd-2G0izxO");
   const requestOptionsCity = {
@@ -15,6 +16,7 @@ function TravelDeparture(props) {
     redirect: "follow",
   };
 
+  /* call Api to recover the airport name for the other api */
   const findApiCityDeparture = () => {
     fetch(urlCity, requestOptionsCity)
       .then((response) => response.json())
@@ -41,9 +43,11 @@ function TravelDeparture(props) {
           id="filled-search"
           label="Search field"
           type="search"
+          /* call the first API when i leave the input */
           onBlur={() => findApiCityDeparture()}
           variant="outlined"
           value={departure}
+          /* stock the value in the setter departure */
           onChange={(event) => setDeparture(event.target.value)}
         />
       </div>
