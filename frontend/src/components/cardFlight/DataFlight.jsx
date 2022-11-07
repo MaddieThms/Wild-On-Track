@@ -32,7 +32,7 @@ function TabPanel(props) {
     </Typography>
   );
 }
-
+/* This is for the switch element MUI */
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.number.isRequired,
@@ -47,13 +47,17 @@ function a11yProps(index) {
 }
 
 export default function FloatingActionButtonZoom({ flight }) {
+  /*   function for date extraction */
   function dateExtraction(date) {
     const newDate = date.slice(0, 10);
     return newDate.split("-").reverse().join("-");
   }
+  /*   function for hour extraction */
   function hoursExtraction(hour) {
     return hour.slice(11, 16);
   }
+
+  /* This is for the element MUI */
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
@@ -65,10 +69,13 @@ export default function FloatingActionButtonZoom({ flight }) {
     setValue(index);
   };
 
+  /* This is for the favorite */
   const [isFavorite, setIsFavorite] = React.useState(false);
   function handleFavorite() {
     setIsFavorite(!isFavorite);
   }
+  /* const create for bugs with stopovers */
+  const stopover = flight.route;
 
   return (
     <Box
@@ -129,18 +136,26 @@ export default function FloatingActionButtonZoom({ flight }) {
           <div className="cardinformationvol">
             <div className="informationsvol">
               <p className="date">
-                {dateExtraction(flight.route[2].local_departure)}
+                {stopover.length >= 4
+                  ? dateExtraction(flight.route[2].local_departure)
+                  : dateExtraction(flight.route[1].local_departure)}
               </p>
               <p className="hour">
-                {hoursExtraction(flight.route[2].local_departure)} départ de{" "}
-                {flight.cityFrom}
+                {stopover.length >= 4
+                  ? hoursExtraction(flight.route[2].local_departure)
+                  : hoursExtraction(flight.route[1].local_departure)}{" "}
+                départ de {flight.cityTo}
               </p>
               <p className="date">
-                {dateExtraction(flight.route[2].local_arrival)}
+                {stopover.length >= 4
+                  ? dateExtraction(flight.route[2].local_arrival)
+                  : dateExtraction(flight.route[1].local_arrival)}
               </p>
               <p className="hour">
-                {hoursExtraction(flight.route[3].local_arrival)} arrivé à{" "}
-                {flight.cityTo}
+                {stopover.length >= 4
+                  ? hoursExtraction(flight.route[3].local_arrival)
+                  : hoursExtraction(flight.route[1].local_arrival)}{" "}
+                arrivé à {flight.cityFrom}
               </p>
               Prix : <span className="price">{flight.price}€</span>
             </div>
