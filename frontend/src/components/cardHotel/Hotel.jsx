@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
@@ -8,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import ShareIcon from "@mui/icons-material/Share";
 import StarRateIcon from "@mui/icons-material/StarRate";
 
-export default function Hotel() {
+export default function Hotel({ hotel }) {
   const [isFavorite, setIsFavorite] = useState(false);
 
   function handleFavorite() {
@@ -25,10 +26,10 @@ export default function Hotel() {
       />
       <CardContent>
         <Typography variant="h5" sx={{ color: "#eaa226" }}>
-          Hôtel Mangga Wangga Living
+          {hotel.name}
         </Typography>
         <Typography variant="p" color="#40a798">
-          Prix : xxx
+          Price : {hotel.price}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

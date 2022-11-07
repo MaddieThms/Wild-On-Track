@@ -17,6 +17,7 @@ function SearchTrip({
   setDeparture,
   landing,
   setLanding,
+  setDataHotels,
 }) {
   const myHeaders = new Headers();
   myHeaders.append("apikey", "9btTF3zU-5Ur_OwLyOdLWd8Pd2kC2ZJc");
@@ -46,7 +47,10 @@ function SearchTrip({
       optionsHôtels
     )
       .then((response) => response.json())
-      .then((result) => console.warn(result))
+      .then((result) => {
+        console.warn(result);
+        setDataHotels(result.data);
+      })
       .catch((err) => console.error(err));
   };
   const url = `https://api.tequila.kiwi.com/v2/search?flight_type=round&fly_from=${airportName}&fly_to=${airportNameDestination}&date_from=${dateFrom}&date_to=${dateFrom}&return_from=${returnFrom}&return_to=${returnFrom}&max_stopovers=2&sort=price&adults=${numberTraveler}&curr=EUR&limit=5`;
@@ -104,7 +108,7 @@ function SearchTrip({
             className="searchButton"
             variant="contained"
           >
-            Hotel
+            <Link to="hotels">Hotels</Link>
           </Button>
         </Stack>
       </Stack>
