@@ -35,15 +35,15 @@ function SearchTrip({
   const url = `https://api.tequila.kiwi.com/v2/search?flight_type=round&fly_from=${airportName}&fly_to=${airportNameDestination}&date_from=${dateFrom}&date_to=${dateFrom}&return_from=${returnFrom}&return_to=${returnFrom}&max_stopovers=2&sort=price&adults=${numberTraveler}&curr=EUR&limit=5`;
 
   /* Call API with airportName recovered in Traveldeparture with the other API call */
-  const findApi = () => {
-    fetch(url, requestOptions)
+  async function findApi() {
+    const responses = await fetch(url, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         console.warn(result);
         setDataFlights(result.data);
       })
       .catch(console.error);
-  };
+  }
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -74,6 +74,8 @@ function SearchTrip({
           <Button
             onClick={() => {
               findApi();
+              setDeparture("");
+              setLanding("");
             }}
             className="searchButton"
             variant="contained"
