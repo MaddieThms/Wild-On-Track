@@ -4,6 +4,8 @@ import SearchTrip from "../components/SearchTrip";
 import "./CreateTravel.css";
 
 function CreateTravel({
+  dataHotels,
+  setDataHotels,
   dataFlights,
   setDataFlights,
   departure,
@@ -15,6 +17,8 @@ function CreateTravel({
     <div className="travelSearch">
       <h1 className="title">Crée ton voyage </h1>
       <SearchTrip
+        dataHotels={dataHotels}
+        setDataHotels={setDataHotels}
         dataFlights={dataFlights}
         setDataFlights={setDataFlights}
         departure={departure}
