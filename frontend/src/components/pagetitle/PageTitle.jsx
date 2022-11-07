@@ -3,13 +3,13 @@ import React from "react";
 import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
 import "./pageTitle.css";
 
-function PageTitle({ dataFlights }) {
+function PageTitle() {
   return (
     <div className="container-pageTitle">
       <h2 className="city">
-        <span className="departure">{dataFlights[0].cityFrom} </span>
+        <span className="departure"> </span>
         <TrendingFlatIcon />
-        <span className="landing"> {dataFlights[0].cityTo}</span>
+        <span className="landing"> </span>
       </h2>
       <p>Aller - Retour</p>
     </div>
