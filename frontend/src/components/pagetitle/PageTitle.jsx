@@ -7,11 +7,10 @@ function PageTitle() {
   return (
     <div className="container-pageTitle">
       <h2 className="city">
-        <span className="departure"> </span>
+        <span className="departure"> Aller </span>
         <TrendingFlatIcon />
-        <span className="landing"> </span>
+        <span className="landing"> Retour</span>
       </h2>
-      <p>Aller - Retour</p>
     </div>
   );
 }

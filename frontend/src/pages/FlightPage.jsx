@@ -11,6 +11,7 @@ function FlightPage({ dataFlights, departure, landing }) {
         departure={departure}
         landing={landing}
       />
+
       <Footer />
     </>
   );
