@@ -69,10 +69,22 @@ export default function FloatingActionButtonZoom({ flight }) {
     setValue(index);
   };
 
+  function saveFlight(flightsave) {
+    localStorage.setItem("flightsave", JSON.stringify(flightsave));
+  }
+
+  function removeSaveFlight(flightsave) {
+    localStorage.removeItem("flightsave", flightsave);
+  }
   /* This is for the favorite */
   const [isFavorite, setIsFavorite] = React.useState(false);
   function handleFavorite() {
     setIsFavorite(!isFavorite);
+    if (!isFavorite) {
+      saveFlight(flight);
+    } else {
+      removeSaveFlight(flight);
+    }
   }
   /* const create for bugs with stopovers */
   const stopover = flight.route;
