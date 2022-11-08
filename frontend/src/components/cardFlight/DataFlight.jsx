@@ -15,6 +15,7 @@ import Box from "@mui/material/Box";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import LuggageIcon from "@mui/icons-material/Luggage";
 import { Button } from "@mui/material";
+import "../pagetitle/pageTitle.css";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -91,7 +92,7 @@ export default function FloatingActionButtonZoom({ flight }) {
           value={value}
           onChange={handleChange}
           indicatorColor="primary"
-          textColor="#eaa226"
+          textColor="transparent"
           variant="fullWidth"
           aria-label="action tabs example"
         >
@@ -110,11 +111,12 @@ export default function FloatingActionButtonZoom({ flight }) {
               <p className="date">{dateExtraction(flight.local_departure)}</p>
               <p className="hour">
                 {hoursExtraction(flight.local_departure)} départ de{" "}
-                {flight.cityFrom}
+                <span className="departure">{flight.cityFrom}</span>
               </p>
               <p className="date">{dateExtraction(flight.local_arrival)}</p>
               <p className="hour">
-                {hoursExtraction(flight.local_arrival)} arrivé à {flight.cityTo}
+                {hoursExtraction(flight.local_arrival)} arrivé à{" "}
+                <span className="landing">{flight.cityTo}</span>
               </p>
               Prix : <span className="price">{flight.price}€</span>
             </div>
@@ -144,7 +146,7 @@ export default function FloatingActionButtonZoom({ flight }) {
                 {stopover.length >= 4
                   ? hoursExtraction(flight.route[2].local_departure)
                   : hoursExtraction(flight.route[1].local_departure)}{" "}
-                départ de {flight.cityTo}
+                départ de <span className="departure">{flight.cityTo}</span>
               </p>
               <p className="date">
                 {stopover.length >= 4
@@ -155,7 +157,7 @@ export default function FloatingActionButtonZoom({ flight }) {
                 {stopover.length >= 4
                   ? hoursExtraction(flight.route[3].local_arrival)
                   : hoursExtraction(flight.route[1].local_arrival)}{" "}
-                arrivé à {flight.cityFrom}
+                arrivé à <span className="landing">{flight.cityFrom}</span>
               </p>
               Prix : <span className="price">{flight.price}€</span>
             </div>

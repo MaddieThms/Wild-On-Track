@@ -33,7 +33,7 @@ function App() {
           }
         />
         <Route
-          path="nouveau-voyage/flights"
+          path="/flights"
           element={
             <FlightPage
               dataFlights={dataFlights}

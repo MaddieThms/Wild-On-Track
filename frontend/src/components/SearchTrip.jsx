@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { Box, Button, Stack } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TravelDate from "./TravelDate";
 import NumberTravelers from "./NumberTravelers";
 import TravelDestination from "./TravelDestination";
@@ -27,6 +27,7 @@ function SearchTrip({
     redirect: "follow",
   };
   /* Usestate declaration */
+  const navigate = useNavigate();
   const [numberTraveler, setNumberTraveler] = useState("");
   const [dateFrom, setDateFrom] = useState("");
   const [returnFrom, setReturnFrom] = useState("");
@@ -42,6 +43,7 @@ function SearchTrip({
         console.warn(result);
         setDataFlights(result.data);
       })
+      .then(navigate("/flights"))
       .catch(console.error);
   }
 
@@ -80,7 +82,7 @@ function SearchTrip({
             className="searchButton"
             variant="contained"
           >
-            <Link to="flights">Vol</Link>
+            Vol
           </Button>
           <Button className="searchButton" variant="contained">
             Hotel
