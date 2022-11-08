@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 
 function App() {
   const [dataFlights, setDataFlights] = useState([]);
+  const [dataHotels, setDataHotels] = useState([]);
   const [departure, setDeparture] = useState("");
   const [landing, setLanding] = useState("");
   return (
@@ -29,6 +30,8 @@ function App() {
               setDeparture={setDeparture}
               landing={landing}
               setLanding={setLanding}
+              dataHotels={dataHotels}
+              setDataHotels={setDataHotels}
             />
           }
         />
@@ -47,7 +50,18 @@ function App() {
         />
         <Route path="contact" element={<Contact />} />
         <Route path="mes-carnets" element={<MesCarnets />} />
-        <Route path="mes-hotels" element={<MesHotels />} />
+        <Route
+          path="nouveau-voyage/hotels"
+          element={
+            <MesHotels
+              departure={departure}
+              landing={landing}
+              setLanding={setLanding}
+              dataHotels={dataHotels}
+              setDataHotels={setDataHotels}
+            />
+          }
+        />
         <Route path="mon-carnet-de-voyage" element={<CarnetVoyage />} />
       </Routes>
     </div>

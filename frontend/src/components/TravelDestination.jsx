@@ -9,7 +9,30 @@ function TravelDestination(props) {
     setLanding,
     airportNameDestination,
     setAirportNameDestination,
+    cityId,
+    setCityId,
   } = props;
+
+  const optionsCityHôtels = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "42794bd385msh9f5e2e6a6dd07a5p11848fjsnb7f7488721b3",
+      "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
+    },
+  };
+
+  const findApiLocationHotels = () => {
+    fetch(
+      `https://travel-advisor.p.rapidapi.com/locations/search?query=${landing}&limit=10&offset=0&units=km&location_id=1&currency=EUR&sort=relevance`,
+      optionsCityHôtels
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        setCityId(result.data[0].result_object.location_id);
+        console.warn(cityId);
+      })
+      .catch((err) => console.error(err));
+  };
 
   const urlCityDest = `https://api.tequila.kiwi.com/locations/query?term=${landing}`;
 
@@ -30,6 +53,11 @@ function TravelDestination(props) {
       })
       .catch((error) => console.warn("error", error));
   };
+
+  const findApisDestinationResult = () => {
+    findApiCityBack();
+    findApiLocationHotels();
+  };
   return (
     <Box
       component="form"
@@ -46,7 +74,7 @@ function TravelDestination(props) {
           id="filled-search"
           label="Search field"
           type="search"
-          onBlur={() => findApiCityBack()}
+          onBlur={() => findApisDestinationResult()}
           variant="outlined"
           value={landing}
           onChange={(event) => setLanding(event.target.value)}
