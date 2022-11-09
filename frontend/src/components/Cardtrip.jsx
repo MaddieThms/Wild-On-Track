@@ -15,8 +15,13 @@ export default function CardTrip({ showCardTrip }) {
     const newDate = date.slice(0, 10);
     return newDate.split("-").reverse().join("-");
   }
+
   return (
-    <Card elevation={0} sx={{ maxWidth: "90vw", border: "1px solid #eaa226" }}>
+    <Card
+      elevation={0}
+      sx={{ maxWidth: "90vw", border: "1px solid #eaa226" }}
+      showCardTrip={showCardTrip}
+    >
       <Link to="carnetvoyage">
         <CardMedia
           component="img"
