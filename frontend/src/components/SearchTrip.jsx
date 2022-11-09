@@ -18,6 +18,7 @@ function SearchTrip({
   landing,
   setLanding,
   setDataHotels,
+  setDataAttractions,
 }) {
   /*   APIKey in the header of the API */
   const myHeaders = new Headers();
@@ -34,6 +35,26 @@ function SearchTrip({
   const [airportName, setAirportName] = useState("");
   const [airportNameDestination, setAirportNameDestination] = useState("");
   const [cityId, setCityId] = useState("");
+
+  const optionsAttractions = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "05405b3854mshd5944f4020e59b0p126d9fjsn1f22ffcff455",
+      "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
+    },
+  };
+  const findApiAttractions = () => {
+    fetch(
+      `https://travel-advisor.p.rapidapi.com/attractions/list?location_id=${cityId}&currency=USD&lang=en_US&lunit=km&sort=recommended`,
+      optionsAttractions
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        console.warn(result);
+        setDataAttractions(result.data);
+      })
+      .catch((err) => console.error(err));
+  };
 
   const optionsHôtels = {
     method: "GET",
@@ -115,6 +136,15 @@ function SearchTrip({
             variant="contained"
           >
             <Link to="hotels">Hotels</Link>
+          </Button>
+          <Button
+            onClick={() => {
+              findApiAttractions();
+            }}
+            className="searchButton"
+            variant="contained"
+          >
+            <Link to="Attractions">Attractions</Link>
           </Button>
         </Stack>
       </Stack>

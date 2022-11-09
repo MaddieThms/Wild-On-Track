@@ -9,12 +9,14 @@ import MesCarnets from "./pages/MesCarnets";
 import MesHotels from "./pages/MesHotels";
 import CarnetVoyage from "./pages/CarnetVoyage";
 import Home from "./pages/Home";
+import MesAttractions from "./pages/MesAttractions";
 
 function App() {
   const [dataFlights, setDataFlights] = useState([]);
   const [dataHotels, setDataHotels] = useState([]);
   const [departure, setDeparture] = useState("");
   const [landing, setLanding] = useState("");
+  const [dataAttractions, setDataAttractions] = useState([]);
   return (
     <div>
       <Navbar />
@@ -59,6 +61,18 @@ function App() {
               setLanding={setLanding}
               dataHotels={dataHotels}
               setDataHotels={setDataHotels}
+            />
+          }
+        />
+        <Route
+          path="nouveau-voyage/attractions"
+          element={
+            <MesAttractions
+              departure={departure}
+              landing={landing}
+              setLanding={setLanding}
+              dataAttractions={dataAttractions}
+              setDataAttractions={setDataAttractions}
             />
           }
         />
