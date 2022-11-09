@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 function App() {
   const [dataFlights, setDataFlights] = useState([]);
   const [dataHotels, setDataHotels] = useState([]);
+  const [dataRestaurant, setDataRestaurant] = useState([]);
   const [departure, setDeparture] = useState("");
   const [landing, setLanding] = useState("");
   return (
@@ -32,6 +33,8 @@ function App() {
               setLanding={setLanding}
               dataHotels={dataHotels}
               setDataHotels={setDataHotels}
+              setDataRestaurant={setDataRestaurant}
+              dataRestaurant={dataRestaurant}
             />
           }
         />
