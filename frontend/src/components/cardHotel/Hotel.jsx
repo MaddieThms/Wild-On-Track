@@ -15,13 +15,16 @@ export default function Hotel({ hotel }) {
   /* function to put favorite hotel in local storage with numberphone for id */
   function saveHotels(hotelsave) {
     localStorage.setItem(
-      `"hotelsavenumber ${hotel.phone}`,
+      `${hotel.ranking_geo}${hotel.location_id}`,
       JSON.stringify(hotelsave)
     );
   }
   /* function to remove favorite hotel from local storage with numberphone for id */
   function removeSaveFlight(hotelsave) {
-    localStorage.removeItem(`"hotelsavenumber ${hotel.phone}`, hotelsave);
+    localStorage.removeItem(
+      `${hotel.ranking_geo}${hotel.location_id}`,
+      hotelsave
+    );
   }
   /* function to execute functions put and remove favorite hotel in local storage depend on const isfavorite is true or false */
   function handleFavorite() {
@@ -46,8 +49,8 @@ export default function Hotel({ hotel }) {
         component="img"
         height="194"
         image={
-          hotel.photo?.images?.small
-            ? hotel.photo.images.small.url
+          hotel.photo?.images?.medium
+            ? hotel.photo.images.medium.url
             : "https://img.freepik.com/vecteurs-premium/fond-batiment-hotel-plat_23-2148146118.jpg?w=826"
         }
         alt={hotel.name}
@@ -55,7 +58,12 @@ export default function Hotel({ hotel }) {
       <CardContent>
         <Typography
           variant="h5"
-          sx={{ color: "#eaa226", fontSize: "1.2em", width: "40ch" }}
+          sx={{
+            color: "#eaa226",
+            fontSize: "1.2em",
+            width: "75vw",
+            maxWidth: "600px",
+          }}
         >
           {hotel.name}
         </Typography>
