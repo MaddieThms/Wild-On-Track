@@ -5,11 +5,11 @@
 import React, { useState } from "react";
 import { Box, Button, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
-import TravelDate from "./TravelDate";
-import NumberTravelers from "./NumberTravelers";
-import "./SearchTrip.css";
-import BasicDatePickerRoundTrip from "./TravelRoundtrip";
-import TravelDestination from "./TravelDestination";
+import TravelDate from "../TravelDate";
+import NumberTravelers from "../NumberTravelers";
+import "../SearchTrip.css";
+import BasicDatePickerRoundTrip from "../TravelRoundtrip";
+import TravelDestination from "../TravelDestination";
 
 function SearchTripRestaurants({ landing, setLanding, setDataRestaurant }) {
   const [numberTraveler, setNumberTraveler] = useState("");
@@ -19,7 +19,7 @@ function SearchTripRestaurants({ landing, setLanding, setDataRestaurant }) {
 
   const optionsRestaurant = {
     method: "GET",
-    url: "https://travel-advisor.p.rapidapi.com/restaurants/get-details",
+    url: "https://travel-advisor.p.rapidapi.com/restaurants/list",
     params: { location_id: "9782025", currency: "USD", lang: "en_US" },
     headers: {
       "X-RapidAPI-Key": "f906c38963msh20f7115f29f65a0p1eade9jsn22c7fcfa3563",
@@ -29,7 +29,7 @@ function SearchTripRestaurants({ landing, setLanding, setDataRestaurant }) {
 
   const findApiRestaurants = () => {
     fetch(
-      `https://travel-advisor.p.rapidapi.com/restaurants/get-details?location_id=${cityId}&checkin=${dateFrom}&adults=${numberTraveler}`,
+      `https://travel-advisor.p.rapidapi.com/restaurants/list?location_id=${cityId}&restaurant_tagcategory=10591&restaurant_tagcategory_standalone=10591&currency=USD&lunit=km&limit=30&open_now=false&lang=en_US`,
       optionsRestaurant
     )
       .then((response) => response.json())
@@ -66,7 +66,7 @@ function SearchTripRestaurants({ landing, setLanding, setDataRestaurant }) {
             className="searchButton"
             variant="contained"
           >
-            <Link to="hotels">Hotels</Link>
+            <Link to="restaurants">Recherche</Link>
           </Button>
         </Stack>
       </Stack>

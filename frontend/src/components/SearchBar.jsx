@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import SearchTripFlights from "./SearchTripFlights";
 import SearchTripHotels from "./SearchTripHotels";
-import SearchTripRestaurants from "./SearchTripRestaurant";
+import SearchTripRestaurants from "./restaurant/SearchTripRestaurant";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
