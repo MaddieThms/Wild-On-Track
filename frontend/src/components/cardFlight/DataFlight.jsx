@@ -61,15 +61,16 @@ export default function FloatingActionButtonZoom({ flight }) {
   /* This is for the element MUI */
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
-
+  /* This is for the element MUI */
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  /* This is for the element MUI */
   const handleChangeIndex = (index) => {
     setValue(index);
   };
 
+  /* function for save flight in the local storage */
   function saveFlight(flightsave) {
     localStorage.setItem("flightsave", JSON.stringify(flightsave));
   }
@@ -118,6 +119,7 @@ export default function FloatingActionButtonZoom({ flight }) {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
+          {/* data in "vol aller" */}
           <div className="cardinformationvol">
             <div className="informationsvol">
               <p className="date">{dateExtraction(flight.local_departure)}</p>
@@ -147,6 +149,7 @@ export default function FloatingActionButtonZoom({ flight }) {
           </div>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
+          {/* data in "vol retour" */}
           <div className="cardinformationvol">
             <div className="informationsvol">
               <p className="date">
