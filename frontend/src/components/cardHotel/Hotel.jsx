@@ -12,23 +12,62 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 export default function Hotel({ hotel }) {
   const [isFavorite, setIsFavorite] = useState(false);
 
+  /* function to put favorite hotel in local storage with numberphone for id */
+  function saveHotels(hotelsave) {
+    localStorage.setItem(
+      `${hotel.ranking_geo}${hotel.location_id}`,
+      JSON.stringify(hotelsave)
+    );
+  }
+  /* function to remove favorite hotel from local storage with numberphone for id */
+  function removeSaveFlight(hotelsave) {
+    localStorage.removeItem(
+      `${hotel.ranking_geo}${hotel.location_id}`,
+      hotelsave
+    );
+  }
+  /* function to execute functions put and remove favorite hotel in local storage depend on const isfavorite is true or false */
   function handleFavorite() {
     setIsFavorite(!isFavorite);
+    if (!isFavorite) {
+      saveHotels(hotel);
+    } else {
+      removeSaveFlight(hotel);
+    }
   }
 
   return (
-    <Card elevation={0} sx={{ maxWidth: "90vw", border: "1px solid #eaa226" }}>
+    <Card
+      elevation={0}
+      sx={{
+        maxWidth: "90vw",
+        boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+        borderRadius: "20px",
+      }}
+    >
       <CardMedia
         component="img"
         height="194"
-        image="https://cf.bstatic.com/xdata/images/hotel/max1280x900/251678680.jpg?k=0bd689b4ef444751b830a08d8fb09191eea5e85fc6472dc234807fc85d5b268f&o=&hp=1"
-        alt="nameimagehotel"
+        image={
+          hotel.photo?.images?.medium
+            ? hotel.photo.images.medium.url
+            : "https://img.freepik.com/vecteurs-premium/fond-batiment-hotel-plat_23-2148146118.jpg?w=826"
+        }
+        alt={hotel.name}
       />
       <CardContent>
-        <Typography variant="h5" sx={{ color: "#eaa226" }}>
+        <Typography
+          variant="h5"
+          sx={{
+            color: "#eaa226",
+            fontSize: "1.2em",
+            width: "75vw",
+            maxWidth: "600px",
+          }}
+        >
           {hotel.name}
         </Typography>
-        <Typography variant="p" color="#40a798">
+        <Typography variant="p" color="#40a798" sx={{ fontSize: "1em" }}>
           Price : {hotel.price}
         </Typography>
       </CardContent>
@@ -37,6 +76,7 @@ export default function Hotel({ hotel }) {
           <ShareIcon />
         </IconButton>
         <StarRateIcon
+          defaultValue={hotel}
           onClick={() => handleFavorite()}
           sx={isFavorite ? { color: "#eaa226" } : { color: "#d1d1d1" }}
         />
