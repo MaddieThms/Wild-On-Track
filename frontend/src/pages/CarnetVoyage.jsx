@@ -12,6 +12,7 @@ import Box from "@mui/material/Box";
 import LuggageIcon from "@mui/icons-material/Luggage";
 import Footer from "../components/Footer";
 
+// function for the component MUI swipeableviews
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -31,13 +32,13 @@ function TabPanel(props) {
     </div>
   );
 }
-
+// function for the component MUI swipeableviews
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
 };
-
+// function for the component MUI swipeableviews
 function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
@@ -46,6 +47,7 @@ function a11yProps(index) {
 }
 
 export default function CarnetVoyage() {
+  /*   function for date extraction */
   function dateExtraction(date) {
     const newDate = date.slice(0, 10);
     return newDate.split("-").reverse().join("-");
@@ -54,20 +56,25 @@ export default function CarnetVoyage() {
   function hoursExtraction(hour) {
     return hour.slice(11, 16);
   }
+
+  /* Use state for stock data in the localstorage */
   const [displayCardTrip, setDisplayCardTrip] = React.useState();
 
+  /* use effect for get the data in the localstorage */
   React.useEffect(() => {
     const flightData = localStorage.getItem("flightsave");
     setDisplayCardTrip(JSON.parse(flightData));
   }, []);
 
+  /* It's for the component MUI swipeableviews */
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
+  /* It's for the component MUI swipeableviews */
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  /* It's for the component MUI swipeableviews */
   const handleChangeIndex = (index) => {
     setValue(index);
   };
@@ -81,6 +88,7 @@ export default function CarnetVoyage() {
         </span>
       </p>
       <div className="container-flight">
+        {/* it's for display the localstorage data */}
         {displayCardTrip && (
           <Box
             sx={{
@@ -109,6 +117,7 @@ export default function CarnetVoyage() {
               onChangeIndex={handleChangeIndex}
             >
               <TabPanel value={value} index={0} dir={theme.direction}>
+                {/* data in "vol aller" */}
                 <div className="cardinformationvol">
                   <div className="informationsvol">
                     <p className="date">
@@ -136,6 +145,7 @@ export default function CarnetVoyage() {
                 </div>
               </TabPanel>
               <TabPanel value={value} index={1} dir={theme.direction}>
+                {/* data in "vol retour" */}
                 <div className="cardinformationvol">
                   <div className="informationsvol">
                     <p className="date">
