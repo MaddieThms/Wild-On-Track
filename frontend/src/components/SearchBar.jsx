@@ -73,9 +73,13 @@ export default function SearchBar({
 
   return (
     <div>
-      <Box sx={{ bgcolor: "background.paper", width: 500 }}>
-        <AppBar position="static">
+      <Box sx={{ bgcolor: "background.paper", width: "100%" }}>
+        <AppBar
+          sx={{ bgcolor: "#eaa226", borderRadius: "4px" }}
+          position="static"
+        >
           <Tabs
+            sx={{ bgcolor: "#eaa226", borderRadius: "4px" }}
             value={value}
             onChange={handleChange}
             indicatorColor="secondary"
