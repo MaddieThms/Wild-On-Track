@@ -2,7 +2,7 @@
 import React from "react";
 import Restaurant from "./restaurant";
 
-function Restaurants({ dataRestaurants }) {
+function Restaurants({ dataRestaurants, setDataRestaurants }) {
   return (
     <div
       className="cardhotels"
@@ -14,7 +14,11 @@ function Restaurants({ dataRestaurants }) {
       }}
     >
       {dataRestaurants.map((restaurant) => (
-        <Restaurant key={restaurant.id} restaurant={restaurant} />
+        <Restaurant
+          key={restaurant.id}
+          restaurant={restaurant}
+          setDataRestaurants={setDataRestaurants}
+        />
       ))}
     </div>
   );

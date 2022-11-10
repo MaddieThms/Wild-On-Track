@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react/prop-types */
@@ -9,7 +10,12 @@ import TravelDate from "../TravelDate";
 import "../SearchTrip.css";
 import TravelDestination from "../TravelDestination";
 
-function SearchTripRestaurants({ landing, setLanding, setDataRestaurant }) {
+function SearchTripRestaurants({
+  landing,
+  setLanding,
+  dataRestaurants,
+  setDataRestaurants,
+}) {
   const [dateFrom, setDateFrom] = useState("");
   const [cityId, setCityId] = useState("");
 
@@ -31,7 +37,8 @@ function SearchTripRestaurants({ landing, setLanding, setDataRestaurant }) {
       .then((response) => response.json())
       .then((result) => {
         console.warn(result);
-        setDataRestaurant(result.data);
+        setDataRestaurants(result.data);
+        console.log(dataRestaurants);
       })
       .catch((err) => console.error(err));
   };
