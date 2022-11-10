@@ -1,7 +1,6 @@
 /* eslint-disable import/no-named-as-default */
 import React from "react";
-import MyTrips from "../components/MyTrips";
-import Footer from "../components/Footer";
+import MyTrips from "../components/dashboard/MyTrips";
 import "./MesCarnets.css";
 
 function MesCarnets() {
@@ -13,7 +12,6 @@ function MesCarnets() {
         <h3>2023</h3>
       </div>
       <MyTrips />
-      <Footer />
     </div>
   );
 }
