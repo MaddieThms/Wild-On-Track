@@ -18,6 +18,7 @@ function SearchTrip({
   landing,
   setLanding,
   setDataHotels,
+  dataAttractions,
   setDataAttractions,
 }) {
   /*   APIKey in the header of the API */
@@ -77,6 +78,7 @@ function SearchTrip({
       })
       .catch((err) => console.error(err));
   };
+
   const url = `https://api.tequila.kiwi.com/v2/search?flight_type=round&fly_from=${airportName}&fly_to=${airportNameDestination}&date_from=${dateFrom}&date_to=${dateFrom}&return_from=${returnFrom}&return_to=${returnFrom}&max_stopovers=2&sort=price&adults=${numberTraveler}&curr=EUR&limit=5`;
 
   /* Call API with airportName recovered in Traveldeparture with the other API call */

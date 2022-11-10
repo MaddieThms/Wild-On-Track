@@ -34,6 +34,8 @@ function App() {
               setLanding={setLanding}
               dataHotels={dataHotels}
               setDataHotels={setDataHotels}
+              dataAttractions={dataAttractions}
+              setDataAttractions={setDataAttractions}
             />
           }
         />
