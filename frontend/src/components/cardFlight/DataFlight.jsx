@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable prefer-const */
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react/prop-types */
@@ -71,19 +73,38 @@ export default function FloatingActionButtonZoom({ flight }) {
   };
 
   /* function for save flight in the local storage */
-  function saveFlight(flightsave) {
-    localStorage.setItem("flightsave", JSON.stringify(flightsave));
+  function saveFlights(flightssave) {
+    return localStorage.setItem("flightssave", JSON.stringify(flightssave));
+  }
+
+  function getFlights() {
+    let flightssave = localStorage.getItem("flightssave");
+    if (flightssave == null) {
+      return [];
+    }
+    return JSON.parse(flightssave);
+  }
+
+  function addFlight(flightAdd) {
+    // eslint-disable-next-line prefer-const
+    let favoriteFlights = getFlights();
+    favoriteFlights.push(flightAdd);
+    saveFlights(favoriteFlights);
   }
 
   function removeSaveFlight(flightsave) {
-    localStorage.removeItem("flightsave", flightsave);
+    let favoriteFlights = getFlights();
+    favoriteFlights = favoriteFlights.filter((f) => f.id != flightsave.id);
+    localStorage.removeItem("flightssave", flightsave);
+    saveFlights(favoriteFlights);
   }
+
   /* This is for the favorite */
   const [isFavorite, setIsFavorite] = React.useState(false);
   function handleFavorite() {
     setIsFavorite(!isFavorite);
     if (!isFavorite) {
-      saveFlight(flight);
+      addFlight(flight);
     } else {
       removeSaveFlight(flight);
     }

@@ -15,7 +15,6 @@ export default function CardTrip({ showCardTrip }) {
     const newDate = date.slice(0, 10);
     return newDate.split("-").reverse().join("-");
   }
-
   return (
     <Card
       elevation={0}
@@ -31,11 +30,11 @@ export default function CardTrip({ showCardTrip }) {
         />
         <CardContent>
           <Typography variant="h5" sx={{ color: "#eaa226" }}>
-            {showCardTrip.cityTo}
+            {showCardTrip[0].cityTo}
           </Typography>
           <Typography variant="p" color="text.secondary">
-            {dateExtraction(showCardTrip.local_departure)} -{" "}
-            {dateExtraction(showCardTrip.local_arrival)}
+            {dateExtraction(showCardTrip[0].local_departure)} -{" "}
+            {dateExtraction(showCardTrip[0].local_arrival)}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
