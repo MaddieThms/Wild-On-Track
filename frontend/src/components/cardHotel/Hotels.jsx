@@ -1,9 +1,22 @@
+/* eslint-disable import/order */
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react/prop-types */
-import React from "react";
+import Loader from "@components/loader/Loader";
+import React, { useEffect, useState } from "react";
 import Hotel from "./Hotel";
 
 function Hotels({ dataHotels }) {
-  return (
+  const [loader, setLoader] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(false);
+    }, 3000);
+  }, []);
+
+  return loader ? (
+    <Loader />
+  ) : (
     <div
       className="cardhotels"
       style={{
