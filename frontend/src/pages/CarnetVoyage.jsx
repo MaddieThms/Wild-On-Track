@@ -76,7 +76,7 @@ export default function CarnetVoyage() {
   /* use effect for get the data in the localstorage */
 
   React.useEffect(() => {
-    const hotelData = localStorage.getItem("Nice23541507");
+    const hotelData = localStorage.getItem("hotelsave");
     setDisplayCardHotels(JSON.parse(hotelData));
   }, []);
 
