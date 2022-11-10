@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import SearchTripFlights from "./SearchTripFlights";
 import SearchTripHotels from "./SearchTripHotels";
-import SearchTripRestaurants from "./restaurant/SearchTripRestaurant";
+import SearchTripRestaurants from "./SearchTripRestaurant";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -57,6 +57,8 @@ export default function SearchBar({
   setDeparture,
   landing,
   setLanding,
+  dataRestaurants,
+  setDataRestaurants,
 }) {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -114,10 +116,8 @@ export default function SearchBar({
           </TabPanel>
           <TabPanel value={value} index={2} dir={theme.direction}>
             <SearchTripRestaurants
-              dataHotels={dataHotels}
-              setDataHotels={setDataHotels}
-              dataFlights={dataFlights}
-              setDataFlights={setDataFlights}
+              setDataRestaurants={setDataRestaurants}
+              dataRestaurants={dataRestaurants}
               departure={departure}
               setDeparture={setDeparture}
               landing={landing}

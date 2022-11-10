@@ -6,9 +6,8 @@
 import React, { useState } from "react";
 import { Box, Button, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
-import TravelDate from "../TravelDate";
-import "../SearchTrip.css";
-import TravelDestination from "../TravelDestination";
+import TravelDate from "./TravelDate";
+import TravelDestination from "./TravelDestination";
 
 function SearchTripRestaurants({
   landing,
@@ -21,8 +20,6 @@ function SearchTripRestaurants({
 
   const optionsRestaurant = {
     method: "GET",
-    url: "https://travel-advisor.p.rapidapi.com/restaurants/list",
-    params: { location_id: "9782025", currency: "USD", lang: "en_US" },
     headers: {
       "X-RapidAPI-Key": "f906c38963msh20f7115f29f65a0p1eade9jsn22c7fcfa3563",
       "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
@@ -36,9 +33,8 @@ function SearchTripRestaurants({
     )
       .then((response) => response.json())
       .then((result) => {
-        console.warn(result);
         setDataRestaurants(result.data);
-        console.log(dataRestaurants);
+        console.warn(dataRestaurants);
       })
       .catch((err) => console.error(err));
   };
