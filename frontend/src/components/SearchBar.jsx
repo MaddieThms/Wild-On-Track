@@ -4,9 +4,6 @@
 
 import * as React from "react";
 import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
-import { useTheme } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
@@ -27,8 +24,8 @@ function TabPanel(props) {
     <div
       role="tabpanel"
       hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
       {value === index && (
@@ -48,8 +45,8 @@ TabPanel.propTypes = {
 
 function a11yProps(index) {
   return {
-    id: `full-width-tab-${index}`,
-    "aria-controls": `full-width-tabpanel-${index}`,
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 
@@ -67,85 +64,76 @@ export default function SearchBar({
   dataAttractions,
   setDataAttractions,
 }) {
-  const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const handleChangeIndex = (index) => {
-    setValue(index);
-  };
-
   return (
     <div>
       <Box sx={{ bgcolor: "background.paper", width: "100%" }}>
-        <AppBar
-          sx={{ bgcolor: "#eaa226", borderRadius: "4px" }}
+        <Box
+          sx={{
+            borderBottom: 1,
+            borderColor: "divider",
+            bgcolor: "#eaa226",
+            borderRadius: "4px",
+          }}
           position="static"
         >
           <Tabs
             sx={{ bgcolor: "#eaa226", borderRadius: "4px" }}
             value={value}
             onChange={handleChange}
-            indicatorColor="secondary"
-            textColor="inherit"
-            variant="fullWidth"
-            aria-label="full width tabs example"
+            aria-label="basic tabs example"
           >
             <Tab icon={<FlightIcon />} label="" {...a11yProps(0)} />
             <Tab icon={<HotelIcon />} label="" {...a11yProps(1)} />
             <Tab icon={<RestaurantIcon />} label="" {...a11yProps(2)} />
             <Tab icon={<SportsHandballIcon />} label="" {...a11yProps(3)} />
           </Tabs>
-        </AppBar>
-        <SwipeableViews
-          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-          index={value}
-          onChangeIndex={handleChangeIndex}
-        >
-          <TabPanel value={value} index={0} dir={theme.direction}>
-            <SearchTripFlights
-              dataFlights={dataFlights}
-              setDataFlights={setDataFlights}
-              departure={departure}
-              setDeparture={setDeparture}
-              landing={landing}
-              setLanding={setLanding}
-            />
-          </TabPanel>
-          <TabPanel value={value} index={1} dir={theme.direction}>
-            <SearchTripHotels
-              dataHotels={dataHotels}
-              setDataHotels={setDataHotels}
-              departure={departure}
-              setDeparture={setDeparture}
-              landing={landing}
-              setLanding={setLanding}
-            />
-          </TabPanel>
-          <TabPanel value={value} index={2} dir={theme.direction}>
-            <SearchTripRestaurants
-              setDataRestaurants={setDataRestaurants}
-              dataRestaurants={dataRestaurants}
-              departure={departure}
-              setDeparture={setDeparture}
-              landing={landing}
-              setLanding={setLanding}
-            />
-          </TabPanel>
-          <TabPanel value={value} index={3} dir={theme.direction}>
-            <SearchTripActivites
-              setDataAttractions={setDataAttractions}
-              dataAttractions={dataAttractions}
-              departure={departure}
-              setDeparture={setDeparture}
-              landing={landing}
-              setLanding={setLanding}
-            />
-          </TabPanel>
-        </SwipeableViews>
+        </Box>
+        <TabPanel value={value} index={0}>
+          <SearchTripFlights
+            dataFlights={dataFlights}
+            setDataFlights={setDataFlights}
+            departure={departure}
+            setDeparture={setDeparture}
+            landing={landing}
+            setLanding={setLanding}
+          />
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <SearchTripHotels
+            dataHotels={dataHotels}
+            setDataHotels={setDataHotels}
+            departure={departure}
+            setDeparture={setDeparture}
+            landing={landing}
+            setLanding={setLanding}
+          />
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          <SearchTripRestaurants
+            setDataRestaurants={setDataRestaurants}
+            dataRestaurants={dataRestaurants}
+            departure={departure}
+            setDeparture={setDeparture}
+            landing={landing}
+            setLanding={setLanding}
+          />
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+          <SearchTripActivites
+            setDataAttractions={setDataAttractions}
+            dataAttractions={dataAttractions}
+            departure={departure}
+            setDeparture={setDeparture}
+            landing={landing}
+            setLanding={setLanding}
+          />
+        </TabPanel>
       </Box>
     </div>
   );
