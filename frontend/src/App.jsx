@@ -9,10 +9,12 @@ import MesCarnets from "./pages/MesCarnets";
 import MesHotels from "./pages/MesHotels";
 import CarnetVoyage from "./pages/CarnetVoyage";
 import Home from "./pages/Home";
+import MesRestaurants from "./pages/MesRestaurants";
 
 function App() {
   const [dataFlights, setDataFlights] = useState([]);
   const [dataHotels, setDataHotels] = useState([]);
+  const [dataRestaurants, setDataRestaurants] = useState([]);
   const [departure, setDeparture] = useState("");
   const [landing, setLanding] = useState("");
   return (
@@ -32,6 +34,8 @@ function App() {
               setLanding={setLanding}
               dataHotels={dataHotels}
               setDataHotels={setDataHotels}
+              setDataRestaurants={setDataRestaurants}
+              dataRestaurants={dataRestaurants}
             />
           }
         />
@@ -59,6 +63,18 @@ function App() {
               setLanding={setLanding}
               dataHotels={dataHotels}
               setDataHotels={setDataHotels}
+            />
+          }
+        />
+        <Route
+          path="nouveau-voyage/restaurants"
+          element={
+            <MesRestaurants
+              departure={departure}
+              landing={landing}
+              setLanding={setLanding}
+              dataRestaurants={dataRestaurants}
+              setDataRestaurants={setDataRestaurants}
             />
           }
         />
