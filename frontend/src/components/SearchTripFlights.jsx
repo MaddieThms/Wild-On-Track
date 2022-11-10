@@ -1,8 +1,11 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+
 import React, { useState } from "react";
 import { Box, Button, Stack } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import TravelDate from "./TravelDate";
 import NumberTravelers from "./NumberTravelers";
 import TravelDestination from "./TravelDestination";
@@ -10,16 +13,14 @@ import "./SearchTrip.css";
 import TravelDeparture from "./TravelDeparture";
 import BasicDatePickerRoundTrip from "./TravelRoundtrip";
 
-function SearchTrip({
-  dataFlights,
+function SearchTripFlights({
   setDataFlights,
   departure,
   setDeparture,
   landing,
   setLanding,
-  setDataHotels,
 }) {
-  /*   APIKey in the header of the API */
+  /*   APIKey For Flights */
   const myHeaders = new Headers();
   myHeaders.append("apikey", "9btTF3zU-5Ur_OwLyOdLWd8Pd2kC2ZJc");
   const requestOptions = {
@@ -27,35 +28,12 @@ function SearchTrip({
     headers: myHeaders,
     redirect: "follow",
   };
-  /* Usestate declaration */
   const navigate = useNavigate();
   const [numberTraveler, setNumberTraveler] = useState("");
   const [dateFrom, setDateFrom] = useState("");
   const [returnFrom, setReturnFrom] = useState("");
   const [airportName, setAirportName] = useState("");
   const [airportNameDestination, setAirportNameDestination] = useState("");
-  const [cityId, setCityId] = useState("");
-
-  const optionsHôtels = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "18a90f29c7msh739768fbdc10db4p12a1c0jsn66ced0f61bca",
-      "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
-    },
-  };
-
-  const findApiHotels = () => {
-    fetch(
-      `https://travel-advisor.p.rapidapi.com/hotels/get-details?location_id=${cityId}&checkin=${dateFrom}&adults=${numberTraveler}&currency=EUR&nights=2`,
-      optionsHôtels
-    )
-      .then((response) => response.json())
-      .then((result) => {
-        console.warn(result);
-        setDataHotels(result.data);
-      })
-      .catch((err) => console.error(err));
-  };
   const url = `https://api.tequila.kiwi.com/v2/search?flight_type=round&fly_from=${airportName}&fly_to=${airportNameDestination}&date_from=${dateFrom}&date_to=${dateFrom}&return_from=${returnFrom}&return_to=${returnFrom}&max_stopovers=2&sort=price&adults=${numberTraveler}&curr=EUR&limit=5`;
 
   /* Call API with airportName recovered in Traveldeparture with the other API call */
@@ -83,8 +61,6 @@ function SearchTrip({
           landing={landing}
           setLanding={setLanding}
           setAirportNameDestination={setAirportNameDestination}
-          cityId={cityId}
-          setCityId={setCityId}
           airportNameDestination={airportNameDestination}
         />
         <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
@@ -104,23 +80,15 @@ function SearchTrip({
               setDeparture("");
               setLanding("");
             }}
-            className="searchButton"
+            sx={{ bgcolor: "#eaa226", color: "#fff" }}
             variant="contained"
           >
-            Vol
-          </Button>
-          <Button
-            onClick={() => {
-              findApiHotels();
-            }}
-            className="searchButton"
-            variant="contained"
-          >
-            <Link to="hotels">Hotels</Link>
+            Recherche
           </Button>
         </Stack>
       </Stack>
     </Box>
   );
 }
-export default SearchTrip;
+
+export default SearchTripFlights;
