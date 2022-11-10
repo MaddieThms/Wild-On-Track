@@ -2,9 +2,6 @@
 import React from "react";
 import "./carnetVoyage.css";
 import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
-import { useTheme } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
@@ -26,8 +23,8 @@ function TabPanel(props) {
     <div
       role="tabpanel"
       hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
       {value === index && (
@@ -47,8 +44,8 @@ TabPanel.propTypes = {
 // function for the component MUI swipeableviews
 function a11yProps(index) {
   return {
-    id: `full-width-tab-${index}`,
-    "aria-controls": `full-width-tabpanel-${index}`,
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 
@@ -81,16 +78,11 @@ export default function CarnetVoyage() {
   }, []);
 
   /* It's for the component MUI swipeableviews */
-  const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
   /* It's for the component MUI swipeableviews */
   const handleChange = (event, newValue) => {
     setValue(newValue);
-  };
-  /* It's for the component MUI swipeableviews */
-  const handleChangeIndex = (index) => {
-    setValue(index);
   };
 
   return (
@@ -112,8 +104,19 @@ export default function CarnetVoyage() {
               minHeight: 200,
             }}
           >
-            <AppBar position="static">
+            <Box
+              sx={{
+                borderBottom: 1,
+                borderColor: "divider",
+                // style for bar
+                bgcolor: "#eaa226",
+                borderRadius: "4px",
+              }}
+              position="static"
+            >
               <Tabs
+                // style for bar
+                sx={{ bgcolor: "#eaa226", borderRadius: "4px" }}
                 value={value}
                 onChange={handleChange}
                 indicatorColor="main"
@@ -124,71 +127,59 @@ export default function CarnetVoyage() {
                 <Tab label="Vol aller" {...a11yProps(0)} />
                 <Tab label="Vol retour" {...a11yProps(1)} />
               </Tabs>
-            </AppBar>
-            <SwipeableViews
-              axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-              index={value}
-              onChangeIndex={handleChangeIndex}
-            >
-              <TabPanel value={value} index={0} dir={theme.direction}>
-                {/* data in "vol aller" */}
-                <div className="cardinformationvol">
-                  <div className="informationsvol">
-                    <p className="date">
-                      {dateExtraction(displayCardTrip.local_departure)}
-                    </p>
-                    <p className="hour">
-                      {hoursExtraction(displayCardTrip.local_departure)} départ
-                      de{" "}
-                      <span className="departure">
-                        {displayCardTrip.cityFrom}
-                      </span>
-                    </p>
-                    <p className="date">
-                      {dateExtraction(displayCardTrip.local_arrival)}{" "}
-                    </p>
-                    <p className="hour">
-                      {hoursExtraction(displayCardTrip.local_arrival)} arrivé à{" "}
-                      <span className="landing">{displayCardTrip.cityTo}</span>
-                    </p>
-                  </div>
-                  <div className="iconsPrice">
-                    <LuggageIcon />
-                    <p>{displayCardTrip.price}€</p>
-                  </div>
+            </Box>
+            <TabPanel value={value} index={0}>
+              {/* data in "vol aller" */}
+              <div className="cardinformationvol">
+                <div className="informationsvol">
+                  <p className="date">
+                    {dateExtraction(displayCardTrip.local_departure)}
+                  </p>
+                  <p className="hour">
+                    {hoursExtraction(displayCardTrip.local_departure)} départ de{" "}
+                    <span className="departure">
+                      {displayCardTrip.cityFrom}
+                    </span>
+                  </p>
+                  <p className="date">
+                    {dateExtraction(displayCardTrip.local_arrival)}{" "}
+                  </p>
+                  <p className="hour">
+                    {hoursExtraction(displayCardTrip.local_arrival)} arrivé à{" "}
+                    <span className="landing">{displayCardTrip.cityTo}</span>
+                  </p>
                 </div>
-              </TabPanel>
-              <TabPanel value={value} index={1} dir={theme.direction}>
-                {/* data in "vol retour" */}
-                <div className="cardinformationvol">
-                  <div className="informationsvol">
-                    <p className="date">
-                      {dateExtraction(displayCardTrip.local_departure)}
-                    </p>
-                    <p className="hour">
-                      {hoursExtraction(displayCardTrip.local_departure)} départ
-                      de{" "}
-                      <span className="departure">
-                        {displayCardTrip.cityTo}
-                      </span>
-                    </p>
-                    <p className="date">
-                      {dateExtraction(displayCardTrip.local_arrival)}
-                    </p>
-                    <p className="hour">
-                      {hoursExtraction(displayCardTrip.local_arrival)} arrivé à{" "}
-                      <span className="landing">
-                        {displayCardTrip.cityFrom}
-                      </span>
-                    </p>
-                  </div>
-                  <div className="iconsPrice">
-                    <LuggageIcon />
-                    <p>{displayCardTrip.price}€</p>
-                  </div>
+                <div className="iconsPrice">
+                  <LuggageIcon />
+                  <p>{displayCardTrip.price}€</p>
                 </div>
-              </TabPanel>
-            </SwipeableViews>
+              </div>
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+              {/* data in "vol retour" */}
+              <div className="cardinformationvol">
+                <div className="informationsvol">
+                  <p className="date">
+                    {dateExtraction(displayCardTrip.local_departure)}
+                  </p>
+                  <p className="hour">
+                    {hoursExtraction(displayCardTrip.local_departure)} départ de{" "}
+                    <span className="departure">{displayCardTrip.cityTo}</span>
+                  </p>
+                  <p className="date">
+                    {dateExtraction(displayCardTrip.local_arrival)}
+                  </p>
+                  <p className="hour">
+                    {hoursExtraction(displayCardTrip.local_arrival)} arrivé à{" "}
+                    <span className="landing">{displayCardTrip.cityFrom}</span>
+                  </p>
+                </div>
+                <div className="iconsPrice">
+                  <LuggageIcon />
+                  <p>{displayCardTrip.price}€</p>
+                </div>
+              </div>
+            </TabPanel>
           </Box>
         )}
         {displayCardHotels && (
