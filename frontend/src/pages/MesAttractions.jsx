@@ -2,8 +2,8 @@
 import React from "react";
 import PageTitle from "../components/pagetitle/PageTitle";
 import OptionsFilter from "../components/OptionsFilter";
-import Footer from "../components/Footer";
 import Attractions from "../components/cardAttraction/Attractions";
+import Footer from "../components/Footer";
 
 function MesAttractions({ departure, landing, dataAttractions }) {
   return (

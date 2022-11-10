@@ -5,7 +5,7 @@ import Attraction from "./Attraction";
 function Attractions({ dataAttractions }) {
   return (
     <div
-      className="cardattractions"
+      className="cardhotels"
       style={{
         display: "flex",
         flexDirection: "column",

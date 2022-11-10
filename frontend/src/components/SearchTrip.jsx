@@ -146,7 +146,7 @@ function SearchTrip({
             className="searchButton"
             variant="contained"
           >
-            <Link to="Attractions">Attractions</Link>
+            <Link to="attractions">Attractions</Link>
           </Button>
         </Stack>
       </Stack>
