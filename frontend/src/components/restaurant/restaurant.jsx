@@ -9,24 +9,24 @@ import Typography from "@mui/material/Typography";
 import ShareIcon from "@mui/icons-material/Share";
 import StarRateIcon from "@mui/icons-material/StarRate";
 
-export default function Hotel({ hotel }) {
+export default function Restaurant({ restaurant }) {
   const [isFavorite, setIsFavorite] = useState(false);
 
-  /* function to put favorite hotel in local storage */
-  function saveHotels(hotelsave) {
-    localStorage.setItem("hotelsave", JSON.stringify(hotelsave));
+  /* function to put favorite restaurant in local storage */
+  function saveRestaurants(restaurantsave) {
+    localStorage.setItem("restaurantsave", JSON.stringify(restaurantsave));
   }
-  /* function to remove favorite hotel from local storage */
-  function removeSaveFlight(hotelsave) {
-    localStorage.removeItem("hotelsave", hotelsave);
+  /* function to remove favorite restaurant from local storage */
+  function removeSaveRestaurant(restaurantsave) {
+    localStorage.removeItem("restaurantsave", restaurantsave);
   }
-  /* function to execute functions put and remove favorite hotel in local storage depend on const isfavorite is true or false */
+  /* function to execute functions put and remove favorite restaurant in local storage depend on const isfavorite is true or false */
   function handleFavorite() {
     setIsFavorite(!isFavorite);
     if (!isFavorite) {
-      saveHotels(hotel);
+      saveRestaurants(restaurant);
     } else {
-      removeSaveFlight(hotel);
+      removeSaveRestaurant(restaurant);
     }
   }
 
@@ -43,11 +43,11 @@ export default function Hotel({ hotel }) {
         component="img"
         height="194"
         image={
-          hotel.photo?.images?.medium
-            ? hotel.photo.images.medium.url
-            : "https://img.freepik.com/vecteurs-premium/fond-batiment-hotel-plat_23-2148146118.jpg?w=826"
+          restaurant.photo?.images?.medium
+            ? restaurant.photo.images.medium.url
+            : "https://www.outlookindia.com/outlooktraveller//public/uploads/2017/07/OSIX-Co-MOSAIC-Random-1.jpg"
         }
-        alt={hotel.name}
+        alt={restaurant.name}
       />
       <CardContent>
         <Typography
@@ -59,10 +59,10 @@ export default function Hotel({ hotel }) {
             maxWidth: "600px",
           }}
         >
-          {hotel.name}
+          {restaurant.name}
         </Typography>
         <Typography variant="p" color="#40a798" sx={{ fontSize: "1em" }}>
-          Price : {hotel.price}
+          Phone : {restaurant.phone}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -70,7 +70,7 @@ export default function Hotel({ hotel }) {
           <ShareIcon />
         </IconButton>
         <StarRateIcon
-          defaultValue={hotel}
+          defaultValue={restaurant}
           onClick={() => handleFavorite()}
           sx={isFavorite ? { color: "#eaa226" } : { color: "#d1d1d1" }}
         />

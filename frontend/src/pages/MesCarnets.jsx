@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 import React from "react";
 import MyTrips from "../components/MyTrips";
 import Footer from "../components/Footer";

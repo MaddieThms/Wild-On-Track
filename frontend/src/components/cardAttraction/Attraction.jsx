@@ -21,8 +21,12 @@ export default function Attraction({ attraction }) {
       <CardMedia
         component="img"
         height="194"
-        image="https://cf.bstatic.com/xdata/images/hotel/max1280x900/251678680.jpg?k=0bd689b4ef444751b830a08d8fb09191eea5e85fc6472dc234807fc85d5b268f&o=&hp=1"
-        alt="nameimagehotel"
+        image={
+          attraction.photo?.images?.medium
+            ? attraction.photo.images.medium.url
+            : "https://www.pexels.com/fr-fr/photo/statue-de-la-liberte-290386/"
+        }
+        alt={attraction.name}
       />
       <CardContent>
         <Typography variant="h5" sx={{ color: "#eaa226" }}>

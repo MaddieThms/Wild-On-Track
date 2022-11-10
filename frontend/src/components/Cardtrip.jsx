@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
@@ -6,29 +7,43 @@ import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import ShareIcon from "@mui/icons-material/Share";
+import { Link } from "react-router-dom";
 
-export default function CardTrip() {
+export default function CardTrip({ showCardTrip }) {
+  /*   function for date extraction */
+  function dateExtraction(date) {
+    const newDate = date.slice(0, 10);
+    return newDate.split("-").reverse().join("-");
+  }
+
   return (
-    <Card elevation={0} sx={{ maxWidth: "90vw", border: "1px solid #eaa226" }}>
-      <CardMedia
-        component="img"
-        height="194"
-        image="https://cf.bstatic.com/xdata/images/hotel/max1280x900/202270562.jpg?k=9ed13226ff63e822c7e5f080d227c17061ef32aa8f8e43645f8825e12bff0c59&o=&hp=1"
-        alt=""
-      />
-      <CardContent>
-        <Typography variant="h5" sx={{ color: "#eaa226" }}>
-          Bali 🤍
-        </Typography>
-        <Typography variant="p" color="text.secondary">
-          10/06 - 10/07
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-      </CardActions>
+    <Card
+      elevation={0}
+      sx={{ maxWidth: "90vw", border: "1px solid #eaa226" }}
+      showCardTrip={showCardTrip}
+    >
+      <Link to="carnetvoyage">
+        <CardMedia
+          component="img"
+          height="194"
+          image="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dHJpcHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
+          alt=""
+        />
+        <CardContent>
+          <Typography variant="h5" sx={{ color: "#eaa226" }}>
+            {showCardTrip.cityTo}
+          </Typography>
+          <Typography variant="p" color="text.secondary">
+            {dateExtraction(showCardTrip.local_departure)} -{" "}
+            {dateExtraction(showCardTrip.local_arrival)}
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton>
+        </CardActions>
+      </Link>
     </Card>
   );
 }

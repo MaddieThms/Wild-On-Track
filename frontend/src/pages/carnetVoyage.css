@@ -1,0 +1,17 @@
+.container-recap {
+  margin-top: 100px;
+}
+
+.title-voyage {
+  text-align: center;
+  font-size: 2em;
+  color: #40a798;
+  margin-bottom: 30px;
+}
+
+.container-flight {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
