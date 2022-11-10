@@ -6,15 +6,11 @@ import React, { useState } from "react";
 import { Box, Button, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import TravelDate from "../TravelDate";
-import NumberTravelers from "../NumberTravelers";
 import "../SearchTrip.css";
-import BasicDatePickerRoundTrip from "../TravelRoundtrip";
 import TravelDestination from "../TravelDestination";
 
 function SearchTripRestaurants({ landing, setLanding, setDataRestaurant }) {
-  const [numberTraveler, setNumberTraveler] = useState("");
   const [dateFrom, setDateFrom] = useState("");
-  const [returnFrom, setReturnFrom] = useState("");
   const [cityId, setCityId] = useState("");
 
   const optionsRestaurant = {
@@ -49,14 +45,6 @@ function SearchTripRestaurants({ landing, setLanding, setDataRestaurant }) {
           cityId={cityId}
         />
         <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
-        <BasicDatePickerRoundTrip
-          returnFrom={returnFrom}
-          setReturnFrom={setReturnFrom}
-        />
-        <NumberTravelers
-          numberTraveler={numberTraveler}
-          setNumberTraveler={setNumberTraveler}
-        />
         <Stack id="formButtons">
           {/* call the API on click */}
           <Button
