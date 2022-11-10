@@ -11,6 +11,10 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import HotelIcon from "@mui/icons-material/Hotel";
+import FlightIcon from "@mui/icons-material/Flight";
+import SportsHandballIcon from "@mui/icons-material/SportsHandball";
 import SearchTripFlights from "./SearchTripFlights";
 import SearchTripHotels from "./SearchTripHotels";
 import SearchTripRestaurants from "./SearchTripRestaurant";
@@ -87,10 +91,10 @@ export default function SearchBar({
             variant="fullWidth"
             aria-label="full width tabs example"
           >
-            <Tab label="✈" {...a11yProps(0)} />
-            <Tab label="🛌" {...a11yProps(1)} />
-            <Tab label="🍴" {...a11yProps(2)} />
-            <Tab label="📷" {...a11yProps(3)} />
+            <Tab icon={<FlightIcon />} label="" {...a11yProps(0)} />
+            <Tab icon={<HotelIcon />} label="" {...a11yProps(1)} />
+            <Tab icon={<RestaurantIcon />} label="" {...a11yProps(2)} />
+            <Tab icon={<SportsHandballIcon />} label="" {...a11yProps(3)} />
           </Tabs>
         </AppBar>
         <SwipeableViews

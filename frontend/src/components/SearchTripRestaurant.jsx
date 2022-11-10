@@ -54,7 +54,7 @@ function SearchTripRestaurants({
             onClick={() => {
               findApiRestaurants();
             }}
-            className="searchButton"
+            sx={{ bgcolor: "#eaa226", color: "#fff" }}
             variant="contained"
           >
             <Link to="restaurants">Recherche</Link>

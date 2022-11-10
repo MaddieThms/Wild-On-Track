@@ -80,7 +80,7 @@ function SearchTripFlights({
               setDeparture("");
               setLanding("");
             }}
-            className="searchButton"
+            sx={{ bgcolor: "#eaa226", color: "#fff" }}
             variant="contained"
           >
             Recherche

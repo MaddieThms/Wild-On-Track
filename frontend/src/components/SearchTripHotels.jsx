@@ -61,7 +61,7 @@ function SearchTripHotels({ landing, setLanding, setDataHotels }) {
             onClick={() => {
               findApiHotels();
             }}
-            className="searchButton"
+            sx={{ bgcolor: "#eaa226", color: "#fff" }}
             variant="contained"
           >
             <Link to="hotels">Hotels</Link>
