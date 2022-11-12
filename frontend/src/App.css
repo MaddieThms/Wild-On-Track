@@ -2,10 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: none;
 }
 
-
-body{
-  background-color: #d8edea;
-background: repeating-linear-gradient( -45deg, #8ccac1, #8ccac1 20px, #d8edea 20px, #d8edea 100px );
+body {
+  background-image: url(assets/background.png);
+  background-size: cover;
+  height: 100vh;
 }
