@@ -15,7 +15,7 @@ function ChooseFlight({ dataFlights, departure, landing }) {
       />
       <OptionsFilter />
       <br />
-      <Flights dataFlights={dataFlights} />
+      <Flights dataFlights={dataFlights} landing={landing} />
     </div>
   );
 }

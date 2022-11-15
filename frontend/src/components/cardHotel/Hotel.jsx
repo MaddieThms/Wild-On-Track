@@ -12,13 +12,19 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 export default function Hotel({ hotel }) {
   const [isFavorite, setIsFavorite] = useState(false);
 
+  function deleteHotel(string) {
+    return string.replace(" Hotels", "");
+  }
   /* function to put favorite hotel in local storage */
   function saveHotels(hotelsave) {
-    localStorage.setItem("hotelsave", JSON.stringify(hotelsave));
+    localStorage.setItem(
+      deleteHotel(hotel.autobroaden_label),
+      JSON.stringify(hotelsave)
+    );
   }
   /* function to remove favorite hotel from local storage */
   function removeSaveFlight(hotelsave) {
-    localStorage.removeItem("hotelsave", hotelsave);
+    localStorage.removeItem(hotel, hotelsave);
   }
   /* function to execute functions put and remove favorite hotel in local storage depend on const isfavorite is true or false */
   function handleFavorite() {

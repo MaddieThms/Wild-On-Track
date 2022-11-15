@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable prefer-const */
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react/prop-types */
@@ -5,9 +7,6 @@
 
 import * as React from "react";
 import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
-import { useTheme } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
@@ -21,16 +20,19 @@ function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
-    <Typography
-      component="div"
+    <div
       role="tabpanel"
       hidden={value !== index}
-      id={`action-tabpanel-${index}`}
-      aria-labelledby={`action-tab-${index}`}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
-    </Typography>
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
   );
 }
 /* This is for the switch element MUI */
@@ -42,8 +44,8 @@ TabPanel.propTypes = {
 
 function a11yProps(index) {
   return {
-    id: `action-tab-${index}`,
-    "aria-controls": `action-tabpanel-${index}`,
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 
@@ -59,31 +61,53 @@ export default function FloatingActionButtonZoom({ flight }) {
   }
 
   /* This is for the element MUI */
-  const theme = useTheme();
   const [value, setValue] = React.useState(0);
   /* This is for the element MUI */
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  /* This is for the element MUI */
-  const handleChangeIndex = (index) => {
-    setValue(index);
-  };
+
+  const trips = [
+    {
+      city: flight.cityTo,
+      flights: [{}],
+      hotels: [{}],
+    },
+  ];
 
   /* function for save flight in the local storage */
-  function saveFlight(flightsave) {
-    localStorage.setItem("flightsave", JSON.stringify(flightsave));
+  function saveFlights(flightssave) {
+    return localStorage.setItem(trips[0].city, JSON.stringify(flightssave));
+  }
+
+  function getFlights() {
+    let flightssave = localStorage.getItem("flightssave");
+    if (flightssave == null) {
+      return [];
+    }
+    return JSON.parse(flightssave);
+  }
+
+  function addFlight(flightAdd) {
+    // eslint-disable-next-line prefer-const
+    let favoriteFlights = getFlights();
+    favoriteFlights.push(flightAdd);
+    saveFlights(favoriteFlights);
   }
 
   function removeSaveFlight(flightsave) {
-    localStorage.removeItem("flightsave", flightsave);
+    let favoriteFlights = getFlights();
+    favoriteFlights = favoriteFlights.filter((f) => f.id != flightsave.id);
+    localStorage.removeItem("flightssave", flightsave);
+    saveFlights(favoriteFlights);
   }
+
   /* This is for the favorite */
   const [isFavorite, setIsFavorite] = React.useState(false);
   function handleFavorite() {
     setIsFavorite(!isFavorite);
     if (!isFavorite) {
-      saveFlight(flight);
+      addFlight(flight);
     } else {
       removeSaveFlight(flight);
     }
@@ -100,97 +124,98 @@ export default function FloatingActionButtonZoom({ flight }) {
         minHeight: 200,
       }}
     >
-      <AppBar position="static" color="default">
+      <Box
+        sx={{
+          borderBottom: 1,
+          borderColor: "divider",
+          bgcolor: "#eaa226",
+          borderRadius: "4px",
+        }}
+        position="static"
+        color="default"
+      >
         <Tabs
+          sx={{ bgcolor: "#eaa226", borderRadius: "4px" }}
           value={value}
           onChange={handleChange}
-          indicatorColor="primary"
-          textColor="transparent"
-          variant="fullWidth"
-          aria-label="action tabs example"
+          aria-label="basic tabs example"
         >
           <Tab label="Vol aller" {...a11yProps(0)} />
           <Tab label="Vol retour" {...a11yProps(1)} />
         </Tabs>
-      </AppBar>
-      <SwipeableViews
-        axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      >
-        <TabPanel value={value} index={0} dir={theme.direction}>
-          {/* data in "vol aller" */}
-          <div className="cardinformationvol">
-            <div className="informationsvol">
-              <p className="date">{dateExtraction(flight.local_departure)}</p>
-              <p className="hour">
-                {hoursExtraction(flight.local_departure)} départ de{" "}
-                <span className="departure">{flight.cityFrom}</span>
-              </p>
-              <p className="date">{dateExtraction(flight.local_arrival)}</p>
-              <p className="hour">
-                {hoursExtraction(flight.local_arrival)} arrivé à{" "}
-                <span className="landing">{flight.cityTo}</span>
-              </p>
-              Prix : <span className="price">{flight.price}€</span>
-            </div>
-            <div className="iconsPrice">
-              <StarRateIcon
-                onClick={() => handleFavorite()}
-                sx={isFavorite ? { color: "#eaa226" } : { color: "#d1d1d1" }}
-              />
-              <LuggageIcon />
-              <Button variant="outlined" size="small">
-                <a href={flight.deep_link} target="_blank">
-                  offre
-                </a>
-              </Button>
-            </div>
+      </Box>
+      <TabPanel value={value} index={0}>
+        {/* data in "vol aller" */}
+        <div className="cardinformationvol">
+          <div className="informationsvol">
+            <p className="date">{dateExtraction(flight.local_departure)}</p>
+            <p className="hour">
+              {hoursExtraction(flight.local_departure)} départ de{" "}
+              <span className="departure">{flight.cityFrom}</span>
+            </p>
+            <p className="date">{dateExtraction(flight.local_arrival)}</p>
+            <p className="hour">
+              {hoursExtraction(flight.local_arrival)} arrivé à{" "}
+              <span className="landing">{flight.cityTo}</span>
+            </p>
+            Prix : <span className="price">{flight.price}€</span>
           </div>
-        </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          {/* data in "vol retour" */}
-          <div className="cardinformationvol">
-            <div className="informationsvol">
-              <p className="date">
-                {stopover.length >= 4
-                  ? dateExtraction(flight.route[2].local_departure)
-                  : dateExtraction(flight.route[1].local_departure)}
-              </p>
-              <p className="hour">
-                {stopover.length >= 4
-                  ? hoursExtraction(flight.route[2].local_departure)
-                  : hoursExtraction(flight.route[1].local_departure)}{" "}
-                départ de <span className="departure">{flight.cityTo}</span>
-              </p>
-              <p className="date">
-                {stopover.length >= 4
-                  ? dateExtraction(flight.route[2].local_arrival)
-                  : dateExtraction(flight.route[1].local_arrival)}
-              </p>
-              <p className="hour">
-                {stopover.length >= 4
-                  ? hoursExtraction(flight.route[3].local_arrival)
-                  : hoursExtraction(flight.route[1].local_arrival)}{" "}
-                arrivé à <span className="landing">{flight.cityFrom}</span>
-              </p>
-              Prix : <span className="price">{flight.price}€</span>
-            </div>
-            <div className="iconsPrice">
-              <StarRateIcon
-                onClick={() => handleFavorite()}
-                sx={isFavorite ? { color: "#eaa226" } : { color: "#d1d1d1" }}
-              />
-              <LuggageIcon />
-              <Button variant="outlined" size="small">
-                <a href={flight.deep_link} target="_blank">
-                  offre
-                </a>
-              </Button>
-            </div>
+          <div className="iconsPrice">
+            <StarRateIcon
+              onClick={() => handleFavorite()}
+              sx={isFavorite ? { color: "#eaa226" } : { color: "#d1d1d1" }}
+            />
+            <LuggageIcon />
+            <Button variant="outlined" size="small">
+              <a href={flight.deep_link} target="_blank">
+                offre
+              </a>
+            </Button>
           </div>
-        </TabPanel>
-      </SwipeableViews>
+        </div>
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        {/* data in "vol retour" */}
+        <div className="cardinformationvol">
+          <div className="informationsvol">
+            <p className="date">
+              {stopover.length >= 4
+                ? dateExtraction(flight.route[2].local_departure)
+                : dateExtraction(flight.route[1].local_departure)}
+            </p>
+            <p className="hour">
+              {stopover.length >= 4
+                ? hoursExtraction(flight.route[2].local_departure)
+                : hoursExtraction(flight.route[1].local_departure)}{" "}
+              départ de <span className="departure">{flight.cityTo}</span>
+            </p>
+            <p className="date">
+              {stopover.length >= 4
+                ? dateExtraction(flight.route[2].local_arrival)
+                : dateExtraction(flight.route[1].local_arrival)}
+            </p>
+            <p className="hour">
+              {stopover.length >= 4
+                ? hoursExtraction(flight.route[3].local_arrival)
+                : hoursExtraction(flight.route[1].local_arrival)}{" "}
+              arrivé à <span className="landing">{flight.cityFrom}</span>
+            </p>
+            Prix : <span className="price">{flight.price}€</span>
+          </div>
+          <div className="iconsPrice">
+            <StarRateIcon
+              onClick={() => handleFavorite()}
+              sx={isFavorite ? { color: "#eaa226" } : { color: "#d1d1d1" }}
+            />
+            <LuggageIcon />
+            <Button variant="outlined" size="small">
+              <a href={flight.deep_link} target="_blank">
+                offre
+              </a>
+            </Button>
+          </div>
+        </div>
+      </TabPanel>
     </Box>
   );
 }
