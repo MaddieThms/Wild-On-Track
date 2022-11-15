@@ -67,9 +67,17 @@ export default function FloatingActionButtonZoom({ flight }) {
     setValue(newValue);
   };
 
+  const trips = [
+    {
+      city: flight.cityTo,
+      flights: [{}],
+      hotels: [{}],
+    },
+  ];
+
   /* function for save flight in the local storage */
   function saveFlights(flightssave) {
-    return localStorage.setItem("flightssave", JSON.stringify(flightssave));
+    return localStorage.setItem(trips[0].city, JSON.stringify(flightssave));
   }
 
   function getFlights() {
