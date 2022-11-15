@@ -9,8 +9,8 @@ export default function BasicGrid() {
   const [showCardTrip, setShowCardTrip] = useState();
 
   React.useEffect(() => {
-    const flight = localStorage.getItem("flightssave");
-    if (flight !== null) setShowCardTrip(JSON.parse(flight));
+    const cardData = localStorage.getItem("flightssave");
+    if (cardData !== null) setShowCardTrip(JSON.parse(cardData));
   }, []);
 
   return showCardTrip ? (

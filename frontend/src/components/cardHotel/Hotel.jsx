@@ -1,4 +1,9 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable prefer-const */
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react/prop-types */
+/* import React from "react"; */
 import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
@@ -13,18 +18,37 @@ export default function Hotel({ hotel }) {
   const [isFavorite, setIsFavorite] = useState(false);
 
   /* function to put favorite hotel in local storage */
-  function saveHotels(hotelsave) {
-    localStorage.setItem("hotelsave", JSON.stringify(hotelsave));
+  function saveHotels(hotelssave) {
+    localStorage.setItem("hotelssave", JSON.stringify(hotelssave));
   }
+
+  function getHotels() {
+    let hotelssave = localStorage.getItem("hotelssave");
+    if (hotelssave == null) {
+      return [];
+    }
+    return JSON.parse(hotelssave);
+  }
+
+  function addHotel(hotelAdd) {
+    // eslint-disable-next-line prefer-const
+    let favoriteHotels = getHotels();
+    favoriteHotels.push(hotelAdd);
+    saveHotels(favoriteHotels);
+  }
+
   /* function to remove favorite hotel from local storage */
   function removeSaveFlight(hotelsave) {
-    localStorage.removeItem("hotelsave", hotelsave);
+    let favoriteHotels = getHotels();
+    favoriteHotels = favoriteHotels.filter((h) => h.id != hotelsave.id);
+    localStorage.removeItem("hotelssave", hotelsave);
+    saveHotels(favoriteHotels);
   }
   /* function to execute functions put and remove favorite hotel in local storage depend on const isfavorite is true or false */
   function handleFavorite() {
     setIsFavorite(!isFavorite);
     if (!isFavorite) {
-      saveHotels(hotel);
+      addHotel(hotel);
     } else {
       removeSaveFlight(hotel);
     }
