@@ -11,10 +11,6 @@ import { Link } from "react-router-dom";
 
 export default function CardTrip({ showCardTrip, keyNames }) {
   /*   function for date extraction */
-  function dateExtraction(date) {
-    const newDate = date.slice(0, 10);
-    return newDate.split("-").reverse().join("-");
-  }
   return (
     <Card
       elevation={0}
@@ -31,10 +27,6 @@ export default function CardTrip({ showCardTrip, keyNames }) {
         <CardContent>
           <Typography variant="h5" sx={{ color: "#eaa226" }}>
             {keyNames[0]}
-          </Typography>
-          <Typography variant="p" color="text.secondary">
-            {dateExtraction(showCardTrip[0].local_departure)} -{" "}
-            {dateExtraction(showCardTrip[0].local_arrival)}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
