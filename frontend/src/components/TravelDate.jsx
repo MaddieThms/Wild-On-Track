@@ -11,11 +11,10 @@ export default function BasicDatePicker({ dateFrom, setDateFrom }) {
 
   return (
     <div>
-      <p>Date de départ</p>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DatePicker
           className="label-form"
-          label="Basic example"
+          label="Date de départ"
           inputFormat="DD/MM/YYYY"
           value={value}
           onChange={(newValue) => {

@@ -12,6 +12,8 @@ import TravelDestination from "./TravelDestination";
 import "./SearchTrip.css";
 import TravelDeparture from "./TravelDeparture";
 import BasicDatePickerRoundTrip from "./TravelRoundtrip";
+import TravelDepartureAutocomplete from "./TravelDepartureAutocomplete";
+import TravelDestinationAutocomplete from "./TravelDestinationAutocomplete";
 
 function SearchTripFlights({
   setDataFlights,
@@ -51,17 +53,14 @@ function SearchTripFlights({
   return (
     <Box sx={{ width: "100%" }}>
       <Stack id="formStructure">
-        <TravelDeparture
+        <TravelDepartureAutocomplete
           departure={departure}
           setDeparture={setDeparture}
           setAirportName={setAirportName}
           airportName={airportName}
         />
-        <TravelDestination
-          landing={landing}
-          setLanding={setLanding}
+        <TravelDestinationAutocomplete
           setAirportNameDestination={setAirportNameDestination}
-          airportNameDestination={airportNameDestination}
         />
         <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
         <BasicDatePickerRoundTrip

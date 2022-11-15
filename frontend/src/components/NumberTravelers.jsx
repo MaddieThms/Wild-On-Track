@@ -15,7 +15,6 @@ function NumberTravelers({ numberTraveler, setNumberTraveler }) {
       autoComplete="off"
     >
       <div>
-        <p>Voyageurs</p>
         <TextField
           className="label-form"
           id="filled-search"

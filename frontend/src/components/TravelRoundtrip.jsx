@@ -14,11 +14,10 @@ export default function BasicDatePickerRoundTrip({
 
   return (
     <div>
-      <p>Date de retour</p>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DatePicker
           className="label-form"
-          label="Basic example"
+          label="Date de retour"
           inputFormat="DD/MM/YYYY"
           value={value}
           onChange={(newValue) => {
