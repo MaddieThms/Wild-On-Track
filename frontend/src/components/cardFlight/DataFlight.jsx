@@ -67,21 +67,21 @@ export default function FloatingActionButtonZoom({ flight }) {
     setValue(newValue);
   };
 
-  const trips = [
-    {
-      city: flight.cityTo,
-      flights: [{}],
-      hotels: [{}],
-    },
-  ];
+  // const trips = [
+  //   {
+  //     city: ,
+  //     flights: [{}],
+  //     hotels: [{}],
+  //   },
+  // ];
 
   /* function for save flight in the local storage */
   function saveFlights(flightssave) {
-    return localStorage.setItem(trips[0].city, JSON.stringify(flightssave));
+    return localStorage.setItem(flight.cityTo, JSON.stringify(flightssave));
   }
 
   function getFlights() {
-    let flightssave = localStorage.getItem("flightssave");
+    let flightssave = localStorage.getItem(flight.cityTo);
     if (flightssave == null) {
       return [];
     }
@@ -98,7 +98,7 @@ export default function FloatingActionButtonZoom({ flight }) {
   function removeSaveFlight(flightsave) {
     let favoriteFlights = getFlights();
     favoriteFlights = favoriteFlights.filter((f) => f.id != flightsave.id);
-    localStorage.removeItem("flightssave", flightsave);
+    localStorage.removeItem(flight.cityTo, flightsave);
     saveFlights(favoriteFlights);
   }
 

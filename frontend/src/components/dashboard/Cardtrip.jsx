@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import ShareIcon from "@mui/icons-material/Share";
 import { Link } from "react-router-dom";
 
-export default function CardTrip({ showCardTrip }) {
+export default function CardTrip({ showCardTrip, keyNames }) {
   /*   function for date extraction */
   function dateExtraction(date) {
     const newDate = date.slice(0, 10);
@@ -30,7 +30,7 @@ export default function CardTrip({ showCardTrip }) {
         />
         <CardContent>
           <Typography variant="h5" sx={{ color: "#eaa226" }}>
-            {showCardTrip[0].cityTo}
+            {keyNames[0]}
           </Typography>
           <Typography variant="p" color="text.secondary">
             {dateExtraction(showCardTrip[0].local_departure)} -{" "}
