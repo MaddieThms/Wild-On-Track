@@ -8,10 +8,12 @@ import { Box, Button, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import TravelDate from "./TravelDate";
 import NumberTravelers from "./NumberTravelers";
-import TravelDestination from "./TravelDestination";
+import TravelDestination from "./TravelDestinationHotel";
 import "./SearchTrip.css";
 import TravelDeparture from "./TravelDeparture";
 import BasicDatePickerRoundTrip from "./TravelRoundtrip";
+import TravelDepartureAutocomplete from "./TravelDepartureAutocomplete";
+import TravelDestinationAutocomplete from "./TravelDestinationAutocomplete";
 
 function SearchTripFlights({
   setDataFlights,
@@ -55,18 +57,15 @@ function SearchTripFlights({
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Stack id="formStructure">
-        <TravelDeparture
+      <Stack id="formStructure" spacing={1}>
+        <TravelDepartureAutocomplete
           departure={departure}
           setDeparture={setDeparture}
           setAirportName={setAirportName}
           airportName={airportName}
         />
-        <TravelDestination
-          landing={landing}
-          setLanding={setLanding}
+        <TravelDestinationAutocomplete
           setAirportNameDestination={setAirportNameDestination}
-          airportNameDestination={airportNameDestination}
         />
         <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
         <BasicDatePickerRoundTrip
