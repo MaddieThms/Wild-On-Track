@@ -8,7 +8,7 @@ import { Box, Button, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import TravelDate from "./TravelDate";
 import NumberTravelers from "./NumberTravelers";
-import TravelDestination from "./TravelDestination";
+import TravelDestination from "./TravelDestinationHotel";
 import "./SearchTrip.css";
 import TravelDeparture from "./TravelDeparture";
 import BasicDatePickerRoundTrip from "./TravelRoundtrip";
@@ -52,7 +52,7 @@ function SearchTripFlights({
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Stack id="formStructure">
+      <Stack id="formStructure" spacing={1}>
         <TravelDepartureAutocomplete
           departure={departure}
           setDeparture={setDeparture}

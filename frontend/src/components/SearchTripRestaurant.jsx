@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import { Box, Button, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import TravelDate from "./TravelDate";
-import TravelDestination from "./TravelDestination";
+import TravelDestination from "./TravelDestinationHotel";
 
 function SearchTripRestaurants({
   landing,
@@ -40,7 +40,7 @@ function SearchTripRestaurants({
   };
   return (
     <Box sx={{ width: "100%" }}>
-      <Stack id="formStructure">
+      <Stack id="formStructure" spacing={1}>
         <TravelDestination
           landing={landing}
           setLanding={setLanding}

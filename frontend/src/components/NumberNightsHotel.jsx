@@ -4,23 +4,23 @@ import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
-function NumberTravelers({ numberTraveler, setNumberTraveler }) {
+function NumberNightsHotel({ numberNightsHotel, SetNumberNightsHotel }) {
   return (
     <Box component="form" noValidate autoComplete="off">
       <div>
         <TextField
-          sx={{ width: 270 }}
           className="label-form"
+          sx={{ width: 270 }}
           id="filled-search"
-          label="Nombre de voyageurs"
+          label="Nombre de nuits"
           type="search"
           variant="outlined"
-          value={numberTraveler}
-          onChange={(event) => setNumberTraveler(event.target.value)}
+          value={numberNightsHotel}
+          onChange={(event) => SetNumberNightsHotel(event.target.value)}
         />
       </div>
     </Box>
   );
 }
 
-export default NumberTravelers;
+export default NumberNightsHotel;

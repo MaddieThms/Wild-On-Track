@@ -14,7 +14,7 @@ export default function BasicDatePickerRoundTrip({
 
   return (
     <div>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <LocalizationProvider className="DatePicker" dateAdapter={AdapterDayjs}>
         <DatePicker
           className="label-form"
           label="Date de retour"
@@ -23,9 +23,10 @@ export default function BasicDatePickerRoundTrip({
           onChange={(newValue) => {
             setValue(newValue);
             setReturnFrom(`${newValue.$D}/${newValue.$M + 1}/${newValue.$y}`);
-            // console.log(`${newValue.$D}/${newValue.$M + 1}/${newValue.$y}`);
           }}
-          renderInput={(params) => <TextField {...params} />}
+          renderInput={(params) => (
+            <TextField sx={{ width: 270 }} {...params} />
+          )}
         />
       </LocalizationProvider>
     </div>

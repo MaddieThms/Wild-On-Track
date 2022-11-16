@@ -11,7 +11,7 @@ export default function BasicDatePicker({ dateFrom, setDateFrom }) {
 
   return (
     <div>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <LocalizationProvider dateAdapter={AdapterDayjs} className="DatePicker">
         <DatePicker
           className="label-form"
           label="Date de départ"
@@ -22,7 +22,9 @@ export default function BasicDatePicker({ dateFrom, setDateFrom }) {
             setDateFrom(`${newValue.$D}/${newValue.$M + 1}/${newValue.$y}`);
             // console.log(`${newValue.$D}/${newValue.$M + 1}/${newValue.$y}`);
           }}
-          renderInput={(params) => <TextField {...params} />}
+          renderInput={(params) => (
+            <TextField sx={{ width: 270 }} {...params} />
+          )}
         />
       </LocalizationProvider>
     </div>

@@ -40,7 +40,7 @@ function TravelDepartureAutocomplete({ setAirportName }) {
   return (
     <Autocomplete
       id="asynchronous"
-      sx={{ width: 300 }}
+      sx={{ width: 270 }}
       open={open}
       onChange={(event, newValue) => {
         setAirportName(newValue.substr(0, newValue.indexOf("-")));
@@ -59,6 +59,7 @@ function TravelDepartureAutocomplete({ setAirportName }) {
         <TextField
           {...params}
           label="Ville de départ"
+          style={{ backgroundColor: "#E4F1F3" }}
           onChange={(ev) => {
             onChangeHandle(ev.target.value);
           }}

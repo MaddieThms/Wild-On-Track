@@ -4,29 +4,33 @@ import Autocomplete from "@mui/material/Autocomplete";
 import CircularProgress from "@mui/material/CircularProgress";
 import TextField from "@mui/material/TextField";
 
-function TravelDestinationAutocomplete({ setAirportNameDestination }) {
-  /*   APIKey in the header of the API */
-  const myHeadersCity = new Headers();
-  myHeadersCity.append("apikey", "S4_ycFnfXLe51IZIyjdezesd-2G0izxO");
-  const requestOptionsCity = {
-    method: "GET",
-    headers: myHeadersCity,
-    redirect: "follow",
-  };
-
+function TravelDestinationHotel({ setCityId }) {
   const [open, setOpen] = React.useState(false);
   const [options, setOptions] = React.useState([]);
   const loading = open && options.length === 0;
 
+  const optionsCityHôtels = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "05405b3854mshd5944f4020e59b0p126d9fjsn1f22ffcff455",
+      "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
+    },
+  };
+
   const onChangeHandle = async (value) => {
     // this default api does not support searching but if you use google maps or some other use the value and post to get back you reslut and then set it using setOptions
     fetch(
-      `https://api.tequila.kiwi.com/locations/query?term=${value}`,
-      requestOptionsCity
+      `https://travel-advisor.p.rapidapi.com/locations/search?query=${value}&limit=10&offset=0&units=km&location_id=1&currency=EUR&sort=relevance`,
+      optionsCityHôtels
     )
       .then((response) => response.json())
       .then((result) => {
-        setOptions(result.locations.map((item) => `${item.code}-${item.name}`));
+        setOptions(
+          result.data.map(
+            (item) =>
+              `${item.result_object.location_id}/${item.result_object.location_string}`
+          )
+        );
       })
       .catch((error) => console.warn("error", error));
   };
@@ -43,7 +47,7 @@ function TravelDestinationAutocomplete({ setAirportNameDestination }) {
       sx={{ width: 270 }}
       open={open}
       onChange={(event, newValue) => {
-        setAirportNameDestination(newValue.substr(0, newValue.indexOf("-")));
+        setCityId(newValue.substr(0, newValue.indexOf("/")));
       }}
       onOpen={() => {
         setOpen(true);
@@ -58,7 +62,7 @@ function TravelDestinationAutocomplete({ setAirportNameDestination }) {
       renderInput={(params) => (
         <TextField
           {...params}
-          label="Ville de destination"
+          label="Ville"
           style={{ backgroundColor: "#E4F1F3" }}
           onChange={(ev) => {
             onChangeHandle(ev.target.value);
@@ -80,4 +84,4 @@ function TravelDestinationAutocomplete({ setAirportNameDestination }) {
   );
 }
 
-export default TravelDestinationAutocomplete;
+export default TravelDestinationHotel;

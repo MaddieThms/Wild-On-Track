@@ -7,27 +7,27 @@ import { Box, Button, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import TravelDate from "./TravelDate";
 import NumberTravelers from "./NumberTravelers";
+import NumberNightsHotel from "./NumberNightsHotel";
 import "./SearchTrip.css";
-import BasicDatePickerRoundTrip from "./TravelRoundtrip";
-import TravelDestination from "./TravelDestination";
+import TravelDestinationHotel from "./TravelDestinationHotel";
 
-function SearchTripHotels({ landing, setLanding, setDataHotels }) {
+function SearchTripHotels({ setDataHotels }) {
   const [numberTraveler, setNumberTraveler] = useState("");
   const [dateFrom, setDateFrom] = useState("");
-  const [returnFrom, setReturnFrom] = useState("");
+  const [numberNightsHotel, SetNumberNightsHotel] = useState("");
   const [cityId, setCityId] = useState("");
 
   const optionsHôtels = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "42794bd385msh9f5e2e6a6dd07a5p11848fjsnb7f7488721b3",
+      "X-RapidAPI-Key": "05405b3854mshd5944f4020e59b0p126d9fjsn1f22ffcff455",
       "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
     },
   };
 
   const findApiHotels = () => {
     fetch(
-      `https://travel-advisor.p.rapidapi.com/hotels/get-details?location_id=${cityId}&checkin=${dateFrom}&adults=${numberTraveler}&currency=EUR&nights=2`,
+      `https://travel-advisor.p.rapidapi.com/hotels/get-details?location_id=${cityId}&checkin=${dateFrom}&adults=${numberTraveler}&currency=EUR&nights=${numberNightsHotel}`,
       optionsHôtels
     )
       .then((response) => response.json())
@@ -39,21 +39,16 @@ function SearchTripHotels({ landing, setLanding, setDataHotels }) {
   };
   return (
     <Box sx={{ width: "100%" }}>
-      <Stack id="formStructure">
-        <TravelDestination
-          landing={landing}
-          setLanding={setLanding}
-          setCityId={setCityId}
-          cityId={cityId}
-        />
+      <Stack id="formStructure" spacing={1}>
+        <TravelDestinationHotel setCityId={setCityId} cityId={cityId} />
         <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
-        <BasicDatePickerRoundTrip
-          returnFrom={returnFrom}
-          setReturnFrom={setReturnFrom}
-        />
         <NumberTravelers
           numberTraveler={numberTraveler}
           setNumberTraveler={setNumberTraveler}
+        />
+        <NumberNightsHotel
+          numberNightsHotel={numberNightsHotel}
+          SetNumberNightsHotel={SetNumberNightsHotel}
         />
         <Stack id="formButtons">
           {/* call the API on click */}
