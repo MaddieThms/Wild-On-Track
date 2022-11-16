@@ -15,6 +15,7 @@ import SportsHandballIcon from "@mui/icons-material/SportsHandball";
 import SearchTripFlights from "./SearchTripFlights";
 import SearchTripHotels from "./SearchTripHotels";
 import SearchTripRestaurants from "./SearchTripRestaurant";
+import SearchTripActivites from "./SearchTripActivites";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -60,6 +61,8 @@ export default function SearchBar({
   setLanding,
   dataRestaurants,
   setDataRestaurants,
+  dataAttractions,
+  setDataAttractions,
 }) {
   const [value, setValue] = React.useState(0);
 
@@ -139,9 +142,9 @@ export default function SearchBar({
           />
         </TabPanel>
         <TabPanel value={value} index={3}>
-          <SearchTripRestaurants
-            setDataRestaurants={setDataRestaurants}
-            dataRestaurants={dataRestaurants}
+          <SearchTripActivites
+            setDataAttractions={setDataAttractions}
+            dataAttractions={dataAttractions}
             departure={departure}
             setDeparture={setDeparture}
             landing={landing}

@@ -38,6 +38,7 @@ function TravelDestination(props) {
 
   const myHeadersCity = new Headers();
   myHeadersCity.append("apikey", "S4_ycFnfXLe51IZIyjdezesd-2G0izxO");
+
   const requestOptionsCity = {
     method: "GET",
     headers: myHeadersCity,
