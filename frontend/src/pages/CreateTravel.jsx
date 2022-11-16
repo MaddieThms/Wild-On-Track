@@ -12,6 +12,8 @@ function CreateTravel({
   setDeparture,
   landing,
   setLanding,
+  dataAttractions,
+  setDataAttractions,
   setDataRestaurants,
   dataRestaurants,
 }) {
@@ -29,6 +31,8 @@ function CreateTravel({
         setDeparture={setDeparture}
         landing={landing}
         setLanding={setLanding}
+        dataAttractions={dataAttractions}
+        setDataAttractions={setDataAttractions}
       />
     </div>
   );

@@ -67,68 +67,36 @@ export default function FloatingActionButtonZoom({ flight }) {
     setValue(newValue);
   };
 
-  // je vais chercher les favoris dans mon local storage
-  /*   let favorites = JSON.parse(localStorage.getItem("favorites") || []);
-  // je verifie si un favori correspond à mon cityTo
-  let travel = favorites.find((element) => element.city === flight.cityTo);
-  // si ce n'est pas le cas, je le créé
-  if (travel === undefined) {
-    travel = {
-      city: flight.cityTo,
-      flights: [],
-      hostels: [],
-    };
-    favorites.push(travel);
-  }
-  // j'ajoute mon vol
-  travel.flights.push(flight);
-  localStorage.setItem("favorites", JSON.stringify(favorites));
- */
-  /* function for save flight in the local storage */
-
-  /*  function saveFlights(flightssave) {
-    return localStorage.setItem(flightssave, JSON.stringify(flightssave));
-  }
-
-  function addFlight(flightAdd) {
-    // eslint-disable-next-line prefer-const
-    let favoriteFlights = getFlights();
-    favoriteFlights.push(flightAdd);
-    saveFlights(favoriteFlights);
-  }
-*/
-  /*   function removeSaveFlight(flightsave) {
-    let favoriteFlights = getFlights();
-    favoriteFlights = favoriteFlights.filter((f) => f.id != flightsave.id);
-    localStorage.removeItem(flight.cityTo, flightsave);
-    saveFlights(favoriteFlights);
-  } 
-  
-  const removeStorage = () => {
-    const storedData = window.localStorage.games.split(“,”);
-    const newData = storedData.filter((id) => id != game.id);
-    window.localStorage.games = newData;
-    window.location.reload();
-  };
-  */
-
   /* This is for the favorite */
   const [isFavorite, setIsFavorite] = React.useState(false);
   function handleFavorite() {
     setIsFavorite(!isFavorite);
+    // je vais chercher les favoris dans mon local storage
     let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    // je verifie si un favori correspond à ma ville de destination
     let travel = favorites.find((element) => element.city === flight.cityTo);
     if (!isFavorite) {
+      // si ce n'est pas le cas, je le créé
       if (travel === undefined) {
         travel = {
           city: flight.cityTo,
+          hotels: [],
           flights: [],
-          hostels: [],
         };
         favorites.push(travel);
       }
-
+      // j'ajoute mon vol
       travel.flights.push(flight);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    } else {
+      // Si mon vol existe dans mes favoris je veux récupérer son index
+      if (travel != undefined) {
+        let flightIndex = travel.flights.findIndex(
+          (element) => element == flight.id
+        );
+        // Je veux supprimer ce vol selon son index
+        travel.flights.splice(flightIndex, 1);
+      }
       localStorage.setItem("favorites", JSON.stringify(favorites));
     }
   }
