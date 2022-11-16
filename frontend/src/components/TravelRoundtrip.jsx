@@ -14,19 +14,19 @@ export default function BasicDatePickerRoundTrip({
 
   return (
     <div>
-      <p>Date de retour</p>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <LocalizationProvider className="DatePicker" dateAdapter={AdapterDayjs}>
         <DatePicker
           className="label-form"
-          label="Basic example"
+          label="Date de retour"
           inputFormat="DD/MM/YYYY"
           value={value}
           onChange={(newValue) => {
             setValue(newValue);
             setReturnFrom(`${newValue.$D}/${newValue.$M + 1}/${newValue.$y}`);
-            // console.log(`${newValue.$D}/${newValue.$M + 1}/${newValue.$y}`);
           }}
-          renderInput={(params) => <TextField {...params} />}
+          renderInput={(params) => (
+            <TextField sx={{ width: 270 }} {...params} />
+          )}
         />
       </LocalizationProvider>
     </div>

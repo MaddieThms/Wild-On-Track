@@ -7,8 +7,8 @@
 
 /* cible chaque card restaurant individuellement */
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiCard-root.css-1l335vi-MuiPaper-root-MuiCard-root {
-    font-size: 1.1em;
-    max-width: 75vw;
+  font-size: 1.1em;
+  max-width: 75vw;
 }
 
 @media screen and (min-width: 1290px) {
@@ -19,7 +19,6 @@
     text-align: center;
     justify-content: center;
   }
-
 
   /* cible chaque card restaurant individuellement */
   .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiCard-root.css-1l335vi-MuiPaper-root-MuiCard-root {

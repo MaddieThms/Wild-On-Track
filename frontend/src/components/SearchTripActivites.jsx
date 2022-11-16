@@ -8,9 +8,9 @@ import { Link } from "react-router-dom";
 import TravelDate from "./TravelDate";
 import NumberTravelers from "./NumberTravelers";
 import "./SearchTrip.css";
-import TravelDestination from "./TravelDestination";
+import TravelDestinationHotel from "./TravelDestinationHotel";
 
-function SearchTripActivites({ landing, setLanding, setDataAttractions }) {
+function SearchTripActivites({ setDataAttractions }) {
   const [numberTraveler, setNumberTraveler] = useState("");
   const [dateFrom, setDateFrom] = useState("");
   const [cityId, setCityId] = useState("");
@@ -37,13 +37,8 @@ function SearchTripActivites({ landing, setLanding, setDataAttractions }) {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Stack id="formStructure">
-        <TravelDestination
-          landing={landing}
-          setLanding={setLanding}
-          setCityId={setCityId}
-          cityId={cityId}
-        />
+      <Stack id="formStructure" spacing={1}>
+        <TravelDestinationHotel setCityId={setCityId} cityId={cityId} />
         <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
         <NumberTravelers
           numberTraveler={numberTraveler}

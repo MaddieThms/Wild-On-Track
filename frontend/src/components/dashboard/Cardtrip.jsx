@@ -9,17 +9,18 @@ import Typography from "@mui/material/Typography";
 import ShareIcon from "@mui/icons-material/Share";
 import { Link } from "react-router-dom";
 
-export default function CardTrip({ showCardTrip }) {
+export default function CardTrip({ city }) {
   /*   function for date extraction */
-  function dateExtraction(date) {
+  /*   function dateExtraction(date) {
     const newDate = date.slice(0, 10);
     return newDate.split("-").reverse().join("-");
-  }
+  } */
+
   return (
     <Card
       elevation={0}
       sx={{ maxWidth: "90vw", border: "1px solid #eaa226" }}
-      showCardTrip={showCardTrip}
+      city={city}
     >
       <Link to="carnetvoyage">
         <CardMedia
@@ -30,12 +31,12 @@ export default function CardTrip({ showCardTrip }) {
         />
         <CardContent>
           <Typography variant="h5" sx={{ color: "#eaa226" }}>
-            {showCardTrip[0].cityTo}
+            {city}
           </Typography>
-          <Typography variant="p" color="text.secondary">
-            {dateExtraction(showCardTrip[0].local_departure)} -{" "}
-            {dateExtraction(showCardTrip[0].local_arrival)}
-          </Typography>
+          {/*           <Typography variant="p" color="text.secondary">
+            {dateExtraction(city[0].local_departure)} -{" "}
+            {dateExtraction(city[0].local_arrival)}
+          </Typography> */}
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label="share">
