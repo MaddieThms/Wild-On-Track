@@ -4,7 +4,7 @@
     gap: 30px;
     align-items: center;
   }
-  
+  /* cible chaque card hôtel individuellement */
   .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiCard-root.css-1l335vi-MuiPaper-root-MuiCard-root {
       font-size: 1.1em;
       max-width: 75vw;
@@ -19,6 +19,7 @@
       justify-content: center;
     }
   
+    /* cible chaque card hôtel individuellement */
     .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiCard-root.css-1l335vi-MuiPaper-root-MuiCard-root {
       font-size: 22px;
       font-size: 1.3em;
