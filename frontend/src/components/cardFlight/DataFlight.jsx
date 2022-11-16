@@ -67,25 +67,27 @@ export default function FloatingActionButtonZoom({ flight }) {
     setValue(newValue);
   };
 
-  /*  const trips = [
-    {
+  // je vais chercher les favoris dans mon local storage
+  /*   let favorites = JSON.parse(localStorage.getItem("favorites") || []);
+  // je verifie si un favori correspond à mon cityTo
+  let travel = favorites.find((element) => element.city === flight.cityTo);
+  // si ce n'est pas le cas, je le créé
+  if (travel === undefined) {
+    travel = {
       city: flight.cityTo,
-      flights: [{}],
-      hotels: [{}],
-    },
-  ];
+      flights: [],
+      hostels: [],
+    };
+    favorites.push(travel);
+  }
+  // j'ajoute mon vol
+  travel.flights.push(flight);
+  localStorage.setItem("favorites", JSON.stringify(favorites));
  */
   /* function for save flight in the local storage */
-  function saveFlights(flightssave) {
-    return localStorage.setItem(flight.cityTo, JSON.stringify(flightssave));
-  }
 
-  function getFlights() {
-    let flightssave = localStorage.getItem(flight.cityTo);
-    if (flightssave == null) {
-      return [];
-    }
-    return JSON.parse(flightssave);
+  /*  function saveFlights(flightssave) {
+    return localStorage.setItem(flightssave, JSON.stringify(flightssave));
   }
 
   function addFlight(flightAdd) {
@@ -94,22 +96,40 @@ export default function FloatingActionButtonZoom({ flight }) {
     favoriteFlights.push(flightAdd);
     saveFlights(favoriteFlights);
   }
-
-  function removeSaveFlight(flightsave) {
+*/
+  /*   function removeSaveFlight(flightsave) {
     let favoriteFlights = getFlights();
     favoriteFlights = favoriteFlights.filter((f) => f.id != flightsave.id);
     localStorage.removeItem(flight.cityTo, flightsave);
     saveFlights(favoriteFlights);
-  }
+  } 
+  
+  const removeStorage = () => {
+    const storedData = window.localStorage.games.split(“,”);
+    const newData = storedData.filter((id) => id != game.id);
+    window.localStorage.games = newData;
+    window.location.reload();
+  };
+  */
 
   /* This is for the favorite */
   const [isFavorite, setIsFavorite] = React.useState(false);
   function handleFavorite() {
     setIsFavorite(!isFavorite);
+    let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    let travel = favorites.find((element) => element.city === flight.cityTo);
     if (!isFavorite) {
-      addFlight(flight);
-    } else {
-      removeSaveFlight(flight);
+      if (travel === undefined) {
+        travel = {
+          city: flight.cityTo,
+          flights: [],
+          hostels: [],
+        };
+        favorites.push(travel);
+      }
+
+      travel.flights.push(flight);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
     }
   }
   /* const create for bugs with stopovers */

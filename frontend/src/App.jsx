@@ -78,7 +78,7 @@ function App() {
             />
           }
         />
-        <Route path="mes-carnets/carnetvoyage" element={<CarnetVoyage />} />
+        <Route path="carnetvoyage/:city" element={<CarnetVoyage />} />
       </Routes>
     </div>
   );
