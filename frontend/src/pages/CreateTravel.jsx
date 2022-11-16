@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import SearchTrip from "../components/SearchTrip";
+import SearchBar from "../components/SearchBar";
 import "./CreateTravel.css";
 
 function CreateTravel({
@@ -12,19 +12,27 @@ function CreateTravel({
   setDeparture,
   landing,
   setLanding,
+  dataAttractions,
+  setDataAttractions,
+  setDataRestaurants,
+  dataRestaurants,
 }) {
   return (
     <div className="travelSearch">
       <h1 className="title">Crée ton voyage </h1>
-      <SearchTrip
+      <SearchBar
         dataHotels={dataHotels}
         setDataHotels={setDataHotels}
         dataFlights={dataFlights}
         setDataFlights={setDataFlights}
+        setDataRestaurants={setDataRestaurants}
+        dataRestaurants={dataRestaurants}
         departure={departure}
         setDeparture={setDeparture}
         landing={landing}
         setLanding={setLanding}
+        dataAttractions={dataAttractions}
+        setDataAttractions={setDataAttractions}
       />
     </div>
   );

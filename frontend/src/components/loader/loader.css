@@ -1,15 +1,19 @@
-.loader{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
 }
 
 @keyframes fadeOut {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+  0% {
+    opacity: 0;
   }
+  100% {
+    opacity: 1;
+  }
+}
 
-.fade-in-image{
-    animation: fadeOut 1s; 
+.fade-in-image {
+  animation: fadeOut 1s;
 }
