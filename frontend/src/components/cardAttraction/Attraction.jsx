@@ -32,8 +32,17 @@ export default function Attraction({ attraction }) {
         <Typography variant="h5" sx={{ color: "#eaa226" }}>
           Name : {attraction.name}
         </Typography>
+        <div>Nombre d'avis :</div>
         <Typography variant="p" color="#40a798">
-          Reviews : {attraction.num_reviews}
+          {attraction.num_reviews}
+        </Typography>
+        <div>Description :</div>
+        <Typography variant="p" color="#40a798">
+          {attraction.description}
+        </Typography>
+        <div>Adresse :</div>
+        <Typography variant="p" color="#40a798">
+          {attraction.address}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
