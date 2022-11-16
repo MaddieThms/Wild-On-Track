@@ -2,7 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: none;
 }
 
-.label-icon {
+body {
+  background-image: url(assets/background.png);
+  background-size: cover;
+  height: 100vh;
 }

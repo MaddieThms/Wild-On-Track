@@ -7,14 +7,9 @@ import React, { useState } from "react";
 import { Box, Button, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import TravelDate from "./TravelDate";
-import TravelDestination from "./TravelDestinationHotel";
+import TravelDestinationHotel from "./TravelDestinationHotel";
 
-function SearchTripRestaurants({
-  landing,
-  setLanding,
-  dataRestaurants,
-  setDataRestaurants,
-}) {
+function SearchTripRestaurants({ dataRestaurants, setDataRestaurants }) {
   const [dateFrom, setDateFrom] = useState("");
   const [cityId, setCityId] = useState("");
 
@@ -41,12 +36,7 @@ function SearchTripRestaurants({
   return (
     <Box sx={{ width: "100%" }}>
       <Stack id="formStructure" spacing={1}>
-        <TravelDestination
-          landing={landing}
-          setLanding={setLanding}
-          setCityId={setCityId}
-          cityId={cityId}
-        />
+        <TravelDestinationHotel setCityId={setCityId} cityId={cityId} />
         <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
         <Stack id="formButtons">
           {/* call the API on click */}
