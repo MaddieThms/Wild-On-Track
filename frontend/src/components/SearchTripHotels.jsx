@@ -20,7 +20,7 @@ function SearchTripHotels({ landing, setLanding, setDataHotels }) {
   const optionsHôtels = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "18a90f29c7msh739768fbdc10db4p12a1c0jsn66ced0f61bca",
+      "X-RapidAPI-Key": "f906c38963msh20f7115f29f65a0p1eade9jsn22c7fcfa3563",
       "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
     },
   };

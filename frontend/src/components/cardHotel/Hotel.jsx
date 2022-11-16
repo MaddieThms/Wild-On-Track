@@ -22,67 +22,48 @@ export default function Hotel({ hotel }) {
     return string.replace(" Hotels", "");
   }
 
-  // /* function to put favorite hotel in local storage */
-  // function saveHotelsfav() {
-  //   // // je vais chercher les favoris dans mon local storage
-  //   // let favorites = JSON.parse(localStorage.getItem("favorites") || []);
-  //   // // je verifie si un favori correspond à mon cityTo
-  //   // let travel = favorites.find(
-  //   //   (element) => element.city === hotel.deleteHotelWord(autobroaden_label)
-  //   // );
-  //   // // si ce n'est pas le cas, je le créé
-  //   // if (travel === undefined) {
-  //   //   travel = {
-  //   //     city: hotel.autobroaden_label,
-  //   //     flights: [],
-  //   //     hostels: [],
-  //   //   };
-  //   //   favorites.push(travel);
-  //   // }
-  //   // // j'ajoute mon vol
-  //   // travel.hotels.push(hotel);
-  //   // localStorage.setItem("favorites", JSON.stringify(favorites));
+  /* function to remove favorite hotel from local storage */
+  // function removeSaveHotel() {
+  //   let favoriteHotels = saveHotelsFav();
+  //   favoriteHotels = favoriteHotels.filter((h) => h.id != hotelsave.id);
+  //   localStorage.removeItem(deleteHotelWord(hotel.autobroaden_label), hotelsave);
+  //   saveHotelsFav(favoriteHotels);
   // }
 
-  function saveHotels(hotelssave) {
-    localStorage.setItem(
-      deleteHotelWord(hotel.autobroaden_label),
-      JSON.stringify(hotelssave)
-    );
-  }
-
-  function getHotels() {
-    let hotelssave = localStorage.getItem(hotel.autobroaden_label);
-    if (hotelssave == null) {
-      return [];
-    }
-    return JSON.parse(hotelssave);
-  }
-
-  function addHotel(hotelAdd) {
-    // eslint-disable-next-line prefer-const
-    let favoriteHotels = getHotels();
-    favoriteHotels.push(hotelAdd);
-    saveHotels(favoriteHotels);
-  }
-
-  /* function to remove favorite hotel from local storage */
-  function removeSaveFlight(hotelsave) {
-    let favoriteHotels = getHotels();
-    favoriteHotels = favoriteHotels.filter((h) => h.id != hotelsave.id);
-    localStorage.removeItem(hotel.autobroaden_label, hotelsave);
-    saveHotels(favoriteHotels);
-  }
   /* function to execute functions put and remove favorite hotel in local storage depend on const isfavorite is true or false */
   function handleFavorite() {
     setIsFavorite(!isFavorite);
+    // je vais chercher les favoris dans mon local storage
+    let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    // je verifie si un favori correspond à ma ville où se trouve l'hôtel
+    let travel = favorites.find(
+      (element) => element.city === deleteHotelWord(hotel.autobroaden_label)
+    );
+    // si ce n'est pas le cas, je le créé
     if (!isFavorite) {
-      addHotel(hotel);
+      if (travel === undefined) {
+        travel = {
+          city: deleteHotelWord(hotel.autobroaden_label),
+          flights: [],
+          hotels: [],
+        };
+        favorites.push(travel);
+      }
+      // j'ajoute mon hôtel
+      travel.hotels.push(hotel);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
     } else {
-      removeSaveFlight(hotel);
+      // Si mon hôtel existe dans mes favoris je veux récupérer son index
+      if (travel != undefined) {
+        let hotelIndex = travel.hotels.findIndex(
+          (element) => element == hotel.id
+        );
+        // Je veux supprimer cet hôtel selon son index
+        travel.hotels.splice(hotelIndex, 1);
+      }
+      localStorage.setItem("favorites", JSON.stringify(favorites));
     }
   }
-
   return (
     <Card
       elevation={0}
