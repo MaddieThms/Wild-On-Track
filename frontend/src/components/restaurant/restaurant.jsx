@@ -64,6 +64,10 @@ export default function Restaurant({ restaurant }) {
         <Typography variant="p" color="#40a798" sx={{ fontSize: "1em" }}>
           Phone : {restaurant.phone}
         </Typography>
+        <br />
+        <Typography variant="p" color="#40a798" sx={{ fontSize: "1em" }}>
+          {restaurant.address}
+        </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="share">

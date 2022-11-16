@@ -1,16 +1,20 @@
 import React from "react";
-import "../components/Formulaire.css";
+import "../components/formulaire/Formulaire.css";
 import Footer from "../components/Footer";
 import About from "../components/About";
-import Form from "../components/Form";
+import Form from "../components/formulaire/Form";
 
 function Contact() {
   return (
-    <div className="container-contact">
+    <div>
       <h2 className="title-contact">Contact</h2>
-      <p className="message-contact">Un petit message pour plus info</p>
-      <Form />
-      <About />
+      <div className="container-contact">
+        <div className="container-title-form">
+          <p className="message-contact">Un petit message pour plus info</p>
+          <Form />
+        </div>
+        <About />
+      </div>
       <Footer />
     </div>
   );

@@ -32,3 +32,10 @@ a {
   border: 0;
   color: black;
 }
+
+@media screen and (min-width: 1290px) {
+  .ContainerBtnstrip .Btnstrip1,
+  .ContainerBtnstrip .Btnstrip2 {
+    width: 40vw;
+  }
+}

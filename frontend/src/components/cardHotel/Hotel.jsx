@@ -8,6 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import ShareIcon from "@mui/icons-material/Share";
 import StarRateIcon from "@mui/icons-material/StarRate";
+import "./Hotels.css";
 
 export default function Hotel({ hotel }) {
   const [isFavorite, setIsFavorite] = useState(false);

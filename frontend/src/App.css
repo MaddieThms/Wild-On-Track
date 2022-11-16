@@ -10,3 +10,10 @@ body {
   background-size: cover;
   height: 100vh;
 }
+
+.title-cards {
+  font-size: 35px;
+  color: #eaa226;
+  margin-top: 80px;
+  text-align: center;
+}

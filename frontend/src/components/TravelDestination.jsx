@@ -16,7 +16,7 @@ function TravelDestination(props) {
   const optionsCityHôtels = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "18a90f29c7msh739768fbdc10db4p12a1c0jsn66ced0f61bca",
+      "X-RapidAPI-Key": "05405b3854mshd5944f4020e59b0p126d9fjsn1f22ffcff455",
       "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
     },
   };
