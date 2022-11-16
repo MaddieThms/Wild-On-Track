@@ -85,10 +85,27 @@ export default function SearchBar({
             onChange={handleChange}
             aria-label="basic tabs example"
           >
-            <Tab icon={<FlightIcon />} label="" {...a11yProps(0)} />
-            <Tab icon={<HotelIcon />} label="" {...a11yProps(1)} />
-            <Tab icon={<RestaurantIcon />} label="" {...a11yProps(2)} />
-            <Tab icon={<SportsHandballIcon />} label="" {...a11yProps(3)} />
+            <Tab
+              icon={<FlightIcon sx={{ color: "#fff" }} />}
+              label=""
+              {...a11yProps(0)}
+              sx={{ color: "#fff" }}
+            />
+            <Tab
+              icon={<HotelIcon sx={{ color: "#fff" }} />}
+              label=""
+              {...a11yProps(1)}
+            />
+            <Tab
+              icon={<RestaurantIcon sx={{ color: "#fff" }} />}
+              label=""
+              {...a11yProps(2)}
+            />
+            <Tab
+              icon={<SportsHandballIcon sx={{ color: "#fff" }} />}
+              label=""
+              {...a11yProps(3)}
+            />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
