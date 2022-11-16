@@ -24,5 +24,6 @@
   .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiCard-root.css-1l335vi-MuiPaper-root-MuiCard-root {
     font-size: 22px;
     font-size: 1.3em;
+    min-height: 370px;
   }
 }
