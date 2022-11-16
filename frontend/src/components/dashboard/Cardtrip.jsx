@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import ShareIcon from "@mui/icons-material/Share";
 
-export default function CardTrip() {
+export default function CardTrip({ city }) {
   /*   function for date extraction */
 
   return (
@@ -21,14 +21,7 @@ export default function CardTrip() {
       />
       <CardContent>
         <Typography variant="h5" sx={{ color: "#eaa226" }}>
-          test
-        </Typography>
-        <Typography variant="p" color="text.secondary">
-          {/* {dateExtraction(showCardTrip[0].flights[0].local_departure)} -{" "}
-            {dateExtraction(
-              showCardTrip[0].flights[0].route[2].local_departure
-            )} */}
-          {/* {city.flights[0].local_departure} */}
+          {city.city}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

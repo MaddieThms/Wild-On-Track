@@ -26,7 +26,7 @@ export default function BasicGrid() {
     <div className="centerCardTrip">
       {showCardTrip.map((city) => (
         <Link to={`/carnetvoyage/${city.city}`}>
-          <CardTrip key={id} />
+          <CardTrip key={id} city={city} />
         </Link>
       ))}
     </div>
