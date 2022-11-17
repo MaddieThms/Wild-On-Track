@@ -1,18 +1,11 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import Hotel from "./Hotel";
+import "./Hotels.css";
 
 function Hotels({ dataHotels }) {
   return (
-    <div
-      className="cardhotels"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "30px",
-        alignItems: "center",
-      }}
-    >
+    <div className="cardHotels">
       {dataHotels.map((hotel) => (
         <Hotel key={hotel.id} hotel={hotel} />
       ))}

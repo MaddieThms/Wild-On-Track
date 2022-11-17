@@ -3,10 +3,10 @@ import React from "react";
 import DataFlight from "./DataFlight";
 import "./flight.css";
 
-function Flight({ flight }) {
+function Flight({ landing, flight }) {
   return (
     <div className="cardflight">
-      <DataFlight flight={flight} />
+      <DataFlight flight={flight} landing={landing} />
     </div>
   );
 }

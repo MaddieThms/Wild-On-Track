@@ -16,6 +16,8 @@ import SearchTripFlights from "./SearchTripFlights";
 import SearchTripHotels from "./SearchTripHotels";
 import SearchTripRestaurants from "./SearchTripRestaurant";
 import SearchTripActivites from "./SearchTripActivites";
+import "../App.css";
+import "./SearchBar.css";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -74,6 +76,7 @@ export default function SearchBar({
     <div>
       <Box sx={{ bgcolor: "background.paper", width: "100%" }}>
         <Box
+          className="searchBar"
           sx={{
             borderBottom: 1,
             borderColor: "divider",
@@ -89,22 +92,26 @@ export default function SearchBar({
             aria-label="basic tabs example"
           >
             <Tab
+              className="icon-tab"
               icon={<FlightIcon sx={{ color: "#fff" }} />}
               label=""
               {...a11yProps(0)}
               sx={{ color: "#fff" }}
             />
             <Tab
+              className="icon-tab"
               icon={<HotelIcon sx={{ color: "#fff" }} />}
               label=""
               {...a11yProps(1)}
             />
             <Tab
+              className="icon-tab"
               icon={<RestaurantIcon sx={{ color: "#fff" }} />}
               label=""
               {...a11yProps(2)}
             />
             <Tab
+              className="icon-tab"
               icon={<SportsHandballIcon sx={{ color: "#fff" }} />}
               label=""
               {...a11yProps(3)}

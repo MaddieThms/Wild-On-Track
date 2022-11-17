@@ -67,41 +67,37 @@ export default function FloatingActionButtonZoom({ flight }) {
     setValue(newValue);
   };
 
-  /* function for save flight in the local storage */
-  function saveFlights(flightssave) {
-    return localStorage.setItem("flightssave", JSON.stringify(flightssave));
-  }
-
-  function getFlights() {
-    let flightssave = localStorage.getItem("flightssave");
-    if (flightssave == null) {
-      return [];
-    }
-    return JSON.parse(flightssave);
-  }
-
-  function addFlight(flightAdd) {
-    // eslint-disable-next-line prefer-const
-    let favoriteFlights = getFlights();
-    favoriteFlights.push(flightAdd);
-    saveFlights(favoriteFlights);
-  }
-
-  function removeSaveFlight(flightsave) {
-    let favoriteFlights = getFlights();
-    favoriteFlights = favoriteFlights.filter((f) => f.id != flightsave.id);
-    localStorage.removeItem("flightssave", flightsave);
-    saveFlights(favoriteFlights);
-  }
-
   /* This is for the favorite */
   const [isFavorite, setIsFavorite] = React.useState(false);
   function handleFavorite() {
     setIsFavorite(!isFavorite);
+    // je vais chercher les favoris dans mon local storage
+    let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    // je verifie si un favori correspond à ma ville de destination
+    let travel = favorites.find((element) => element.city === flight.cityTo);
     if (!isFavorite) {
-      addFlight(flight);
+      // si ce n'est pas le cas, je le créé
+      if (travel === undefined) {
+        travel = {
+          city: flight.cityTo,
+          hotels: [],
+          flights: [],
+        };
+        favorites.push(travel);
+      }
+      // j'ajoute mon vol
+      travel.flights.push(flight);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
     } else {
-      removeSaveFlight(flight);
+      // Si mon vol existe dans mes favoris je veux récupérer son index
+      if (travel != undefined) {
+        let flightIndex = travel.flights.findIndex(
+          (element) => element == flight.id
+        );
+        // Je veux supprimer ce vol selon son index
+        travel.flights.splice(flightIndex, 1);
+      }
+      localStorage.setItem("favorites", JSON.stringify(favorites));
     }
   }
   /* const create for bugs with stopovers */

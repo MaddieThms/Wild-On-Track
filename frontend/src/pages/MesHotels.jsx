@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import PageTitle from "../components/pagetitle/PageTitle";
 import OptionsFilter from "../components/OptionsFilter";
 import Hotels from "../components/cardHotel/Hotels";
 import Footer from "../components/Footer";
+import "../App.css";
 
-function MesHotels({ departure, landing, dataHotels }) {
+function MesHotels({ dataHotels }) {
   return (
     <div>
-      <PageTitle departure={departure} landing={landing} />
+      <h1 className="title-cards">Hotels</h1>
       <OptionsFilter />
       <br />
       <Hotels dataHotels={dataHotels} />

@@ -9,10 +9,10 @@ function handleSubmit(e) {
 
 function Form() {
   return (
-    <div>
+    <div className="formulaire">
       <Card>
         <CardContent>
-          <form className="form">
+          <form onSubmit={handleSubmit} className="form">
             <Grid className="container-label" container spacing={3}>
               <Grid xs={12} item>
                 <TextField
@@ -57,12 +57,7 @@ function Form() {
                   required
                 />
               </Grid>
-              <Button
-                onClick={handleSubmit}
-                type="submit"
-                className="button-form"
-                variant="contained"
-              >
+              <Button type="submit" className="button-form" variant="contained">
                 Envoyer
               </Button>
             </Grid>

@@ -14,11 +14,14 @@ export default function Restaurant({ restaurant }) {
 
   /* function to put favorite restaurant in local storage */
   function saveRestaurants(restaurantsave) {
-    localStorage.setItem("restaurantsave", JSON.stringify(restaurantsave));
+    localStorage.setItem(
+      restaurant.ranking_geo,
+      JSON.stringify(restaurantsave)
+    );
   }
   /* function to remove favorite restaurant from local storage */
   function removeSaveRestaurant(restaurantsave) {
-    localStorage.removeItem("restaurantsave", restaurantsave);
+    localStorage.removeItem(restaurant.ranking_geo, restaurantsave);
   }
   /* function to execute functions put and remove favorite restaurant in local storage depend on const isfavorite is true or false */
   function handleFavorite() {
@@ -63,6 +66,10 @@ export default function Restaurant({ restaurant }) {
         </Typography>
         <Typography variant="p" color="#40a798" sx={{ fontSize: "1em" }}>
           Phone : {restaurant.phone}
+        </Typography>
+        <br />
+        <Typography variant="p" color="#40a798" sx={{ fontSize: "1em" }}>
+          {restaurant.address}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

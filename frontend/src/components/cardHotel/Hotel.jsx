@@ -1,4 +1,9 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable prefer-const */
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable react/prop-types */
+/* import React from "react"; */
 import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
@@ -8,28 +13,58 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import ShareIcon from "@mui/icons-material/Share";
 import StarRateIcon from "@mui/icons-material/StarRate";
+import "./Hotels.css";
 
 export default function Hotel({ hotel }) {
   const [isFavorite, setIsFavorite] = useState(false);
 
-  /* function to put favorite hotel in local storage */
-  function saveHotels(hotelsave) {
-    localStorage.setItem("hotelsave", JSON.stringify(hotelsave));
+  /* function to get the hotel's city */
+  function deleteHotelWord(string) {
+    return string.replace(" Hotels", "");
   }
+
   /* function to remove favorite hotel from local storage */
-  function removeSaveFlight(hotelsave) {
-    localStorage.removeItem("hotelsave", hotelsave);
-  }
+  // function removeSaveHotel() {
+  //   let favoriteHotels = saveHotelsFav();
+  //   favoriteHotels = favoriteHotels.filter((h) => h.id != hotelsave.id);
+  //   localStorage.removeItem(deleteHotelWord(hotel.autobroaden_label), hotelsave);
+  //   saveHotelsFav(favoriteHotels);
+  // }
+
   /* function to execute functions put and remove favorite hotel in local storage depend on const isfavorite is true or false */
   function handleFavorite() {
     setIsFavorite(!isFavorite);
+    // je vais chercher les favoris dans mon local storage
+    let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    // je verifie si un favori correspond à ma ville où se trouve l'hôtel
+    let travel = favorites.find(
+      (element) => element.city === deleteHotelWord(hotel.autobroaden_label)
+    );
+    // si ce n'est pas le cas, je le créé
     if (!isFavorite) {
-      saveHotels(hotel);
+      if (travel === undefined) {
+        travel = {
+          city: deleteHotelWord(hotel.autobroaden_label),
+          flights: [],
+          hotels: [],
+        };
+        favorites.push(travel);
+      }
+      // j'ajoute mon hôtel
+      travel.hotels.push(hotel);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
     } else {
-      removeSaveFlight(hotel);
+      // Si mon hôtel existe dans mes favoris je veux récupérer son index
+      if (travel != undefined) {
+        let hotelIndex = travel.hotels.findIndex(
+          (element) => element == hotel.id
+        );
+        // Je veux supprimer cet hôtel selon son index
+        travel.hotels.splice(hotelIndex, 1);
+      }
+      localStorage.setItem("favorites", JSON.stringify(favorites));
     }
   }
-
   return (
     <Card
       elevation={0}
