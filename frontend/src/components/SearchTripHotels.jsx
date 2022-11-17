@@ -9,14 +9,18 @@ import TravelDate from "./TravelDate";
 import NumberTravelers from "./NumberTravelers";
 import NumberNightsHotel from "./NumberNightsHotel";
 import "./SearchTrip.css";
-import TravelDestinationHotel from "./TravelDestinationHotel";
+import TravelDestination from "./TravelDestination";
 
-function SearchTripHotels({ setDataHotels }) {
+function SearchTripHotels({
+  setDataHotels,
+  cityId,
+  setCityId,
+  cityName,
+  setCityName,
+}) {
   const [numberTraveler, setNumberTraveler] = useState("");
   const [dateFrom, setDateFrom] = useState("");
   const [numberNightsHotel, SetNumberNightsHotel] = useState("");
-  const [cityId, setCityId] = useState("");
-  const [cityName, setCityName] = useState("");
 
   const optionsHôtels = {
     method: "GET",
@@ -41,7 +45,7 @@ function SearchTripHotels({ setDataHotels }) {
   return (
     <Box sx={{ width: "100%" }}>
       <Stack id="formStructure" spacing={1}>
-        <TravelDestinationHotel
+        <TravelDestination
           setCityId={setCityId}
           cityId={cityId}
           cityName={cityName}

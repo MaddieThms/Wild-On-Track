@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 
-function TravelDestinationHotel({ cityId, setCityId, cityName, setCityName }) {
+function TravelDestination({ cityId, setCityId, cityName, setCityName }) {
   const optionsCityHôtels = {
     method: "GET",
     headers: {
@@ -51,4 +51,4 @@ function TravelDestinationHotel({ cityId, setCityId, cityName, setCityName }) {
   );
 }
 
-export default TravelDestinationHotel;
+export default TravelDestination;

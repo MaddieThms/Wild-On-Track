@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import TravelDate from "./TravelDate";
 import NumberTravelers from "./NumberTravelers";
 import "./SearchTrip.css";
-import TravelDestinationHotel from "./TravelDestinationHotel";
+import TravelDestinationHotel from "./TravelDestination";
 
 function SearchTripActivites({ setDataAttractions }) {
   const [numberTraveler, setNumberTraveler] = useState("");
