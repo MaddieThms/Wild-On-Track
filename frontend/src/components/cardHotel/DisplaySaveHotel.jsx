@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import {
   Card,
   CardActions,
@@ -6,12 +7,51 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
+import StarRateIcon from "@mui/icons-material/StarRate";
 import ShareIcon from "@mui/icons-material/Share";
 import React from "react";
+import "./displaysavehotel.css";
 
-function displaySaveHotel({ hotel }) {
+function displaySaveHotel({ hotel, isFavorite, setIsFavorite }) {
+  /* function to get the hotel's city */
+  function deleteHotelWord(string) {
+    return string.replace(" Hotels", "");
+  }
+  function handleFavorite() {
+    setIsFavorite(!isFavorite);
+    // je vais chercher les favoris dans mon local storage
+    let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    // je verifie si un favori correspond à ma ville où se trouve l'hôtel
+    let travel = favorites.find(
+      (element) => element.city === deleteHotelWord(hotel.autobroaden_label)
+    );
+    // si ce n'est pas le cas, je le créé
+    if (!isFavorite) {
+      if (travel === undefined) {
+        travel = {
+          city: deleteHotelWord(hotel.autobroaden_label),
+          flights: [],
+          hotels: [],
+        };
+        favorites.push(travel);
+      }
+      // j'ajoute mon hôtel
+      travel.hotels.push(hotel);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    } else {
+      // Si mon hôtel existe dans mes favoris je veux récupérer son index
+      if (travel !== undefined) {
+        let hotelIndex = travel.hotels.findIndex(
+          (element) => element === hotel.id
+        );
+        // Je veux supprimer cet hôtel selon son index
+        travel.hotels.splice(hotelIndex, 1);
+      }
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+  }
   return (
-    <div>
+    <div className="cardhotelfavorite">
       <Card
         elevation={0}
         sx={{
@@ -49,6 +89,10 @@ function displaySaveHotel({ hotel }) {
         <CardActions disableSpacing>
           <IconButton aria-label="share">
             <ShareIcon />
+            <StarRateIcon
+              onClick={() => handleFavorite()}
+              sx={isFavorite ? { color: "#eaa226" } : { color: "#d1d1d1" }}
+            />
           </IconButton>
         </CardActions>
       </Card>

@@ -3,7 +3,6 @@ import React from "react";
 import OptionsFilter from "./OptionsFilter";
 import PageTitle from "./pagetitle/PageTitle";
 import Flights from "./cardFlight/Flights";
-import "./chooseflight.css";
 
 function ChooseFlight({ dataFlights, departure, landing }) {
   return (
