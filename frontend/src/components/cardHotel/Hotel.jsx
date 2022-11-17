@@ -22,15 +22,6 @@ export default function Hotel({ hotel }) {
   function deleteHotelWord(string) {
     return string.replace(" Hotels", "");
   }
-
-  /* function to remove favorite hotel from local storage */
-  // function removeSaveHotel() {
-  //   let favoriteHotels = saveHotelsFav();
-  //   favoriteHotels = favoriteHotels.filter((h) => h.id != hotelsave.id);
-  //   localStorage.removeItem(deleteHotelWord(hotel.autobroaden_label), hotelsave);
-  //   saveHotelsFav(favoriteHotels);
-  // }
-
   /* function to execute functions put and remove favorite hotel in local storage depend on const isfavorite is true or false */
   function handleFavorite() {
     setIsFavorite(!isFavorite);
@@ -47,6 +38,8 @@ export default function Hotel({ hotel }) {
           city: deleteHotelWord(hotel.autobroaden_label),
           flights: [],
           hotels: [],
+          restaurants: [],
+          attractions: [],
         };
         favorites.push(travel);
       }

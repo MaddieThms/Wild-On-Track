@@ -82,6 +82,8 @@ export default function FloatingActionButtonZoom({ flight }) {
           city: flight.cityTo,
           hotels: [],
           flights: [],
+          restaurants: [],
+          attractions: [],
         };
         favorites.push(travel);
       }
