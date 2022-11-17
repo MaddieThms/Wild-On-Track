@@ -16,11 +16,12 @@ function SearchTripHotels({ setDataHotels }) {
   const [dateFrom, setDateFrom] = useState("");
   const [numberNightsHotel, SetNumberNightsHotel] = useState("");
   const [cityId, setCityId] = useState("");
+  const [cityName, setCityName] = useState("");
 
   const optionsHôtels = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "05405b3854mshd5944f4020e59b0p126d9fjsn1f22ffcff455",
+      "X-RapidAPI-Key": "62a6e40615msh22f16898c2ba9cep1a5d8djsn6c6ec76ac11f",
       "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
     },
   };
@@ -40,7 +41,12 @@ function SearchTripHotels({ setDataHotels }) {
   return (
     <Box sx={{ width: "100%" }}>
       <Stack id="formStructure" spacing={1}>
-        <TravelDestinationHotel setCityId={setCityId} cityId={cityId} />
+        <TravelDestinationHotel
+          setCityId={setCityId}
+          cityId={cityId}
+          cityName={cityName}
+          setCityName={setCityName}
+        />
         <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
         <NumberTravelers
           numberTraveler={numberTraveler}
