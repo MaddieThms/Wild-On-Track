@@ -18,6 +18,7 @@ import { Bookmarks, Call, Flight, Home } from "@mui/icons-material";
 import { ListItemIcon } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import logoImg from "../assets/logo.png";
+import "./Navbar.css";
 
 const drawerWidth = 240;
 

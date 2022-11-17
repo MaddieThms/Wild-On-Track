@@ -9,6 +9,7 @@
 div.cardRestaurants > div.MuiPaper-root {
   font-size: 1.1em;
   max-width: 75vw;
+  min-height: 370px;
 }
 
 @media screen and (min-width: 1290px) {
