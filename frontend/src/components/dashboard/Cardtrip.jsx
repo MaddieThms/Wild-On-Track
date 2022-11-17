@@ -6,7 +6,6 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import ShareIcon from "@mui/icons-material/Share";
 
 export default function CardTrip({ city }) {
   /*   function for date extraction */
@@ -72,9 +71,7 @@ export default function CardTrip({ city }) {
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
+          <IconButton aria-label="share" />
         </CardActions>
       </Card>
     )
