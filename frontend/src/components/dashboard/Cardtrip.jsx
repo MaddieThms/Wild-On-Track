@@ -10,14 +10,46 @@ import ShareIcon from "@mui/icons-material/Share";
 
 export default function CardTrip({ city }) {
   /*   function for date extraction */
+  const [urlImageCity, setUrlImageCity] = React.useState("");
+  const imageCity = city.city;
+
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "62a6e40615msh22f16898c2ba9cep1a5d8djsn6c6ec76ac11f",
+      "X-RapidAPI-Host": "bing-image-search1.p.rapidapi.com",
+    },
+  };
+
+  async function getFetchData() {
+    await fetch(
+      `https://bing-image-search1.p.rapidapi.com/images/search?q=${imageCity}`,
+      options
+    )
+      .then((response) => response.json())
+      .then((response) => setUrlImageCity(response.value[0].contentUrl))
+      .catch((err) => console.error(err));
+  }
+
+  React.useEffect(() => {
+    getFetchData();
+  }, [CardMedia]);
 
   return (
-    <Card elevation={0} sx={{ maxWidth: "90vw", border: "1px solid #eaa226" }}>
+    <Card
+      elevation={0}
+      sx={{
+        maxWidth: "90vw",
+        boxShadow: "rgba(	100,100,111, 0.5) 0px 7px 29px 0px",
+        borderRadius: "20px",
+        mb: 3,
+      }}
+    >
       <CardMedia
         component="img"
         height="194"
-        image="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dHJpcHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
-        alt=""
+        image={urlImageCity}
+        alt={imageCity != null ? `image ${imageCity}` : getFetchData()}
       />
       <CardContent>
         <Typography variant="h5" sx={{ color: "#eaa226" }}>
