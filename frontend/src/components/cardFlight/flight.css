@@ -44,3 +44,15 @@
 .price {
   color: #eba226;
 }
+
+@media screen and (min-width: 1290px) {
+  .cardflights {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .cardflight {
+    width: 750px;
+    margin: 20px;
+  }
+}

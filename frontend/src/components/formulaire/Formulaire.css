@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+.formulaire {
+  margin: 30px 40px;
+}
+
 .form {
   margin: 40px;
 }
@@ -24,11 +28,18 @@
   border-radius: 10px;
 }
 
-.title-about,
+.title-about {
+  color: #40a798;
+  font-family: "Roboto Mono", monospace;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
 .title-contact {
   color: #40a798;
   font-family: "Roboto Mono", monospace;
   margin-bottom: 20px;
+  font-size: 30px;
 }
 
 .message-title {
@@ -53,4 +64,29 @@
   border-radius: 100%;
   padding: 50px;
   margin: 5px;
+}
+
+@media screen and (min-width: 1290px) {
+  .formulaire {
+    margin: 30px 50px 0;
+    width: 700px;
+  }
+
+  .title-contact {
+    margin-top: 31px;
+  }
+  .message-about {
+    margin: 0 50px;
+  }
+
+  .message-contact {
+    margin-top: 35px;
+  }
+
+  .container-contact {
+    display: flex;
+  }
+  .circle {
+    margin: 20px 60px;
+  }
 }
