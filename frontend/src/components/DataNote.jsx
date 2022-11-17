@@ -23,18 +23,16 @@ export default function DataNote() {
         noValidate
         autoComplete="off"
       >
-        <div>
-          <TextField
-            sx={{ backgroundColor: "#E4F1F3" }}
-            id="outlined-multiline-static"
-            label={<EditIcon text="dd" fontSize="large" />}
-            placeholder="Mes notes de voyages"
-            multiline
-            maxRows={12}
-            minRows={5}
-            color="warning"
-          />
-        </div>
+        <TextField
+          sx={{ backgroundColor: "#E4F1F3" }}
+          id="outlined-multiline-static"
+          label={<EditIcon text="dd" fontSize="large" />}
+          placeholder="Mes notes de voyages"
+          multiline
+          maxRows={12}
+          minRows={5}
+          color="warning"
+        />
       </Box>
     </div>
   );

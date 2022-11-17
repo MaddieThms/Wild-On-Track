@@ -50,7 +50,7 @@ export default function CarnetVoyage() {
         <h5>Mes hotels en favoris :</h5>
         <OptionsFilter />
       </div>
-      <div lassName="container-hotel">
+      <div className="container-hotel">
         {dataCity.hotels
           ? dataCity.hotels.map((hotel) => <DisplaySaveHotel hotel={hotel} />)
           : null}
