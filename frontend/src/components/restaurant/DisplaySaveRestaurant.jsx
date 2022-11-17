@@ -10,9 +10,9 @@ import {
 import StarRateIcon from "@mui/icons-material/StarRate";
 import ShareIcon from "@mui/icons-material/Share";
 import React from "react";
-import "./displaysavehotel.css";
+import "../cardHotel/displaysavehotel.css";
 
-function displaySaveHotel({ hotel }) {
+function displaySaveRestaurant({ restaurant }) {
   const [isFavorite, setIsFavorite] = React.useState(true);
   /* function to get the hotel's city */
   function deleteHotelWord(string) {
@@ -24,29 +24,30 @@ function displaySaveHotel({ hotel }) {
     let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     // je verifie si un favori correspond à ma ville où se trouve l'hôtel
     let travel = favorites.find(
-      (element) => element.city === deleteHotelWord(hotel.autobroaden_label)
+      (element) =>
+        element.city === deleteHotelWord(restaurant.autobroaden_label)
     );
     // si ce n'est pas le cas, je le créé
     if (!isFavorite) {
       if (travel === undefined) {
         travel = {
-          city: deleteHotelWord(hotel.autobroaden_label),
+          city: deleteHotelWord(restaurant.autobroaden_label),
           flights: [],
           hotels: [],
         };
         favorites.push(travel);
       }
       // j'ajoute mon hôtel
-      travel.hotels.push(hotel);
+      travel.restaurants.push(restaurant);
       localStorage.setItem("favorites", JSON.stringify(favorites));
     } else {
       // Si mon hôtel existe dans mes favoris je veux récupérer son index
       if (travel !== undefined) {
-        let hotelIndex = travel.hotels.findIndex(
-          (element) => element === hotel.id
+        let hotelIndex = travel.restaurants.findIndex(
+          (element) => element === restaurant.id
         );
         // Je veux supprimer cet hôtel selon son index
-        travel.hotels.splice(hotelIndex, 1);
+        travel.restaurants.splice(hotelIndex, 1);
       }
       localStorage.setItem("favorites", JSON.stringify(favorites));
     }
@@ -65,11 +66,11 @@ function displaySaveHotel({ hotel }) {
           component="img"
           height="194"
           image={
-            hotel.photo?.images?.medium
-              ? hotel.photo.images.medium.url
+            restaurant.photo?.images?.medium
+              ? restaurant.photo.images.medium.url
               : "https://img.freepik.com/vecteurs-premium/fond-batiment-hotel-plat_23-2148146118.jpg?w=826"
           }
-          alt={hotel.name}
+          alt={restaurant.name}
         />
         <CardContent>
           <Typography
@@ -81,10 +82,10 @@ function displaySaveHotel({ hotel }) {
               maxWidth: "600px",
             }}
           >
-            {hotel.name}
+            {restaurant.name}
           </Typography>
           <Typography variant="p" color="#40a798" sx={{ fontSize: "1em" }}>
-            Price : {hotel.price}
+            Price : {restaurant.price}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
@@ -101,4 +102,4 @@ function displaySaveHotel({ hotel }) {
   ) : null;
 }
 
-export default displaySaveHotel;
+export default displaySaveRestaurant;
