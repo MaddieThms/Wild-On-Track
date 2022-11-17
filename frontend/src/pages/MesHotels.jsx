@@ -2,7 +2,6 @@
 import React from "react";
 import OptionsFilter from "../components/OptionsFilter";
 import Hotels from "../components/cardHotel/Hotels";
-import Footer from "../components/Footer";
 import "../App.css";
 
 function MesHotels({ dataHotels }) {
@@ -12,7 +11,6 @@ function MesHotels({ dataHotels }) {
       <OptionsFilter />
       <br />
       <Hotels dataHotels={dataHotels} />
-      <Footer />
     </div>
   );
 }

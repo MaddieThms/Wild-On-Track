@@ -9,18 +9,23 @@ import TravelDate from "./TravelDate";
 import NumberTravelers from "./NumberTravelers";
 import NumberNightsHotel from "./NumberNightsHotel";
 import "./SearchTrip.css";
-import TravelDestinationHotel from "./TravelDestinationHotel";
+import TravelDestination from "./TravelDestination";
 
-function SearchTripHotels({ setDataHotels }) {
+function SearchTripHotels({
+  setDataHotels,
+  cityId,
+  setCityId,
+  cityName,
+  setCityName,
+}) {
   const [numberTraveler, setNumberTraveler] = useState("");
   const [dateFrom, setDateFrom] = useState("");
   const [numberNightsHotel, SetNumberNightsHotel] = useState("");
-  const [cityId, setCityId] = useState("");
 
   const optionsHôtels = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "5fe208d44dmsh69bf3aada22853ep1e4a3bjsn70ba3b445000",
+      "X-RapidAPI-Key": "62a6e40615msh22f16898c2ba9cep1a5d8djsn6c6ec76ac11f",
       "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
     },
   };
@@ -40,7 +45,12 @@ function SearchTripHotels({ setDataHotels }) {
   return (
     <Box sx={{ width: "100%" }}>
       <Stack id="formStructure" spacing={1}>
-        <TravelDestinationHotel setCityId={setCityId} cityId={cityId} />
+        <TravelDestination
+          setCityId={setCityId}
+          cityId={cityId}
+          cityName={cityName}
+          setCityName={setCityName}
+        />
         <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
         <NumberTravelers
           numberTraveler={numberTraveler}

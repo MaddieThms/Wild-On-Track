@@ -7,11 +7,16 @@ import React, { useState } from "react";
 import { Box, Button, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import TravelDate from "./TravelDate";
-import TravelDestinationHotel from "./TravelDestinationHotel";
+import TravelDestination from "./TravelDestination";
 
-function SearchTripRestaurants({ dataRestaurants, setDataRestaurants }) {
+function SearchTripRestaurants({
+  setDataRestaurants,
+  cityId,
+  setCityId,
+  cityName,
+  setCityName,
+}) {
   const [dateFrom, setDateFrom] = useState("");
-  const [cityId, setCityId] = useState("");
 
   const optionsRestaurant = {
     method: "GET",
@@ -29,14 +34,19 @@ function SearchTripRestaurants({ dataRestaurants, setDataRestaurants }) {
       .then((response) => response.json())
       .then((result) => {
         setDataRestaurants(result.data);
-        console.warn(dataRestaurants);
+        console.warn(cityId);
       })
       .catch((err) => console.error(err));
   };
   return (
     <Box sx={{ width: "100%" }}>
       <Stack id="formStructure" spacing={1}>
-        <TravelDestinationHotel setCityId={setCityId} cityId={cityId} />
+        <TravelDestination
+          setCityId={setCityId}
+          cityId={cityId}
+          cityName={cityName}
+          setCityName={setCityName}
+        />
         <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
         <Stack id="formButtons">
           {/* call the API on click */}
