@@ -6,6 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
 
 export default function CardTrip({ city }) {
   /*   function for date extraction */
@@ -50,30 +51,39 @@ export default function CardTrip({ city }) {
 
   return (
     urlImageCity && (
-      <Card
-        elevation={0}
-        sx={{
-          maxWidth: "90vw",
-          boxShadow: "rgba(	100,100,111, 0.5) 0px 7px 29px 0px",
-          borderRadius: "20px",
-          mb: 3,
-        }}
+      <Grid
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        item
+        xs="auto"
       >
-        <CardMedia
-          component="img"
-          height="194"
-          image={urlImageCity}
-          alt={imageCity ? `image ${imageCity}` : "image"}
-        />
-        <CardContent>
-          <Typography variant="h5" sx={{ color: "#eaa226" }}>
-            {city.city}
-          </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
-          <IconButton aria-label="share" />
-        </CardActions>
-      </Card>
+        <Card
+          sx={{
+            boxShadow: "rgba(	100,100,111, 0.5) 0px 7px 29px 0px",
+            borderRadius: "20px",
+            mb: 3,
+            width: 1,
+            maxWidth: "sm",
+          }}
+        >
+          <CardMedia
+            component="img"
+            height="194"
+            image={urlImageCity}
+            alt={imageCity ? `image ${imageCity}` : "image"}
+          />
+          <CardContent>
+            <Typography variant="h5" sx={{ color: "#eaa226" }}>
+              {city.city}
+            </Typography>
+          </CardContent>
+          <CardActions disableSpacing>
+            <IconButton aria-label="share" />
+          </CardActions>
+        </Card>
+      </Grid>
     )
   );
 }
