@@ -1,4 +1,5 @@
-.MuiToolbar-root.MuiToolbar-gutters.MuiToolbar-regular.css-1o5casd-MuiToolbar-root {
-    background-color: white;
-    opacity: 0.23;
-}
+/* Cible la barre de Navigation */
+.MuiBox-root > .MuiPaper-root { 
+    background-color: rgba(253, 143, 46, 0.751);
+    opacity: 0.63;
+  }
