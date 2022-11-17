@@ -13,7 +13,7 @@ function MesRestaurants({ dataRestaurants, setDataRestaurants }) {
       <Restaurants
         dataRestaurants={dataRestaurants}
         setDataRestaurants={setDataRestaurants}
-      />
+      />{" "}
     </div>
   );
 }
