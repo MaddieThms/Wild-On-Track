@@ -6,6 +6,8 @@
 import React from "react";
 import DisplaySaveFlight from "@components/dashboard/DisplaySaveFlight";
 import DisplaySaveHotel from "@components/cardHotel/DisplaySaveHotel";
+import DisplaySaveRestaurant from "@components/restaurant/DisplaySaveRestaurant";
+import DisplaySaveAttraction from "@components/cardAttraction/DisplaySaveAttraction";
 import "./carnetVoyage.css";
 import { useParams } from "react-router-dom";
 import DataNote from "@components/DataNote";
@@ -50,6 +52,25 @@ export default function CarnetVoyage() {
         </div>
         {dataCity.hotels
           ? dataCity.hotels.map((hotel) => <DisplaySaveHotel hotel={hotel} />)
+          : null}
+
+        <div className="titlesfavorite">
+          <h5>Mes restaurants en favoris :</h5>
+          <OptionsFilter />
+        </div>
+        {dataCity.restaurants
+          ? dataCity.restaurants.map((restaurant) => (
+              <DisplaySaveRestaurant restaurant={restaurant} />
+            ))
+          : null}
+        <div className="titlesfavorite">
+          <h5>Mes attractions en favoris :</h5>
+          <OptionsFilter />
+        </div>
+        {dataCity.attractions
+          ? dataCity.attractions.map((attraction) => (
+              <DisplaySaveAttraction attraction={attraction} />
+            ))
           : null}
       </div>
       <DataNote />
