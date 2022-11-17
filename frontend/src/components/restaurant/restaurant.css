@@ -1,0 +1,29 @@
+.cardRestaurants {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+/* cible chaque card restaurant individuellement */
+div.cardRestaurants > div.MuiPaper-root {
+  font-size: 1.1em;
+  max-width: 75vw;
+}
+
+@media screen and (min-width: 1290px) {
+  .cardRestaurants {
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* cible chaque card restaurant individuellement */
+  div.cardRestaurants > div.MuiPaper-root {
+    font-size: 22px;
+    font-size: 1.3em;
+    min-height: 370px;
+  }
+}
