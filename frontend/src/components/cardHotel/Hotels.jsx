@@ -4,6 +4,7 @@
 import Loader from "@components/loader/Loader";
 import React, { useEffect, useState } from "react";
 import Hotel from "./Hotel";
+import "./Hotels.css";
 
 function Hotels({ dataHotels }) {
   const [loader, setLoader] = useState(true);

@@ -4,6 +4,18 @@
   align-items: center;
   margin-top: 2vh;
 }
-h1 .title {
-  margin-top: 30px;
+.title-created {
+  margin-top: 101px;
+  margin-bottom: 50px;
+  text-align: center;
+  color: #40a798;
+}
+
+@media screen and (min-width: 1290px) {
+  .title-created {
+    margin-top: 101px;
+    margin-bottom: 50px;
+    text-align: center;
+    color: #40a798;
+  }
 }
