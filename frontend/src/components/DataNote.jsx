@@ -4,20 +4,21 @@ import TextField from "@mui/material/TextField";
 import EditIcon from "@mui/icons-material/Edit";
 
 export default function DataNote() {
-  //   const [value, setValue] = React.useState("Controlled");
-
-  //   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //     setValue(event.target.value);
-  //   };
   return (
-    <div>
-      <h3 style={{ marginLeft: "35vw", marginBottom: "10vw" }}>Mes notes</h3>
+    <div className="titlesfavorite">
+      <h5>Mes notes</h5>
       <Box
         display="flex"
         justifyContent="center"
         component="form"
         sx={{
-          "& .MuiTextField-root": { m: 1, width: "80vw", margin: "0 auto" },
+          "& .MuiTextField-root": {
+            m: 1,
+            width: "90vw",
+            margin: "0 auto",
+            mt: 3,
+            mb: 3,
+          },
         }}
         noValidate
         autoComplete="off"
