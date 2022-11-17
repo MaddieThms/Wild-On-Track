@@ -16,7 +16,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { Bookmarks, Call, Flight, Home } from "@mui/icons-material";
 import { ListItemIcon } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import logoImg from "../assets/logo.png";
 import "./Navbar.css";
 
@@ -94,7 +94,9 @@ export default function Navbar() {
       <AppBar position="fixed" open={open}>
         <Toolbar sx={{ bgcolor: "#eee" }}>
           <Typography noWrap sx={{ flexGrow: 1 }} mt={1} component="div">
-            <img src={logoImg} alt="logo" width={60} />
+            <Link to="/">
+              <img src={logoImg} alt="logo" width={60} />
+            </Link>
           </Typography>
 
           <IconButton
