@@ -1,10 +1,22 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Loader from "@components/loader/Loader";
 import Restaurant from "./restaurant";
 import "./restaurant.css";
 
 function Restaurants({ dataRestaurants, setDataRestaurants }) {
-  return (
+  const [loader, setLoader] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(false);
+    }, 5000);
+  }, []);
+
+  return loader ? (
+    <Loader />
+  ) : (
     <div className="cardRestaurants">
       {dataRestaurants.map((restaurant) => (
         <Restaurant
