@@ -1,7 +1,7 @@
 import React from "react";
 import "../components/formulaire/Formulaire.css";
 import Footer from "../components/Footer";
-import About from "../components/About";
+import About from "../components/formulaire/About";
 import Form from "../components/formulaire/Form";
 
 function Contact() {

@@ -6,7 +6,7 @@
 }
 
 /* cible chaque card restaurant individuellement */
-.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiCard-root.css-1l335vi-MuiPaper-root-MuiCard-root {
+div.cardRestaurants > div.MuiPaper-root {
   font-size: 1.1em;
   max-width: 75vw;
 }
@@ -21,7 +21,7 @@
   }
 
   /* cible chaque card restaurant individuellement */
-  .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiCard-root.css-1l335vi-MuiPaper-root-MuiCard-root {
+  div.cardRestaurants > div.MuiPaper-root {
     font-size: 22px;
     font-size: 1.3em;
     min-height: 370px;

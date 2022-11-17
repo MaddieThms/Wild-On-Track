@@ -1,5 +1,5 @@
 import React from "react";
-import Team from "./formulaire/Team";
+import Team from "./Team";
 
 function About() {
   return (
