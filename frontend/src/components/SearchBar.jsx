@@ -72,6 +72,9 @@ export default function SearchBar({
     setValue(newValue);
   };
 
+  const [cityId, setCityId] = React.useState("");
+  const [cityName, setCityName] = React.useState("");
+
   return (
     <div>
       <Box sx={{ bgcolor: "background.paper", width: "100%" }}>
@@ -136,6 +139,10 @@ export default function SearchBar({
             setDeparture={setDeparture}
             landing={landing}
             setLanding={setLanding}
+            cityId={cityId}
+            setCityId={setCityId}
+            cityName={cityName}
+            setCityName={setCityName}
           />
         </TabPanel>
         <TabPanel value={value} index={2}>
@@ -146,6 +153,10 @@ export default function SearchBar({
             setDeparture={setDeparture}
             landing={landing}
             setLanding={setLanding}
+            cityId={cityId}
+            setCityId={setCityId}
+            cityName={cityName}
+            setCityName={setCityName}
           />
         </TabPanel>
         <TabPanel value={value} index={3}>

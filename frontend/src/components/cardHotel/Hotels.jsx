@@ -1,11 +1,32 @@
+/* eslint-disable import/order */
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react/prop-types */
-import React from "react";
+import Loader from "@components/loader/Loader";
+import React, { useEffect, useState } from "react";
 import Hotel from "./Hotel";
 import "./Hotels.css";
 
 function Hotels({ dataHotels }) {
-  return (
-    <div className="cardHotels">
+  const [loader, setLoader] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(false);
+    }, 5000);
+  }, []);
+
+  return loader ? (
+    <Loader />
+  ) : (
+    <div
+      className="cardhotels"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "30px",
+        alignItems: "center",
+      }}
+    >
       {dataHotels.map((hotel) => (
         <Hotel key={hotel.id} hotel={hotel} />
       ))}
