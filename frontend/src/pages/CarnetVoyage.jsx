@@ -43,11 +43,12 @@ export default function CarnetVoyage() {
               <DisplaySaveFlight flight={flight} />
             ))
           : null}
-
-        <div className="titlesfavorite">
-          <h5>Mes hotels en favoris :</h5>
-          <OptionsFilter />
-        </div>
+      </div>
+      <div className="titlesfavorite">
+        <h5>Mes hotels en favoris :</h5>
+        <OptionsFilter />
+      </div>
+      <div lassName="container-hotel">
         {dataCity.hotels
           ? dataCity.hotels.map((hotel) => <DisplaySaveHotel hotel={hotel} />)
           : null}
