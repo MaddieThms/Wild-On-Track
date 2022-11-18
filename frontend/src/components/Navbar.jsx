@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
 import logoImg from "../assets/logo.png";
 import "./Navbar.css";
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 const navigateItems = [
   {

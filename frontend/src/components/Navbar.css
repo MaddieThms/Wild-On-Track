@@ -1,5 +1,45 @@
 /* Cible la barre de Navigation */
-.MuiBox-root > .MuiPaper-root {
-  background-color: rgba(253, 143, 46, 0.751);
-  opacity: 0.63;
+
+/*Give the navbar some opacity*/
+.MuiToolbar-root.MuiToolbar-gutters.MuiToolbar-regular.css-1o5casd-MuiToolbar-root, 
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation4.MuiAppBar-root.MuiAppBar-colorPrimary.MuiAppBar-positionFixed.mui-fixed.css-ciy9n4-MuiPaper-root-MuiAppBar-root, 
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation4.MuiAppBar-root.MuiAppBar-colorPrimary.MuiAppBar-positionFixed.mui-fixed.css-1rar6yd-MuiPaper-root-MuiAppBar-root{
+  background-color: rgba(249, 244, 235, 0.3);
+}
+
+/*Make the burger menu bigger and turn it to yellow*/
+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-wg28wd-MuiSvgIcon-root{
+  font-size: 1.5em;
+  color: #eba226;
+}
+
+/*Make the menu's background a little transparent */
+.MuiList-root.MuiList-padding.css-xmlk3u-MuiList-root, .MuiDrawer-root.MuiDrawer-docked.css-bncp5q-MuiDrawer-docked,
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation0.MuiDrawer-paper.MuiDrawer-paperAnchorRight.MuiDrawer-paperAnchorDockedRight.css-18sg6k4-MuiPaper-root-MuiDrawer-paper{
+  background-color: #eba326ac;
+  width: 100vw
+;
+}
+/* Adjust Menu's top bar so its height corresponds to the one of the navbar */
+.css-hcq1hg{
+  min-height: 75px;
+}
+
+.MuiList-root.MuiList-padding.css-xmlk3u-MuiList-root{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.MuiListItemIcon-root.css-1r5pibu-MuiListItemIcon-root,
+.MuiButtonBase-root.MuiListItemButton-root.MuiListItemButton-gutters.MuiListItemButton-root.MuiListItemButton-gutters.css-1x59zxg-MuiButtonBase-root-MuiListItemButton-root, 
+.MuiButtonBase-root.MuiListItem-root.MuiListItem-gutters.MuiListItem-button.css-hhj3q-MuiButtonBase-root-MuiListItem-root{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.MuiTypography-root.MuiTypography-body1.MuiListItemText-primary.css-10hburv-MuiTypography-root{
+  font-size: 2rem;
 }
