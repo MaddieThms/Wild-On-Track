@@ -103,7 +103,7 @@ export default function DisplaySaveFlight({ flight }) {
   setDeleteFavorite(isFavorite); */
 
   return isFavorite ? (
-    <Box sx={{ width: "90%", bgcolor: "white", mb: 3 }}>
+    <Box sx={{ width: "90vw", maxWidth: "400px", bgcolor: "white", mb: 3 }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
