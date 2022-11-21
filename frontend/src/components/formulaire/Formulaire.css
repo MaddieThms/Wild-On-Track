@@ -13,7 +13,7 @@
 
 .form button.button-form {
   background-color: #eba226;
-  margin: auto;
+  margin: 25px 0px 0px 50px;
   border-radius: 0 25px 0 25px;
   margin-top: 30px;
   padding: 10px 40px;
@@ -38,13 +38,18 @@
 .title-contact {
   color: #40a798;
   font-family: "Roboto Mono", monospace;
-  margin-bottom: 20px;
+  margin-bottom: -36px;
   font-size: 40px;
-  margin-top: 50px;
+  margin-top: 84px;
 }
 
 .message-title {
   font-family: "Montserrat";
+}
+
+.message-about, .message-contact{
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .container-about {
@@ -80,6 +85,7 @@
   .title-contact {
     margin-top: 80px;
   }
+  
   .message-about {
     margin: 0 50px;
     font-size: 20px;

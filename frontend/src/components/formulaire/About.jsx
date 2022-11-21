@@ -1,14 +1,13 @@
 import React from "react";
 import Team from "./Team";
+import "./Formulaire.css";
 
 function About() {
   return (
     <div className="container-about">
       <p className="message-about">
-        Lorem ipsum dolor sit amet onsectetur adipisicing elit. Expedita nam
-        nemo iste ullam velit quibusdam facilis quo ad corporis beatae eligendi
-        tempore provident quis inventore maiores, quaerat quod voluptatum!
-        Praesentium?
+        Site réalisé pour le projet 2 de notre formation, fait par Madeline,
+        Jonathan, Iris, Arnaud et Ryan. Étudiants à la Wild Code School de Lyon.
       </p>
       <Team />
     </div>
