@@ -1,13 +1,35 @@
 .titlemescarnets {
-  font-size: 1.5em;
+  font-size: 2em;
   color: #40a798;
+  margin-bottom: 15px;
 }
 
 .differentstitles {
   text-align: center;
-  margin-top: 15vh;
+  margin-top: 11vh;
 }
 
 .filter {
   color: #eaa226;
+  margin-left: 116px;
+}
+
+.mesCarnetsCards {
+  display: flex;
+  margin-left: 20px;
+}
+
+.css-yfj4i-MuiPaper-root-MuiCard-root {
+  margin-bottom: 25px;
+}
+
+@media screen and (min-width: 1290px) {
+  .filter {
+    width: 90vw;
+    margin: 0 auto;
+  }
+  .centerCardTrip {
+    display: flex;
+    width: 100%;
+  }
 }

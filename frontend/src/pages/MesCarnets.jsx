@@ -9,7 +9,9 @@ function MesCarnets() {
       <div className="differentstitles">
         <h2 className="titlemescarnets">Mes carnets de voyage</h2>
       </div>
-      <MyTrips />
+      <div className="mesCarnetsCards">
+        <MyTrips />
+      </div>
     </div>
   );
 }
