@@ -72,7 +72,9 @@ function SearchTripHotels({
             sx={{ bgcolor: "#eaa226", color: "#fff" }}
             variant="contained"
           >
-            <Link to="hotels">Hotels</Link>
+            <Link style={{ bgcolor: "#eaa226", color: "#fff" }} to="hotels">
+              Rechercher
+            </Link>
           </Button>
         </Stack>
       </Stack>

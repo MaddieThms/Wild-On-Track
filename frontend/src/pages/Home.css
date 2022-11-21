@@ -4,7 +4,7 @@
 }
 
 .title {
-  margin-top: 20vh;
+  margin-top: 12vh;
   text-align: center;
   color: #40a798;
 }
@@ -21,9 +21,9 @@
   align-items: center;
   justify-content: center;
   width: 90vw;
-  margin: 30px auto;
-  height: 30vh;
+  margin: 60px auto 20px auto;
+  height: 45vh;
   background-image: url("../assets/pngwing.com.png");
   background-size: cover;
-  background-position: center;
+  background-repeat: no-repeat;
 }
