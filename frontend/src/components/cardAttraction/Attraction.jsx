@@ -5,9 +5,7 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import ShareIcon from "@mui/icons-material/Share";
 import StarRateIcon from "@mui/icons-material/StarRate";
 
 export default function Attraction({ attraction }) {
@@ -52,7 +50,14 @@ export default function Attraction({ attraction }) {
   }
 
   return (
-    <Card elevation={0} sx={{ maxWidth: "90vw", border: "1px solid #eaa226" }}>
+    <Card
+      elevation={0}
+      sx={{
+        maxWidth: "90vw",
+        boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+        borderRadius: "20px",
+      }}
+    >
       <CardMedia
         component="img"
         height="194"
@@ -65,7 +70,7 @@ export default function Attraction({ attraction }) {
       />
       <CardContent>
         <Typography variant="h5" sx={{ color: "#eaa226" }}>
-          Name : {attraction.name}
+          {attraction.name}
         </Typography>
         <div>Nombre d'avis :</div>
         <Typography variant="p" color="#40a798">
@@ -81,9 +86,6 @@ export default function Attraction({ attraction }) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
         <StarRateIcon
           onClick={() => handleFavorite()}
           sx={isFavorite ? { color: "#eaa226" } : { color: "#d1d1d1" }}
