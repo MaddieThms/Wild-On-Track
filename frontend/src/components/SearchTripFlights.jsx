@@ -55,7 +55,10 @@ function SearchTripFlights({
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Typography sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}>
+      <Typography
+        sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}
+        variant="h1"
+      >
         Recherche ton vol <br /> pour la destination de ton choix
       </Typography>
       <Stack id="formStructure" spacing={1}>
@@ -88,7 +91,7 @@ function SearchTripFlights({
             sx={{ bgcolor: "#eaa226", color: "#fff" }}
             variant="contained"
           >
-            Recherche
+            Rechercher
           </Button>
         </Stack>
       </Stack>
