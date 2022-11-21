@@ -1,15 +1,21 @@
-/* eslint-disable react/prop-types */
-import * as React from "react";
-import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
+import {
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  IconButton,
+  Typography,
+} from "@mui/material";
+import React from "react";
 
-export default function CardTrip({ city }) {
-  /*   function for date extraction */
-  const imageCity = city.city;
+function CurrentTrip() {
+  const lastTrip = JSON.parse(localStorage.getItem("favorites"));
+  const indexCurrentTrip = lastTrip.length - 1;
+
+  const arrayTrip = JSON.parse(localStorage.getItem("favorites"));
+  const arrayCurrentTrip = arrayTrip[indexCurrentTrip];
+
+  const imageCity = arrayCurrentTrip.city;
 
   const images = [
     "https://img.freepik.com/photos-gratuite/concept-voyage-points-repere_23-2149153256.jpg?w=1380&t=st=1668679306~exp=1668679906~hmac=3c099a03a240626a1ce3fab844f585fd65684e8da5703ad861e211670e227354",
@@ -49,7 +55,8 @@ export default function CardTrip({ city }) {
   }, [urlImageCity]);
 
   return (
-    urlImageCity && (
+    <div className="lastTrip">
+      <h2>Dernier voyage :</h2>
       <Card
         sx={{
           width: "90vw",
@@ -62,17 +69,23 @@ export default function CardTrip({ city }) {
           component="img"
           height="194"
           image={urlImageCity}
-          alt={imageCity ? `image ${imageCity}` : "image"}
+          alt={
+            arrayCurrentTrip.imageCity
+              ? `image ${arrayCurrentTrip.imageCity}`
+              : "image"
+          }
         />
         <CardContent>
           <Typography variant="h5" sx={{ color: "#eaa226" }}>
-            {city.city}
+            {arrayCurrentTrip.city}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label="share" />
         </CardActions>
       </Card>
-    )
+    </div>
   );
 }
+
+export default CurrentTrip;
