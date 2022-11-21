@@ -93,7 +93,6 @@ export default function SearchBar({
             value={value}
             centered
             onChange={handleChange}
-            centered
             aria-label="basic tabs example"
           >
             <Tab
