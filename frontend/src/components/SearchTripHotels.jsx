@@ -3,7 +3,7 @@
 /* eslint-disable react/prop-types */
 
 import React, { useState } from "react";
-import { Box, Button, Stack } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import TravelDate from "./TravelDate";
 import NumberTravelers from "./NumberTravelers";
@@ -44,6 +44,9 @@ function SearchTripHotels({
   };
   return (
     <Box sx={{ width: "100%" }}>
+      <Typography sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}>
+        Recherche ton hotel <br /> pour la destination de ton choix
+      </Typography>
       <Stack id="formStructure" spacing={1}>
         <TravelDestination
           setCityId={setCityId}
