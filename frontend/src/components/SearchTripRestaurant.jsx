@@ -60,7 +60,12 @@ function SearchTripRestaurants({
             sx={{ bgcolor: "#eaa226", color: "#fff" }}
             variant="contained"
           >
-            <Link to="restaurants">Recherche</Link>
+            <Link
+              style={{ bgcolor: "#eaa226", color: "#fff" }}
+              to="restaurants"
+            >
+              Rechercher
+            </Link>
           </Button>
         </Stack>
       </Stack>

@@ -65,7 +65,12 @@ function SearchTripActivites({
             sx={{ bgcolor: "#eaa226", color: "#fff" }}
             variant="contained"
           >
-            <Link to="attractions">Attractions</Link>
+            <Link
+              style={{ bgcolor: "#eaa226", color: "#fff" }}
+              to="attractions"
+            >
+              Rechercher
+            </Link>
           </Button>
         </Stack>
       </Stack>
