@@ -4,7 +4,7 @@
 /* eslint-disable no-unused-vars */
 
 import React, { useState } from "react";
-import { Box, Button, Stack } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import TravelDate from "./TravelDate";
 import NumberTravelers from "./NumberTravelers";
@@ -55,6 +55,9 @@ function SearchTripFlights({
 
   return (
     <Box sx={{ width: "100%" }}>
+      <Typography sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}>
+        Recherche ton vol <br /> pour la destination de ton choix
+      </Typography>
       <Stack id="formStructure" spacing={1}>
         <TravelDepartureAutocomplete
           departure={departure}
