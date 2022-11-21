@@ -51,12 +51,11 @@ export default function CardTrip({ city }) {
   return (
     urlImageCity && (
       <Card
-        elevation={0}
         sx={{
-          maxWidth: "90vw",
-          boxShadow: "rgba(	100,100,111, 0.5) 0px 7px 29px 0px",
+          width: "90vw",
+          maxWidth: "500px",
+          boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
           borderRadius: "20px",
-          mb: 3,
         }}
       >
         <CardMedia

@@ -15,3 +15,36 @@
   flex-direction: column;
   align-items: center;
 }
+
+.titlesfavorite {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 15px;
+}
+
+h5 {
+  font-size: 1.3em;
+  font-weight: 400;
+}
+
+@media screen and (min-width: 600px) {
+  .container-hotel {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .container-flight {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+}

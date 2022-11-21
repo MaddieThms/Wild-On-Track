@@ -1,8 +1,9 @@
+/* eslint-disable import/order */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
-import Loader from "@components/loader/Loader";
 import Restaurant from "./restaurant";
+import Loader from "@components/loader/Loader";
 import "./restaurant.css";
 
 function Restaurants({ dataRestaurants, setDataRestaurants }) {

@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import Card from "@mui/material/Card";
@@ -11,25 +12,44 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 
 export default function Restaurant({ restaurant }) {
   const [isFavorite, setIsFavorite] = useState(false);
+  /* function deleteHotelWord(string) {
+    return string.replace(" Restaurant", "");
+  } */
 
-  /* function to put favorite restaurant in local storage */
-  function saveRestaurants(restaurantsave) {
-    localStorage.setItem(
-      restaurant.ranking_geo,
-      JSON.stringify(restaurantsave)
-    );
-  }
-  /* function to remove favorite restaurant from local storage */
-  function removeSaveRestaurant(restaurantsave) {
-    localStorage.removeItem(restaurant.ranking_geo, restaurantsave);
-  }
   /* function to execute functions put and remove favorite restaurant in local storage depend on const isfavorite is true or false */
   function handleFavorite() {
     setIsFavorite(!isFavorite);
+    // je vais chercher les favoris dans mon local storage
+    let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    // je verifie si un favori correspond à ma ville où se trouve l'hôtel
+    let travel = favorites.find(
+      (element) => element.city === restaurant.ranking_geo
+    );
+    // si ce n'est pas le cas, je le créé
     if (!isFavorite) {
-      saveRestaurants(restaurant);
+      if (travel === undefined) {
+        travel = {
+          city: restaurant.ranking_geo,
+          flights: [],
+          hotels: [],
+          restaurants: [],
+        };
+        favorites.push(travel);
+      }
+      // j'ajoute mon hôtel
+      travel.restaurants.push(restaurant);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
     } else {
-      removeSaveRestaurant(restaurant);
+      // Si mon hôtel existe dans mes favoris je veux récupérer son index
+      if (travel !== undefined) {
+        // eslint-disable-next-line prefer-const
+        let restaurantIndex = travel.hotels.findIndex(
+          (element) => element === restaurant.id
+        );
+        // Je veux supprimer cet hôtel selon son index
+        travel.hotels.splice(restaurantIndex, 1);
+      }
+      localStorage.setItem("favorites", JSON.stringify(favorites));
     }
   }
 
