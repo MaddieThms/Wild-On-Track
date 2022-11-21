@@ -1,5 +1,5 @@
 .titlemescarnets {
-  font-size: 1.5em;
+  font-size: 2em;
   color: #40a798;
   margin-bottom: 15px;
 }
@@ -27,5 +27,9 @@
   .filter {
     width: 90vw;
     margin: 0 auto;
+  }
+  .centerCardTrip {
+    display: flex;
+    width: 100%;
   }
 }
