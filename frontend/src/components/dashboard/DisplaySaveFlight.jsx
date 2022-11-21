@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
+import StarRateIcon from "@mui/icons-material/StarRate";
 import Box from "@mui/material/Box";
 import LuggageIcon from "@mui/icons-material/Luggage";
 
@@ -64,14 +65,51 @@ export default function DisplaySaveFlight({ flight }) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const [isFavorite, setIsFavorite] = React.useState(true);
 
-  return (
-    <Box sx={{ width: "100%" }}>
+  function handleFavorite() {
+    setIsFavorite(!isFavorite);
+    // je vais chercher les favoris dans mon local storage
+    const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    // je verifie si un favori correspond à ma ville de destination
+    let travel = favorites.find((element) => element.city === flight.cityTo);
+    if (!isFavorite) {
+      // si ce n'est pas le cas, je le créé
+      if (travel === undefined) {
+        travel = {
+          city: flight.cityTo,
+          hotels: [],
+          flights: [],
+        };
+        favorites.push(travel);
+      }
+      // j'ajoute mon vol
+      travel.flights.push(flight);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    } else {
+      // Si mon vol existe dans mes favoris je veux récupérer son index
+      if (travel !== undefined) {
+        const flightIndex = travel.flights.findIndex(
+          (element) => element === flight.id
+        );
+        // Je veux supprimer ce vol selon son index
+        travel.flights.splice(flightIndex, 1);
+      }
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+  }
+  /*   const [deleteFavorite, setDeleteFavorite] = React.useState(true);
+
+  setDeleteFavorite(isFavorite); */
+
+  return isFavorite ? (
+    <Box sx={{ width: "90vw", maxWidth: "400px", bgcolor: "white", mb: 3 }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
+          sx={{ backgroundColor: "#eafcf8" }}
         >
           <Tab label="Vol aller" {...a11yProps(0)} />
           <Tab label="Vol retour" {...a11yProps(1)} />
@@ -92,6 +130,10 @@ export default function DisplaySaveFlight({ flight }) {
             </p>
           </div>
           <div className="iconsPrice">
+            <StarRateIcon
+              onClick={() => handleFavorite()}
+              sx={isFavorite ? { color: "#eaa226" } : { color: "#d1d1d1" }}
+            />
             <LuggageIcon />
             <p>{flight.price}€</p>
           </div>
@@ -118,5 +160,5 @@ export default function DisplaySaveFlight({ flight }) {
         </div>
       </TabPanel>
     </Box>
-  );
+  ) : null;
 }

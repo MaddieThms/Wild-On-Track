@@ -91,6 +91,7 @@ export default function SearchBar({
           <Tabs
             sx={{ bgcolor: "#eaa226", borderRadius: "4px" }}
             value={value}
+            centered
             onChange={handleChange}
             aria-label="basic tabs example"
           >
@@ -135,10 +136,6 @@ export default function SearchBar({
           <SearchTripHotels
             dataHotels={dataHotels}
             setDataHotels={setDataHotels}
-            departure={departure}
-            setDeparture={setDeparture}
-            landing={landing}
-            setLanding={setLanding}
             cityId={cityId}
             setCityId={setCityId}
             cityName={cityName}
@@ -149,10 +146,6 @@ export default function SearchBar({
           <SearchTripRestaurants
             setDataRestaurants={setDataRestaurants}
             dataRestaurants={dataRestaurants}
-            departure={departure}
-            setDeparture={setDeparture}
-            landing={landing}
-            setLanding={setLanding}
             cityId={cityId}
             setCityId={setCityId}
             cityName={cityName}
@@ -163,10 +156,10 @@ export default function SearchBar({
           <SearchTripActivites
             setDataAttractions={setDataAttractions}
             dataAttractions={dataAttractions}
-            departure={departure}
-            setDeparture={setDeparture}
-            landing={landing}
-            setLanding={setLanding}
+            cityId={cityId}
+            setCityId={setCityId}
+            cityName={cityName}
+            setCityName={setCityName}
           />
         </TabPanel>
       </Box>

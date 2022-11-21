@@ -8,8 +8,6 @@ function MesCarnets() {
     <div>
       <div className="differentstitles">
         <h2 className="titlemescarnets">Mes carnets de voyage</h2>
-        <p className="filter">Filtres</p>
-        <h3>2023</h3>
       </div>
       <MyTrips />
     </div>

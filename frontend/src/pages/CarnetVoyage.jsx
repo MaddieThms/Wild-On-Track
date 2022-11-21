@@ -6,9 +6,12 @@
 import React from "react";
 import DisplaySaveFlight from "@components/dashboard/DisplaySaveFlight";
 import DisplaySaveHotel from "@components/cardHotel/DisplaySaveHotel";
+import DisplaySaveRestaurant from "@components/restaurant/DisplaySaveRestaurant";
+import DisplaySaveAttraction from "@components/cardAttraction/DisplaySaveAttraction";
 import "./carnetVoyage.css";
 import { useParams } from "react-router-dom";
-import Footer from "../components/Footer";
+import DataNote from "@components/DataNote";
+import OptionsFilter from "../components/OptionsFilter";
 
 export default function CarnetVoyage() {
   const cityParam = useParams("city");
@@ -22,9 +25,7 @@ export default function CarnetVoyage() {
   }, []);
 
   const datas = JSON.parse(localStorage.getItem("favorites"));
-
   const dataCity = datas.find((city) => city.city === cityParam.city);
-
   console.warn(dataCity);
 
   return (
@@ -32,6 +33,10 @@ export default function CarnetVoyage() {
       <p className="title-voyage">
         Mon voyage à <span className="landing">{dataCity.city}</span>
       </p>
+      <div className="titlesfavorite">
+        <h5>Mes vols en favoris :</h5>
+        <OptionsFilter />
+      </div>
 
       <div className="container-flight">
         {/* it's for display the localstorage data */}
@@ -40,11 +45,36 @@ export default function CarnetVoyage() {
               <DisplaySaveFlight flight={flight} />
             ))
           : null}
+      </div>
+      <div className="titlesfavorite">
+        <h5>Mes hotels en favoris :</h5>
+        <OptionsFilter />
+      </div>
+      <div className="container-hotel">
         {dataCity.hotels
           ? dataCity.hotels.map((hotel) => <DisplaySaveHotel hotel={hotel} />)
           : null}
+
+        <div className="titlesfavorite">
+          <h5>Mes restaurants en favoris :</h5>
+          <OptionsFilter />
+        </div>
+        {dataCity.restaurants
+          ? dataCity.restaurants.map((restaurant) => (
+              <DisplaySaveRestaurant restaurant={restaurant} />
+            ))
+          : null}
+        <div className="titlesfavorite">
+          <h5>Mes attractions en favoris :</h5>
+          <OptionsFilter />
+        </div>
+        {dataCity.attractions
+          ? dataCity.attractions.map((attraction) => (
+              <DisplaySaveAttraction attraction={attraction} />
+            ))
+          : null}
       </div>
-      <Footer />
+      <DataNote />
     </div>
   );
 }

@@ -4,7 +4,7 @@
 /* eslint-disable react/prop-types */
 
 import React, { useState } from "react";
-import { Box, Button, Stack } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import TravelDate from "./TravelDate";
 import TravelDestination from "./TravelDestination";
@@ -40,6 +40,9 @@ function SearchTripRestaurants({
   };
   return (
     <Box sx={{ width: "100%" }}>
+      <Typography sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}>
+        Une petite faim ? <br /> Recherche le meilleur restaurant
+      </Typography>
       <Stack id="formStructure" spacing={1}>
         <TravelDestination
           setCityId={setCityId}
