@@ -92,6 +92,7 @@ export default function SearchBar({
             sx={{ bgcolor: "#eaa226", borderRadius: "4px" }}
             value={value}
             onChange={handleChange}
+            centered
             aria-label="basic tabs example"
           >
             <Tab
