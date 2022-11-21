@@ -1,7 +1,6 @@
 @media screen and (min-width: 1290px) {
   /* cible la searchBar des icons */
-  .searchBar.MuiBox-root.css-12tc34e {
-    width: 750px;
-    margin: 0 auto 100px auto;
+  .MuiTabs-flexContainer {
+    justify-content: space-around;
   }
 }

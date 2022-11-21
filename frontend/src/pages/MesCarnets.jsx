@@ -11,7 +11,9 @@ function MesCarnets() {
         <p className="filter">Filtres</p>
         <h3>2023</h3>
       </div>
-      <MyTrips />
+      <div className="mesCarnetsCards">
+        <MyTrips />
+      </div>
     </div>
   );
 }

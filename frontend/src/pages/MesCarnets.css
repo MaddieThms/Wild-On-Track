@@ -11,3 +11,7 @@
 .filter {
   color: #eaa226;
 }
+
+.mesCarnetsCards {
+  display: flex;
+}
