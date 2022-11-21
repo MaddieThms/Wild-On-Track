@@ -20,7 +20,7 @@ import { useNavigate, Link } from "react-router-dom";
 import logoImg from "../assets/logo.png";
 import "./Navbar.css";
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 const navigateItems = [
   {
@@ -133,7 +133,10 @@ export default function Navbar() {
             )}
           </IconButton>
         </DrawerHeader>
-        <List sx={{ bgcolor: "#eaa226", height: "100vh", color: "white" }}>
+        <List
+          sx={{ bgcolor: "#eaa226", height: "100vh", color: "white" }}
+          onClick={handleDrawerClose}
+        >
           {navigateItems.map((item) => (
             <ListItem
               button
