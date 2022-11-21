@@ -1,4 +1,6 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react/prop-types */
+import CurrentTrip from "@components/CurrentTrip";
 import React from "react";
 import SearchBar from "../components/SearchBar";
 import "./CreateTravel.css";
@@ -34,6 +36,7 @@ function CreateTravel({
         dataAttractions={dataAttractions}
         setDataAttractions={setDataAttractions}
       />
+      <CurrentTrip />
     </div>
   );
 }
