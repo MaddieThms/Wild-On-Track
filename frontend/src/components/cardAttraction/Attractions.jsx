@@ -1,9 +1,20 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Loader from "@components/loader/Loader";
 import Attraction from "./Attraction";
 
 function Attractions({ dataAttractions }) {
-  return (
+  const [loader, setLoader] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(false);
+    }, 3000);
+  }, []);
+
+  return loader ? (
+    <Loader />
+  ) : (
     <div
       className="cardhotels"
       style={{
