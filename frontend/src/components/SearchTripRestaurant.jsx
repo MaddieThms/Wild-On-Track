@@ -43,7 +43,7 @@ function SearchTripRestaurants({
       <Typography sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}>
         Une petite faim ? <br /> Recherche le meilleur restaurant
       </Typography>
-      <Stack id="formStructure">
+      <Stack id="formStructure" spacing={1}>
         <TravelDestination
           setCityId={setCityId}
           cityId={cityId}
