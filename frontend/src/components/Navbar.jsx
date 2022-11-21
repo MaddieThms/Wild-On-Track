@@ -131,7 +131,10 @@ export default function Navbar() {
             )}
           </IconButton>
         </DrawerHeader>
-        <List sx={{ bgcolor: "#eaa226", height: "100vh", color: "white" }}>
+        <List
+          sx={{ bgcolor: "#eaa226", height: "100vh", color: "white" }}
+          onClick={handleDrawerClose}
+        >
           {navigateItems.map((item) => (
             <ListItem
               button
