@@ -42,7 +42,7 @@ function CurrentTrip() {
 
   function getFetchData() {
     fetch(
-      `https://bing-image-search1.p.rapidapi.com/images/search?q=${imageCity}`,
+      `https://bing-image-search1.p.rapidapi.com/images/search?q=ville ${imageCity}`,
       options
     )
       .then((response) => response.json())
@@ -52,11 +52,13 @@ function CurrentTrip() {
 
   React.useEffect(() => {
     getFetchData();
-  }, [urlImageCity]);
+  }, []);
 
   return (
     <div className="lastTrip">
-      <h2>Dernier voyage :</h2>
+      <h2 style={{ fontSize: "1.5rem", color: "#40a798" }}>
+        Mon dernier voyage enregistré :
+      </h2>
       <Card
         sx={{
           width: "90vw",

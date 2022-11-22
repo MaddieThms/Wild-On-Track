@@ -1,0 +1,22 @@
+.titleCardFavorit {
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+.circleFavorite {
+  margin: 0 0;
+  width: 25%;
+  height: 25%;
+  margin-right: 20px;
+  padding-top: 50px;
+}
+
+@media screen and (min-width: 600px) {
+  .circleFavorite {
+    margin: 0 0;
+    width: 20%;
+    height: 20%;
+    margin-right: 20px;
+    padding-top: 50px;
+  }
+}
