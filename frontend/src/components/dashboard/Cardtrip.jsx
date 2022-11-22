@@ -6,8 +6,6 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import { useEffect, useState } from "react";
 
 export default function CardTrip({ city }) {
   /*   function for date extraction */
@@ -50,24 +48,6 @@ export default function CardTrip({ city }) {
     getFetchData();
   }, [urlImageCity]);
 
-  const [deleteCard, setDeleteCard] = useState(false);
-  // const [isFavorite, setIsFavorite] = useState(true);
-
-  const handleDelete = () => {
-    setDeleteCard(!deleteCard);
-    // eslint-disable-next-line eqeqeq
-    if (city != undefined) {
-      // eslint-disable-next-line eqeqeq
-      const flightIndex = city.flights.findIndex(
-        // eslint-disable-next-line eqeqeq
-        (element) => element == city.id
-      );
-      // Je veux supprimer ce vol selon son index
-      city.flights.splice(flightIndex, 1);
-    }
-  };
-  useEffect(() => handleDelete(), []);
-
   return (
     urlImageCity && (
       <Card
@@ -78,10 +58,6 @@ export default function CardTrip({ city }) {
           borderRadius: "20px",
         }}
       >
-        <DeleteForeverIcon
-          sx={{ marginLeft: "50vw" }}
-          onClick={() => handleDelete()}
-        />
         <CardMedia
           component="img"
           height="194"
