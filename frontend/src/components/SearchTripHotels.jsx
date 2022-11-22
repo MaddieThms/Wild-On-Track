@@ -43,26 +43,31 @@ function SearchTripHotels({
       .catch((err) => console.error(err));
   };
   return (
-    <Box sx={{ width: "100%" }}>
-      <Typography sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}>
-        Recherche ton hotel <br /> pour la destination de ton choix
-      </Typography>
-      <Stack id="formStructure" spacing={1}>
-        <TravelDestination
-          setCityId={setCityId}
-          cityId={cityId}
-          cityName={cityName}
-          setCityName={setCityName}
-        />
-        <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
-        <NumberTravelers
-          numberTraveler={numberTraveler}
-          setNumberTraveler={setNumberTraveler}
-        />
-        <NumberNightsHotel
-          numberNightsHotel={numberNightsHotel}
-          SetNumberNightsHotel={SetNumberNightsHotel}
-        />
+    <div className="containerForm">
+      <Box sx={{ width: "100%" }}>
+        <Typography
+          sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}
+          variant="h1"
+        >
+          Recherche ton hotel pour la destination de ton choix
+        </Typography>
+        <Stack id="formStructure" spacing={1}>
+          <TravelDestination
+            setCityId={setCityId}
+            cityId={cityId}
+            cityName={cityName}
+            setCityName={setCityName}
+          />
+          <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
+          <NumberTravelers
+            numberTraveler={numberTraveler}
+            setNumberTraveler={setNumberTraveler}
+          />
+          <NumberNightsHotel
+            numberNightsHotel={numberNightsHotel}
+            SetNumberNightsHotel={SetNumberNightsHotel}
+          />
+        </Stack>
         <Stack id="formButtons">
           {/* call the API on click */}
           <Button
@@ -77,8 +82,8 @@ function SearchTripHotels({
             </Link>
           </Button>
         </Stack>
-      </Stack>
-    </Box>
+      </Box>
+    </div>
   );
 }
 
