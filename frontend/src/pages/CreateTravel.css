@@ -14,9 +14,24 @@
 
 @media screen and (min-width: 1290px) {
   .title-created {
-    margin-top: 101px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     text-align: center;
     color: #40a798;
+  }
+  .travelSearch {
+    align-items: center;
+    margin-top: 2vh;
+    justify-content: space-around;
+  }
+  .travelSearch h2 {
+    font-size: 30px;
+  }
+  /* Cible l'input du formulaire de recherche de vol */
+  .css-1gh6ugu-MuiAutocomplete-root{
+    margin-top: 8px;
+  }
+  /* Cible le premier input du formulaire de recherche de hotel, restaurant et activité */
+  #formStructure > .MuiBox-root {
+    margin-top: 8px;
   }
 }
