@@ -6,6 +6,7 @@
 import React, { useState } from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import "./SearchTrip.css";
 import TravelDate from "./TravelDate";
 import TravelDestination from "./TravelDestination";
 
@@ -39,18 +40,23 @@ function SearchTripRestaurants({
       .catch((err) => console.error(err));
   };
   return (
-    <Box sx={{ width: "100%" }}>
-      <Typography sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}>
-        Une petite faim ? <br /> Recherche le meilleur restaurant
-      </Typography>
-      <Stack id="formStructure" spacing={1}>
-        <TravelDestination
-          setCityId={setCityId}
-          cityId={cityId}
-          cityName={cityName}
-          setCityName={setCityName}
-        />
-        <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
+    <div className="containerForm">
+      <Box sx={{ width: "100%" }}>
+        <Typography
+          sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}
+          variant="h1"
+        >
+          Une petite faim ? Recherche le meilleur restaurant
+        </Typography>
+        <Stack id="formStructure" spacing={1}>
+          <TravelDestination
+            setCityId={setCityId}
+            cityId={cityId}
+            cityName={cityName}
+            setCityName={setCityName}
+          />
+          <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
+        </Stack>
         <Stack id="formButtons">
           {/* call the API on click */}
           <Button
@@ -63,13 +69,14 @@ function SearchTripRestaurants({
             <Link
               style={{ bgcolor: "#eaa226", color: "#fff" }}
               to="restaurants"
+              className="link"
             >
               Rechercher
             </Link>
           </Button>
         </Stack>
-      </Stack>
-    </Box>
+      </Box>
+    </div>
   );
 }
 
