@@ -14,7 +14,7 @@
   gap: 5px;
   margin-top: 20px;
 }
-.containerForm{
+.containerForm {
   display: flex;
   flex-direction: column;
   width: 90vw;
@@ -22,13 +22,13 @@
 
 @media screen and (min-width: 1290px) {
   /* cible la searchBar des icons */
-  .containerForm{
+  .containerForm {
     display: flex;
     flex-direction: column;
     width: 90vw;
   }
 
-  #formStructure{
+  #formStructure {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -36,10 +36,9 @@
     gap: 5px;
   }
 
-  #formButtons{
+  #formButtons {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
   }
-
 }
