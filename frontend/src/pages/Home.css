@@ -4,7 +4,7 @@
 }
 
 .title {
-  margin-top: 12vh;
+  margin-top: 5vh;
   text-align: center;
   color: #40a798;
 }
@@ -26,4 +26,12 @@
   background-image: url("../assets/pngwing.com.png");
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.dark .title {
+  color: white
+}
+
+.dark .little-title {
+  color : white
 }

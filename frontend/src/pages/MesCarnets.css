@@ -33,3 +33,7 @@
     width: 100%;
   }
 }
+
+.dark .titlemescarnets {
+  color : white
+}

@@ -32,3 +32,6 @@ a .optionlien :visited {
   text-align: center;
   color: #40a798;
 }
+.dark .filter {
+  color:white
+}

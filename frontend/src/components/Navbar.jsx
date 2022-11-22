@@ -17,10 +17,10 @@ import ListItemText from "@mui/material/ListItemText";
 import { Bookmarks, Call, Flight, Home } from "@mui/icons-material";
 import { ListItemIcon } from "@mui/material";
 import { useNavigate, Link } from "react-router-dom";
-import logoImg from "../assets/logo.png";
+import logoImg from "../assets/logo-wot.png";
 import "./Navbar.css";
 
-const drawerWidth = "100vw";
+const drawerWidth = 300;
 
 const navigateItems = [
   {
@@ -104,45 +104,18 @@ export default function Navbar() {
             aria-label="open drawer"
             edge="end"
             onClick={handleDrawerOpen}
-            sx={{
-              ...(open && { display: "none" }),
-              display: { xs: "block", md: "none" },
-            }}
+            sx={{ ...(open && { display: "none" }) }}
             size="large"
           >
-            <MenuIcon sx={{ color: "#eba226", fontSize: "1.5em" }} />
+            <MenuIcon sx={{ color: "black" }} />
           </IconButton>
-          <Box
-            sx={{
-              display: { xs: "none", md: "flex" },
-              flexDirection: "row",
-              justifyContent: "flex-end",
-            }}
-          >
-            {navigateItems.map((item) => (
-              <ListItem
-                button
-                onClick={() => navigate(item.route)}
-                key={item.id}
-                disablePadding
-                sx={{ color: "#eba226" }}
-              >
-                <ListItemButton>
-                  <ListItemIcon sx={{ color: "#eba226", fontSize: "1em" }}>
-                    {item.icon}
-                  </ListItemIcon>
-                  <ListItemText primary={item.label} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </Box>
         </Toolbar>
       </AppBar>
       <Drawer
         sx={{
           width: drawerWidth,
           flexShrink: 0,
-          bgcolor: "#eba326bc",
+          bgcolor: "#eaa226",
           "& .MuiDrawer-paper": {
             width: drawerWidth,
           },
@@ -151,7 +124,7 @@ export default function Navbar() {
         anchor="right"
         open={open}
       >
-        <DrawerHeader sx={{ bgcolor: "#eba326bc" }}>
+        <DrawerHeader sx={{ bgcolor: "#eaa226" }}>
           <IconButton onClick={handleDrawerClose} sx={{ color: "white" }}>
             {theme.direction === "rtl" ? (
               <ChevronLeftIcon />
@@ -161,13 +134,7 @@ export default function Navbar() {
           </IconButton>
         </DrawerHeader>
         <List
-          sx={{
-            bgcolor: "#eba326bc",
-            height: "100vh",
-            color: "white",
-            display: "flex",
-            flexDirection: "column",
-          }}
+          sx={{ bgcolor: "#eaa226", height: "100vh", color: "white" }}
           onClick={handleDrawerClose}
         >
           {navigateItems.map((item) => (
@@ -176,24 +143,9 @@ export default function Navbar() {
               onClick={() => navigate(item.route)}
               key={item.id}
               disablePadding
-              sx={{
-                flexDirection: "column",
-                mt: "3vh",
-              }}
             >
-              <ListItemButton
-                sx={{
-                  "&:hover": { backgroundColor: "#eee" },
-                  flexDirection: "column",
-                  justifyContent: "center",
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    color: "#FCFCFC",
-                    justifyContent: "center",
-                  }}
-                >
+              <ListItemButton sx={{ "&:hover": { backgroundColor: "#eee" } }}>
+                <ListItemIcon sx={{ color: "#FCFCFC" }}>
                   {item.icon}
                 </ListItemIcon>
                 <ListItemText primary={item.label} />
