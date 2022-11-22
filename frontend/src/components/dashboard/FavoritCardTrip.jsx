@@ -2,12 +2,11 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
-import { Stack } from "@mui/material";
 import "@components/dashboard/favoritCardTrip.css";
 
 export default function FavoritCardTrip({ team }) {
   return (
-    <Stack direction="row">
+    <div className="favoritCard">
       <img
         className="circleFavorite"
         src={team.team.photo}
@@ -31,6 +30,6 @@ export default function FavoritCardTrip({ team }) {
           alt="image"
         />
       </Card>
-    </Stack>
+    </div>
   );
 }
