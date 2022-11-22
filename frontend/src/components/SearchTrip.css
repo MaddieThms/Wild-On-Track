@@ -13,3 +13,27 @@
   align-items: center;
   gap: 5px;
 }
+
+@media screen and (min-width: 1290px) {
+  /* cible la searchBar des icons */
+  .containerForm{
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+  }
+
+  #formStructure{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  #formButtons{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+}

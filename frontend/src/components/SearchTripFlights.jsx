@@ -54,32 +54,34 @@ function SearchTripFlights({
   }
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <Typography
-        sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}
-        variant="h1"
-      >
-        Recherche ton vol <br /> pour la destination de ton choix
-      </Typography>
-      <Stack id="formStructure" spacing={1}>
-        <TravelDepartureAutocomplete
-          departure={departure}
-          setDeparture={setDeparture}
-          setAirportName={setAirportName}
-          airportName={airportName}
-        />
-        <TravelDestinationAutocomplete
-          setAirportNameDestination={setAirportNameDestination}
-        />
-        <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
-        <BasicDatePickerRoundTrip
-          returnFrom={returnFrom}
-          setReturnFrom={setReturnFrom}
-        />
-        <NumberTravelers
-          numberTraveler={numberTraveler}
-          setNumberTraveler={setNumberTraveler}
-        />
+    <div className="containerForm">
+      <Box sx={{ width: "100%" }} id="boxMui">
+        <Typography
+          sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}
+          variant="h1"
+        >
+          Recherche ton vol pour la destination de ton choix
+        </Typography>
+        <Stack id="formStructure" spacing={1}>
+          <TravelDepartureAutocomplete
+            departure={departure}
+            setDeparture={setDeparture}
+            setAirportName={setAirportName}
+            airportName={airportName}
+          />
+          <TravelDestinationAutocomplete
+            setAirportNameDestination={setAirportNameDestination}
+          />
+          <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
+          <BasicDatePickerRoundTrip
+            returnFrom={returnFrom}
+            setReturnFrom={setReturnFrom}
+          />
+          <NumberTravelers
+            numberTraveler={numberTraveler}
+            setNumberTraveler={setNumberTraveler}
+          />
+        </Stack>
         <Stack id="formButtons">
           {/* call the API on click */}
           <Button
@@ -94,8 +96,8 @@ function SearchTripFlights({
             Rechercher
           </Button>
         </Stack>
-      </Stack>
-    </Box>
+      </Box>
+    </div>
   );
 }
 
