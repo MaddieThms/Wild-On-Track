@@ -1,14 +1,12 @@
 .titleCardFavorit {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   text-align: center;
-  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .favoritCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 30vw;
+  margin-bottom: 15px;
 }
 
 .circleCardFavorite {
@@ -23,7 +21,7 @@
     margin: 0 0;
     width: 15%;
     height: 15%;
-    margin-right: 20px;
+    margin: 10px;
   }
   .favoritCard {
     display: flex;

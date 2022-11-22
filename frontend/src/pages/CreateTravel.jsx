@@ -90,10 +90,12 @@ function CreateTravel({
         En panne d'idée pour vos prochaines vacances ?
       </h2>
       <br />
-      <div classeName="favoriteCards">
-        {teams.map((team) => (
-          <FavoritCardTrip key={team.id} team={{ team }} />
-        ))}
+      <div className="choice">
+        <div className="favoriteCards">
+          {teams.map((team) => (
+            <FavoritCardTrip key={team.id} team={{ team }} />
+          ))}
+        </div>
       </div>
     </div>
   );
