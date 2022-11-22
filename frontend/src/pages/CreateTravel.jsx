@@ -20,23 +20,25 @@ function CreateTravel({
   dataRestaurants,
 }) {
   return (
-    <div className="travelSearch">
+    <div>
       <h1 className="title-created">Crée ton voyage </h1>
-      <SearchBar
-        dataHotels={dataHotels}
-        setDataHotels={setDataHotels}
-        dataFlights={dataFlights}
-        setDataFlights={setDataFlights}
-        setDataRestaurants={setDataRestaurants}
-        dataRestaurants={dataRestaurants}
-        departure={departure}
-        setDeparture={setDeparture}
-        landing={landing}
-        setLanding={setLanding}
-        dataAttractions={dataAttractions}
-        setDataAttractions={setDataAttractions}
-      />
-      <CurrentTrip />
+      <div className="travelSearch">
+        <SearchBar
+          dataHotels={dataHotels}
+          setDataHotels={setDataHotels}
+          dataFlights={dataFlights}
+          setDataFlights={setDataFlights}
+          setDataRestaurants={setDataRestaurants}
+          dataRestaurants={dataRestaurants}
+          departure={departure}
+          setDeparture={setDeparture}
+          landing={landing}
+          setLanding={setLanding}
+          dataAttractions={dataAttractions}
+          setDataAttractions={setDataAttractions}
+        />
+        <CurrentTrip />
+      </div>
     </div>
   );
 }

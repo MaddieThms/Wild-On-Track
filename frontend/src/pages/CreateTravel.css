@@ -13,9 +13,27 @@
 
 @media screen and (min-width: 1290px) {
   .title-created {
-    margin-top: 101px;
     margin-bottom: 50px;
+    margin-top: 10px;
     text-align: center;
     color: #40a798;
+  }
+  .travelSearch {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2vh;
+    justify-content: space-around;
+  }
+  .travelSearch h2 {
+    font-size: 30px;
+  }
+  /* Cible la carte entiere DERNIER VOYAGE */
+  .css-yfj4i-MuiPaper-root-MuiCard-root {
+    height: 350px;
+  }
+  /* Cible le H5 de la carte DERNIER VOYAGE */
+  .css-bz81uv-MuiTypography-root {
+    font-size: 2.5rem;
   }
 }
