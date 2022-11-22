@@ -46,12 +46,7 @@
 .message-title {
   font-family: "Montserrat";
 }
-.dark .message-contact {
-  color:white
-}
-.dark .message-about {
-  color:white
-}
+
 .message-about,
 .message-contact {
   font-size: 20px;

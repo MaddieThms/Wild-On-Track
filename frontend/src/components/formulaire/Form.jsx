@@ -1,7 +1,6 @@
 import { Button, Card, CardContent, Grid, TextField } from "@mui/material";
 import React from "react";
 import "./Formulaire.css";
-import "../../App.css";
 
 function handleSubmit(e) {
   e.preventDefault();

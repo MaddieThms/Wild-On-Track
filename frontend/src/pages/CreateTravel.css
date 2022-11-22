@@ -6,22 +6,12 @@
   margin: 0 auto;
 }
 .title-created {
-  margin-top: 50px;
+  margin-top: 101px;
   margin-bottom: 50px;
   text-align: center;
   color: #40a798;
 }
-.dark .title-created {
-  color : white
-}
 
-.title-idea{
-  color: #40a798;
-
-}
-.dark .title-idea{
-  color : white
-}
 @media screen and (min-width: 600px) {
   .favoriteCards {
     display: flex;
