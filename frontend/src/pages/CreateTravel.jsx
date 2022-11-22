@@ -4,6 +4,7 @@ import CurrentTrip from "@components/CurrentTrip";
 import React from "react";
 import SearchBar from "../components/SearchBar";
 import "./CreateTravel.css";
+// import FavoritCardTrip from "@components/dashboard/FavoritCardTrip";
 
 function CreateTravel({
   dataHotels,
@@ -37,6 +38,7 @@ function CreateTravel({
         setDataAttractions={setDataAttractions}
       />
       <CurrentTrip />
+      {/* <FavoritCardTrip/> */}
     </div>
   );
 }

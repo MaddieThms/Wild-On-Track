@@ -56,7 +56,7 @@ function CurrentTrip() {
 
   return (
     <div className="lastTrip">
-      <h2>Dernier voyage :</h2>
+      <h2 className="CurrentTripTitle">Dernier voyage :</h2>
       <Card
         sx={{
           width: "90vw",
