@@ -1,10 +1,19 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react/prop-types */
-import CurrentTrip from "@components/CurrentTrip";
+import FavoritCardTrip from "@components/dashboard/FavoritCardTrip";
 import React from "react";
+import FavoritPhotoRyan from "../assets/EGYPTE.jpg";
+import FavoritPhotoArnaud from "../assets/Medellin_colombia.jpg";
+import FavoritPhotoMadeline from "../assets/Tasman_Lake_NZ.jpg";
+import FavoritPhotoIris from "../assets/BALI.jpg";
+import FavoritPhotoJohn from "../assets/BOLIVIA_SALAR_UYUNI.jpg";
 import SearchBar from "../components/SearchBar";
 import "./CreateTravel.css";
-// import FavoritCardTrip from "@components/dashboard/FavoritCardTrip";
+import teamRyan from "../components/formulaire/teamRyan.png";
+import teamIris from "../components/formulaire/teamIris.png";
+import teamJohn from "../components/formulaire/teamJohn.png";
+import teamMadeline from "../components/formulaire/teamMadeline.png";
+import teamArnaud from "../components/formulaire/teamArnaud.png";
 
 function CreateTravel({
   dataHotels,
@@ -20,6 +29,44 @@ function CreateTravel({
   setDataRestaurants,
   dataRestaurants,
 }) {
+  const teams = [
+    {
+      id: 1,
+      name: "Ryan",
+      photo: teamRyan,
+      photoFavorite: FavoritPhotoRyan,
+      title: "l'Egypte",
+    },
+    {
+      id: 2,
+      name: "Iris",
+      photo: teamIris,
+      photoFavorite: FavoritPhotoIris,
+      title: "Bali",
+    },
+    {
+      id: 5,
+      name: "Arnaud",
+      photo: teamArnaud,
+      photoFavorite: FavoritPhotoArnaud,
+      title: "la Colombie",
+    },
+    {
+      id: 4,
+      name: "Madeline",
+      photo: teamMadeline,
+      photoFavorite: FavoritPhotoMadeline,
+      title: "la Nouvelle-Zélande",
+    },
+    {
+      id: 3,
+      name: "John",
+      photo: teamJohn,
+      photoFavorite: FavoritPhotoJohn,
+      title: "la Bolivie",
+    },
+  ];
+
   return (
     <div className="travelSearch">
       <h1 className="title-created">Crée ton voyage </h1>
@@ -37,8 +84,16 @@ function CreateTravel({
         dataAttractions={dataAttractions}
         setDataAttractions={setDataAttractions}
       />
-      <CurrentTrip />
-      {/* <FavoritCardTrip/> */}
+      <br />
+      <h2 style={{ fontSize: "1.5rem", color: "#40a798" }}>
+        En panne d'idée pour vos prochaines vacances !?
+      </h2>
+      <br />
+      <div classeName="favoriteCards">
+        {teams.map((team) => (
+          <FavoritCardTrip key={team.id} team={{ team }} />
+        ))}
+      </div>
     </div>
   );
 }
