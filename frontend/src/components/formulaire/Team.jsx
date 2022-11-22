@@ -9,13 +9,56 @@ import teamJohn from "./teamJohn.png";
 function Team() {
   return (
     <div className="container-circle">
-      <img className="circle" src={teamJohn} alt="John" />
-
-      <img className="circle" src={teamIris} alt="Iris" />
-
-      <img className="circle" src={teamArnaud} alt="Arnaud" />
-      <img className="circle" src={teamRyan} alt="Ryan" />
-      <img className="circle" src={teamMadeline} alt="Madeline" />
+      <div>
+        <a
+          href="https://www.linkedin.com/in/jgaronian/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img className="circle" src={teamJohn} alt="John" />
+        </a>
+        <p>Jonathan</p>
+      </div>
+      <div>
+        <a
+          href="https://www.linkedin.com/in/iris-succi-70923822a/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img className="circle" src={teamIris} alt="Iris" />
+        </a>
+        <p>Iris</p>
+      </div>
+      <div>
+        <a
+          href="https://www.linkedin.com/in/arnaud-champetier-030b0797/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img className="circle" src={teamArnaud} alt="Arnaud" />
+        </a>
+        <p>Arnaud</p>
+      </div>
+      <div>
+        <a
+          href="https://www.linkedin.com/in/ryan-beaujot-537062251/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img className="circle" src={teamRyan} alt="Ryan" />
+        </a>
+        <p>Ryan</p>
+      </div>
+      <div>
+        <a
+          href="https://www.linkedin.com/in/madeline-t/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img className="circle" src={teamMadeline} alt="Madeline" />
+        </a>
+        <p>Madeline</p>
+      </div>
     </div>
   );
 }

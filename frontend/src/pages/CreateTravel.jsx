@@ -68,7 +68,7 @@ function CreateTravel({
   ];
 
   return (
-    <div className="travelSearch">
+    <div>
       <h1 className="title-created">Crée ton voyage </h1>
       <SearchBar
         dataHotels={dataHotels}
