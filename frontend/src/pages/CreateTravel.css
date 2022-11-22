@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2vh;
+  width: 80vw;
+  margin: 0 auto;
 }
 .title-created {
   margin-top: 101px;
