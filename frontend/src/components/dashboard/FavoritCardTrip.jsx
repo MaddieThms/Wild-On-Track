@@ -8,7 +8,7 @@ export default function FavoritCardTrip({ team }) {
   return (
     <div className="favoritCard">
       <img
-        className="circleFavorite"
+        className="circleCardFavorite"
         src={team.team.photo}
         alt={team.team.name}
       />
@@ -20,9 +20,9 @@ export default function FavoritCardTrip({ team }) {
           borderRadius: "20px",
         }}
       >
-        <h2 className="titleCardFavorit">
+        <p className="titleCardFavorit">
           {team.team.name} vous propose {team.team.title}
-        </h2>
+        </p>
         <CardMedia
           component="img"
           height="194"

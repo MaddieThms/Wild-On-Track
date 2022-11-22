@@ -3,8 +3,8 @@
 import FavoritCardTrip from "@components/dashboard/FavoritCardTrip";
 import React from "react";
 import FavoritPhotoRyan from "../assets/EGYPTE.jpg";
-import FavoritPhotoArnaud from "../assets/Medellin_colombia.jpg";
-import FavoritPhotoMadeline from "../assets/Tasman_Lake_NZ.jpg";
+import FavoritPhotoArnaud from "../assets/Colombia.jpg";
+import FavoritPhotoMadeline from "../assets/NewZ.png";
 import FavoritPhotoIris from "../assets/BALI.jpg";
 import FavoritPhotoJohn from "../assets/BOLIVIA_SALAR_UYUNI.jpg";
 import SearchBar from "../components/SearchBar";
@@ -68,7 +68,7 @@ function CreateTravel({
   ];
 
   return (
-    <div>
+    <div className="travelSearch">
       <h1 className="title-created">Crée ton voyage </h1>
       <SearchBar
         dataHotels={dataHotels}
@@ -85,8 +85,9 @@ function CreateTravel({
         setDataAttractions={setDataAttractions}
       />
       <br />
-      <h2 style={{ fontSize: "1.5rem", color: "#40a798" }}>
-        En panne d'idée pour vos prochaines vacances !?
+      <br />
+      <h2 style={{ fontSize: "1.7rem", color: "#40a798" }}>
+        En panne d'idée pour vos prochaines vacances ?
       </h2>
       <br />
       <div classeName="favoriteCards">
