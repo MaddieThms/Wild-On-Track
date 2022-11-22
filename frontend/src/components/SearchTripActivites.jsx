@@ -40,22 +40,27 @@ function SearchTripActivites({
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <Typography sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}>
-        Recherche tes activités <br /> pour la destination de ton choix
-      </Typography>
-      <Stack id="formStructure" spacing={1}>
-        <TravelDestination
-          setCityId={setCityId}
-          cityId={cityId}
-          cityName={cityName}
-          setCityName={setCityName}
-        />
-        <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
-        <NumberTravelers
-          numberTraveler={numberTraveler}
-          setNumberTraveler={setNumberTraveler}
-        />
+    <div className="containerForm">
+      <Box sx={{ width: "100%" }}>
+        <Typography
+          sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}
+          variant="h1"
+        >
+          Recherche tes activités pour la destination de ton choix
+        </Typography>
+        <Stack id="formStructure" spacing={1}>
+          <TravelDestination
+            setCityId={setCityId}
+            cityId={cityId}
+            cityName={cityName}
+            setCityName={setCityName}
+          />
+          <TravelDate dateFrom={dateFrom} setDateFrom={setDateFrom} />
+          <NumberTravelers
+            numberTraveler={numberTraveler}
+            setNumberTraveler={setNumberTraveler}
+          />
+        </Stack>
         <Stack id="formButtons">
           {/* call the API on click */}
           <Button
@@ -65,11 +70,16 @@ function SearchTripActivites({
             sx={{ bgcolor: "#eaa226", color: "#fff" }}
             variant="contained"
           >
-            <Link to="attractions">Attractions</Link>
+            <Link
+              style={{ bgcolor: "#eaa226", color: "#fff" }}
+              to="attractions"
+            >
+              Rechercher
+            </Link>
           </Button>
         </Stack>
-      </Stack>
-    </Box>
+      </Box>
+    </div>
   );
 }
 

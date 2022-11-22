@@ -4,7 +4,6 @@ import "../components/formulaire/Formulaire.css";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
-import Footer from "../components/Footer";
 import About from "../components/formulaire/About";
 import Form from "../components/formulaire/Form";
 import "../App.css";
@@ -41,7 +40,6 @@ function Contact() {
         </div>
         <About />
       </div>
-      <Footer />
     </div>
   );
 }

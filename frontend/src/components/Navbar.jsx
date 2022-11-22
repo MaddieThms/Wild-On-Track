@@ -17,7 +17,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { Bookmarks, Call, Flight, Home } from "@mui/icons-material";
 import { ListItemIcon } from "@mui/material";
 import { useNavigate, Link } from "react-router-dom";
-import logoImg from "../assets/logo.png";
+import logoImg from "../assets/logo-wot.png";
 import "./Navbar.css";
 
 const drawerWidth = 300;
