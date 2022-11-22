@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2vh;
+  margin-top: 0vh;
 }
 .title-created {
-  margin-top: 101px;
+  margin-top: 50px;
   margin-bottom: 50px;
   text-align: center;
   color: #40a798;

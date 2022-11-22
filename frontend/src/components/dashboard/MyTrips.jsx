@@ -7,7 +7,7 @@
 /* eslint-disable import/no-useless-path-segments */
 
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import CardTrip from "./Cardtrip";
 import "./MyTrips.css";

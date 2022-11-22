@@ -45,7 +45,12 @@
 .message-title {
   font-family: "Montserrat";
 }
-
+.dark .message-contact {
+  color:white
+}
+.dark .message-about {
+  color:white
+}
 .container-about {
   margin: 30px;
 }
