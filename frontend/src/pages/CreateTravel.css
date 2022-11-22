@@ -12,11 +12,12 @@
   color: #40a798;
 }
 
-@media screen and (min-width: 1290px) {
-  .title-created {
-    margin-bottom: 20px;
-    text-align: center;
-    color: #40a798;
+@media screen and (min-width: 600px) {
+  .favoriteCards {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 30px;
   }
   .travelSearch {
     align-items: center;
