@@ -36,7 +36,7 @@ export default function CardTrip({ city }) {
 
   function getFetchData() {
     fetch(
-      `https://bing-image-search1.p.rapidapi.com/images/search?q=${imageCity}`,
+      `https://bing-image-search1.p.rapidapi.com/images/search?q=ville ${imageCity}`,
       options
     )
       .then((response) => response.json())
