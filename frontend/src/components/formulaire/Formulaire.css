@@ -30,17 +30,17 @@
 
 .title-about {
   color: #40a798;
-  font-family: "Roboto Mono", monospace;
+  font-family: "Montserrat", sans-serif;
   margin-bottom: 20px;
   font-size: 30px;
 }
 
 .title-contact {
   color: #40a798;
-  font-family: "Roboto Mono", monospace;
+  font-family: "Montserrat", sans-serif;
   margin-bottom: -36px;
-  font-size: 40px;
-  margin-top: 84px;
+  font-size: 1.7rem;
+  margin-top: 100px;
 }
 
 .message-title {
@@ -84,7 +84,8 @@
   }
 
   .title-contact {
-    margin-top: 80px;
+    margin-top: 100px;
+    margin-bottom: 10px;
   }
 
   .message-about {

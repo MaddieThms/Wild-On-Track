@@ -60,7 +60,7 @@ function SearchTripFlights({
           sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}
           variant="h1"
         >
-          Recherche ton vol pour la destination de ton choix
+          Recherche ton vol
         </Typography>
         <Stack id="formStructure" spacing={1}>
           <TravelDepartureAutocomplete
