@@ -55,7 +55,7 @@ function SearchTripFlights({
 
   return (
     <div className="containerForm">
-      <Box sx={{ width: "100%" }} id="boxMui">
+      <Box sx={{ width: "100%" }}>
         <Typography
           sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}
           variant="h1"
