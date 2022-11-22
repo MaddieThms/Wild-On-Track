@@ -22,7 +22,7 @@
   font-size: 1.5rem;
 }
 
-@media screen and (min-width: 1290px) {
+@media screen and (min-width: 900px) {
   .MuiTypography-root.MuiTypography-body1.MuiListItemText-primary.css-10hburv-MuiTypography-root {
     font-size: 1.3rem;
   }

@@ -106,7 +106,7 @@ export default function Navbar() {
             onClick={handleDrawerOpen}
             sx={{
               ...(open && { display: "none" }),
-              display: { xs: "block", sm: "none" },
+              display: { xs: "block", md: "none" },
             }}
             size="large"
           >
@@ -114,7 +114,7 @@ export default function Navbar() {
           </IconButton>
           <Box
             sx={{
-              display: { xs: "none", sm: "flex" },
+              display: { xs: "none", md: "flex" },
               flexDirection: "row",
               justifyContent: "flex-end",
             }}
