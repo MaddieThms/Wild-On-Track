@@ -1,36 +1,25 @@
-import Counter from "../components/Counter";
-import logo from "../assets/logo.svg";
+import "./Home.css";
+import "../App.css";
+// eslint-disable-next-line import/order, no-unused-vars
+import * as React from "react";
+import Btnstrip from "../components/BtnsHome";
 
-export default function Home() {
+// eslint-disable-next-line react/prop-types
+export default function Home({ theme }) {
   return (
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>Hello Vite + React !</p>
-
-      <Counter />
-
-      <p>
-        Edit <code>App.jsx</code> and save to test HMR updates.
-      </p>
-      <p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {" | "}
-        <a
-          className="App-link"
-          href="https://vitejs.dev/guide/features.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Vite Docs
-        </a>
-      </p>
-    </header>
+    <div>
+      <div className={`App ${theme}`} />
+      <div className="home">
+        <div className="titles">
+          <h1 className="title">Créé ton propre carnet de voyage</h1>
+          <h2 className="little-title">
+            Fais naître le voyage de tes rêves ! <br />
+            Bâtis une expérience inoubliable
+          </h2>
+          <div className="voyage" />
+        </div>
+        <Btnstrip />
+      </div>
+    </div>
   );
 }

@@ -1,0 +1,68 @@
+.container-recap {
+  margin-top: 100px;
+}
+
+.title-voyage {
+  text-align: center;
+  font-size: 2em;
+  color: #40a798;
+  margin-bottom: 30px;
+}
+
+.container-flight {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titlesfavorite {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 15px;
+}
+
+h5 {
+  font-size: 1.3em;
+  font-weight: 400;
+  margin: 0 auto;
+}
+.dark .title-voyage{
+  color:white
+}
+
+@media screen and (min-width: 600px) {
+  .container-hotel {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .container-flight {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+}
+
+@media screen and (min-width: 1290px) {
+  .container-flight {
+    margin-right: 46px;
+    margin-left: 70px;
+  }
+  .container-flight > .css-y46xe1 {
+    max-width: 580px;
+  }
+  .titlesfavorite > .css-1a8ln34 {
+    width: 50vw;
+    margin: 0 auto;
+  }
+}

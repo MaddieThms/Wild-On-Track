@@ -1,0 +1,34 @@
+.titleCardFavorit {
+  font-size: 0.8rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.favoritCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80vw;
+  margin-bottom: 15px;
+}
+
+.circleCardFavorite {
+  margin: 0 0;
+  width: 25%;
+  height: 25%;
+  margin-right: 20px;
+}
+
+@media screen and (min-width: 900px) {
+  .circleCardFavorite {
+    margin: 0 0;
+    width: 15%;
+    height: 15%;
+    margin: 10px;
+  }
+  .favoritCard {
+    width: 30vw;
+    margin-bottom: 15px;
+  }
+}

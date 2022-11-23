@@ -1,0 +1,58 @@
+.cardflights {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.cardflight {
+  display: flex;
+  justify-content: flex-start;
+  width: 90vw;
+  border-radius: 10px;
+  padding: 1px;
+  margin-bottom: 15px;
+  background-color: white;
+  box-shadow: rgb(37 42 49 / 16%) 0px 1px 4px 0px;
+}
+
+.cardinformationvol {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.informationsvol {
+  justify-content: flex-start;
+}
+
+.iconsPrice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.date {
+  font-weight: 100;
+  padding-bottom: 0px;
+}
+
+.hour {
+  font-weight: 900;
+}
+
+.price {
+  color: #eba226;
+}
+
+@media screen and (min-width: 1290px) {
+  .cardflights {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .cardflight {
+    width: 750px;
+    margin: 20px;
+  }
+}

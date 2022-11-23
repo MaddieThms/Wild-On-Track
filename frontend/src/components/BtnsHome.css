@@ -1,0 +1,41 @@
+.ContainerBtnstrip {
+  display: flex;
+  flex-direction: column;
+}
+
+.ContainerBtnstrip .Btnstrip1 {
+  background-color: #eba226;
+  margin: auto;
+  border-radius: 0 25px 0 25px;
+  margin-top: 20px;
+  padding: 10px 40px;
+  width: 70vw;
+  color: black;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.ContainerBtnstrip .Btnstrip2 {
+  background-color: white;
+  margin: auto;
+  border-radius: 0 25px 0 25px;
+  margin-top: 20px;
+  padding: 10px 40px;
+  width: 70vw;
+  color: black;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  border: 0;
+  color: black;
+}
+
+@media screen and (min-width: 1290px) {
+  .ContainerBtnstrip .Btnstrip1,
+  .ContainerBtnstrip .Btnstrip2 {
+    width: 40vw;
+  }
+}

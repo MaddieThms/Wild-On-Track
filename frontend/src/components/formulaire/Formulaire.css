@@ -1,0 +1,114 @@
+.container-contact {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.formulaire {
+  margin: 30px 40px;
+}
+
+.form {
+  margin: 40px;
+}
+
+.form button.button-form {
+  background-color: #eba226;
+  padding: 10px 70px;
+  margin: 20px auto;
+  border-radius: 0 25px 0 25px;
+  margin-top: 30px;
+}
+
+.container-label {
+  margin-bottom: 10px;
+}
+
+.label-form {
+  background-color: #e4f1f3;
+  border-radius: 10px;
+}
+
+.title-about {
+  color: #40a798;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.title-contact {
+  color: #40a798;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: -36px;
+  font-size: 1.7rem;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.message-title {
+  font-family: "Montserrat";
+}
+
+.message-about,
+.message-contact {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.container-about {
+  margin: 30px;
+}
+
+.container-circle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.circle {
+  height: 150px;
+  width: 150px;
+  border-radius: 100%;
+  margin: 5px;
+}
+.dark .message-contact {
+  color:white
+}
+.dark .message-about {
+  color:white
+}
+@media screen and (min-width: 1290px) {
+  .container-contact {
+    margin-top: 20px;
+  }
+  .formulaire {
+    margin: 30px 50px 0;
+    width: 700px;
+  }
+  .formulaire > .MuiPaper-root {
+    height: 520px;
+  }
+
+  .title-contact {
+    margin-top: 100px;
+    margin-bottom: 10px;
+  }
+
+  .message-about {
+    margin: 0 50px;
+    font-size: 20px;
+  }
+
+  .message-contact {
+    margin-top: 35px;
+    font-size: 20px;
+  }
+
+  .container-contact {
+    display: flex;
+  }
+  .circle {
+    margin: 15px 45px;
+  }
+}
+

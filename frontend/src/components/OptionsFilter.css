@@ -1,0 +1,33 @@
+.myfilter {
+  font-size: 0.9rem;
+  text-align: center;
+  color: black;
+}
+
+a .optionlien {
+  text-decoration: none;
+  border-radius: 30px;
+  border: #eaa226 solid;
+  border-width: 1px;
+  padding: 2px 10px 2px 10px;
+}
+
+a .optionlien:link {
+  text-decoration: none;
+  color: #40a798;
+}
+
+a .optionlien :active {
+  text-decoration: none;
+  color: #40a798;
+}
+
+a .optionlien :visited {
+  text-decoration: none;
+  color: #40a798;
+}
+
+
+.dark .filter {
+  color: white;
+}

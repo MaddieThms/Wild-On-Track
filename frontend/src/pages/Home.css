@@ -1,0 +1,39 @@
+.titles {
+  margin: 0 auto;
+  width: 90vw;
+}
+
+.title {
+  margin-top: 12vh;
+  text-align: center;
+  color: #40a798;
+  font-size: 1.7rem;
+}
+
+.little-title {
+  text-align: center;
+  font-weight: lighter;
+  margin-top: 2vh;
+  font-size: 1rem;
+}
+
+.voyage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  margin: 0px auto 20px auto;
+  height: 45vh;
+  background-image: url("../assets/pngwing.com.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dark .title {
+  color: white
+}
+
+.dark .little-title {
+  color : white
+}
+
