@@ -86,11 +86,11 @@ function CreateTravel({
       />
       <br />
       <br />
-      <h2 style={{ fontSize: "1.7rem", color: "#40a798" }}>
+      <h2 style={{ fontSize: "1.7rem", color: "#40a798", textAlign: "left" }}>
         En panne d'idée pour vos prochaines vacances ?
       </h2>
       <br />
-      <div classeName="favoriteCards">
+      <div className="favoriteCards">
         {teams.map((team) => (
           <FavoritCardTrip key={team.id} team={{ team }} />
         ))}
