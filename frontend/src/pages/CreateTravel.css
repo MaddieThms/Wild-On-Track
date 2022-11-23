@@ -20,13 +20,22 @@
   color : white
 }
 
+.choice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  margin-top: 25px;
+}
+
 @media screen and (min-width: 600px) {
   .favoriteCards {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
-    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
   }
 
   .travelSearch {
