@@ -22,7 +22,7 @@ function SearchTripRestaurants({
   const optionsRestaurant = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "5fe208d44dmsh69bf3aada22853ep1e4a3bjsn70ba3b445000",
+      "X-RapidAPI-Key": "9dbbe5adb9msh85053a45e47537bp17bcfdjsnc900e1d54142",
       "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
     },
   };

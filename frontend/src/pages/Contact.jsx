@@ -9,7 +9,9 @@ function Contact() {
       <h2 className="title-contact">Contact</h2>
       <div className="container-contact">
         <div className="container-title-form">
-          <p className="message-contact">Un petit message pour plus info</p>
+          <p className="message-contact">
+            N'hésitez pas à nous contacter pour plus d'informations
+          </p>
           <Form />
         </div>
         <About />
