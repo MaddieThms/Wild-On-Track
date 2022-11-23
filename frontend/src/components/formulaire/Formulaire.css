@@ -70,7 +70,12 @@
   border-radius: 100%;
   margin: 5px;
 }
-
+.dark .message-contact {
+  color:white
+}
+.dark .message-about {
+  color:white
+}
 @media screen and (min-width: 1290px) {
   .container-contact {
     margin-top: 20px;
@@ -105,3 +110,4 @@
     margin: 15px 45px;
   }
 }
+

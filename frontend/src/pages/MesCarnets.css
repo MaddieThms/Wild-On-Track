@@ -23,6 +23,9 @@
 .css-yfj4i-MuiPaper-root-MuiCard-root {
   margin-bottom: 25px;
 }
+.dark .titlemescarnets {
+  color : white
+}
 
 @media screen and (min-width: 1290px) {
   .filter {

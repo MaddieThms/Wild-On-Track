@@ -12,6 +12,13 @@
   font-size: 1.7rem;
   color: #40a798;
 }
+.dark .title-created {
+  color : white
+}
+
+.dark .title-idea{
+  color : white
+}
 
 @media screen and (min-width: 600px) {
   .favoriteCards {

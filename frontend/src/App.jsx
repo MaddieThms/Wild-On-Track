@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+// eslint-disable-next-line import/no-named-as-default
 import Navbar from "./components/Navbar";
 import CreateTravel from "./pages/CreateTravel";
 import FlightPage from "./pages/FlightPage";
@@ -13,6 +14,20 @@ import MesAttractions from "./pages/MesAttractions";
 import MesRestaurants from "./pages/MesRestaurants";
 
 function App() {
+  const [themeD, setThemeD] = useState(
+    localStorage.getItem("themeD") || "light"
+  );
+  const toggleTheme = () => {
+    if (themeD === "light") {
+      setThemeD("dark");
+    } else {
+      setThemeD("light");
+    }
+  };
+  useEffect(() => {
+    document.body.className = themeD;
+    localStorage.setItem("theme", themeD);
+  }, [themeD]);
   const [dataFlights, setDataFlights] = useState([]);
   const [dataHotels, setDataHotels] = useState([]);
   const [dataRestaurants, setDataRestaurants] = useState([]);
@@ -21,9 +36,9 @@ function App() {
   const [dataAttractions, setDataAttractions] = useState([]);
   return (
     <div>
-      <Navbar />
+      <Navbar themeD={themeD} setThemeD={setThemeD} toggleTheme={toggleTheme} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home themeD={{ themeD }} />} />
         <Route
           path="nouveau-voyage"
           element={
@@ -40,6 +55,7 @@ function App() {
               setDataAttractions={setDataAttractions}
               setDataRestaurants={setDataRestaurants}
               dataRestaurants={dataRestaurants}
+              themeD={themeD}
             />
           }
         />
@@ -56,8 +72,8 @@ function App() {
             />
           }
         />
-        <Route path="contact" element={<Contact />} />
-        <Route path="mes-carnets" element={<MesCarnets />} />
+        <Route path="contact" element={<Contact themeD={themeD} />} />
+        <Route path="mes-carnets" element={<MesCarnets themeD={themeD} />} />
         <Route
           path="nouveau-voyage/hotels"
           element={
@@ -67,6 +83,7 @@ function App() {
               setLanding={setLanding}
               dataHotels={dataHotels}
               setDataHotels={setDataHotels}
+              themeD={themeD}
             />
           }
         />
@@ -79,10 +96,14 @@ function App() {
               setLanding={setLanding}
               dataAttractions={dataAttractions}
               setDataAttractions={setDataAttractions}
+              themeD={themeD}
             />
           }
         />
-        <Route path="mon-carnet-de-voyage" element={<CarnetVoyage />} />
+        <Route
+          path="mon-carnet-de-voyage"
+          element={<CarnetVoyage themeD={themeD} />}
+        />
 
         <Route
           path="nouveau-voyage/restaurants"
@@ -93,10 +114,14 @@ function App() {
               setLanding={setLanding}
               dataRestaurants={dataRestaurants}
               setDataRestaurants={setDataRestaurants}
+              themeD={themeD}
             />
           }
         />
-        <Route path="carnetvoyage/:city" element={<CarnetVoyage />} />
+        <Route
+          path="carnetvoyage/:city"
+          element={<CarnetVoyage themeD={themeD} />}
+        />
       </Routes>
     </div>
   );

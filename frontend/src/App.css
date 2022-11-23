@@ -26,3 +26,21 @@ body {
   margin-top: 80px;
   text-align: center;
 }
+
+.dark {
+  background-image: url(assets/background_darkmode.png);
+  color: #fff;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+.light {
+  background-image: url(assets/background.png);
+    background-color: #fff;
+
+  color: #333;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
