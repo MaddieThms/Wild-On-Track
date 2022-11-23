@@ -5,7 +5,11 @@
 }
 
 .favoritCard {
-  width: 30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80vw;
   margin-bottom: 15px;
 }
 
@@ -24,9 +28,7 @@
     margin: 10px;
   }
   .favoritCard {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    width: 30vw;
+    margin-bottom: 15px;
   }
 }

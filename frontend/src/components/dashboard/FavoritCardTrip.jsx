@@ -15,7 +15,6 @@ export default function FavoritCardTrip({ team }) {
       />
       <Card
         sx={{
-          width: "30vw",
           maxWidth: "500px",
           boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
           borderRadius: "20px",
