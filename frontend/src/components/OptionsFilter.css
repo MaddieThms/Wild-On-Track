@@ -27,11 +27,6 @@ a .optionlien :visited {
   color: #40a798;
 }
 
-.filter {
-  font-size: 0.9rem;
-  text-align: center;
-  color: #40a798;
-}
 
 .dark .filter {
   color: white;
