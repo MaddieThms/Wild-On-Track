@@ -46,7 +46,7 @@ function SearchTripRestaurants({
           sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}
           variant="h1"
         >
-          Une petite faim ? Recherche le meilleur restaurant
+          Recherche un restaurant
         </Typography>
         <Stack id="formStructure" spacing={1}>
           <TravelDestination

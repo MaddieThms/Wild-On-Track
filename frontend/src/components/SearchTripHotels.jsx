@@ -22,7 +22,7 @@ function SearchTripHotels({
   const [dateFrom, setDateFrom] = useState("");
   const [numberNightsHotel, SetNumberNightsHotel] = useState("");
 
-  const optionsHôtels = {
+  const optionsHotels = {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "9dbbe5adb9msh85053a45e47537bp17bcfdjsnc900e1d54142",
@@ -33,7 +33,7 @@ function SearchTripHotels({
   const findApiHotels = () => {
     fetch(
       `https://travel-advisor.p.rapidapi.com/hotels/get-details?location_id=${cityId}&checkin=${dateFrom}&adults=${numberTraveler}&currency=EUR&nights=${numberNightsHotel}`,
-      optionsHôtels
+      optionsHotels
     )
       .then((response) => response.json())
       .then((result) => {
@@ -49,7 +49,7 @@ function SearchTripHotels({
           sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}
           variant="h1"
         >
-          Recherche ton hotel pour la destination de ton choix
+          Recherche ton hotel
         </Typography>
         <Stack id="formStructure" spacing={1}>
           <TravelDestination

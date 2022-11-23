@@ -86,7 +86,7 @@ function CreateTravel({
       />
       <br />
       <br />
-      <h2 style={{ fontSize: "1.7rem", color: "#40a798", textAlign: "left" }}>
+      <h2 className="subtitle" style={{ fontSize: "1.7rem" }}>
         En panne d'idée pour vos prochaines vacances ?
       </h2>
       <br />

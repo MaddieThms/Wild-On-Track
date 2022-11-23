@@ -28,6 +28,16 @@
   margin-top: 25px;
 }
 
+.subtitle {
+  text-align: center;
+  font-size: 1.7rem;
+  color: #40a798;
+}
+
+.dark .subtitle {
+  color: white;
+}
+
 @media screen and (min-width: 600px) {
   .favoriteCards {
     display: flex;

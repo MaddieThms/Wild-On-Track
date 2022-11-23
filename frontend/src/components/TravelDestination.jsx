@@ -5,7 +5,7 @@ import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 
 function TravelDestination({ cityId, setCityId, cityName, setCityName }) {
-  const optionsCityHôtels = {
+  const optionsCityHotels = {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": "9dbbe5adb9msh85053a45e47537bp17bcfdjsnc900e1d54142",
@@ -16,7 +16,7 @@ function TravelDestination({ cityId, setCityId, cityName, setCityName }) {
   const findApiLocationHotels = () => {
     fetch(
       `https://travel-advisor.p.rapidapi.com/locations/search?query=${cityName}&limit=10&offset=0&units=km&location_id=1&currency=EUR&sort=relevance`,
-      optionsCityHôtels
+      optionsCityHotels
     )
       .then((response) => response.json())
       .then((result) => {
