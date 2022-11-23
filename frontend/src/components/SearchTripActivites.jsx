@@ -46,7 +46,7 @@ function SearchTripActivites({
           sx={{ textAlign: "center", marginBottom: 3, fontSize: 20 }}
           variant="h1"
         >
-          Recherche tes activités pour la destination de ton choix
+          Recherche une activité
         </Typography>
         <Stack id="formStructure" spacing={1}>
           <TravelDestination
