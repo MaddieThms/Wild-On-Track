@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react/prop-types */
 import * as React from "react";
 import Card from "@mui/material/Card";
@@ -14,7 +15,6 @@ export default function FavoritCardTrip({ team }) {
       />
       <Card
         sx={{
-          width: "90vw",
           maxWidth: "500px",
           boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
           borderRadius: "20px",

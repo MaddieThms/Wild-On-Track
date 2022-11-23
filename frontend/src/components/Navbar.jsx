@@ -17,8 +17,13 @@ import ListItemText from "@mui/material/ListItemText";
 import { Bookmarks, Call, Flight, Home } from "@mui/icons-material";
 import { ListItemIcon } from "@mui/material";
 import { useNavigate, Link } from "react-router-dom";
+// eslint-disable-next-line import/order
 import logoImg from "../assets/logo.png";
 import "./Navbar.css";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
+import "../App.css";
 
 const drawerWidth = "100vw";
 
@@ -75,7 +80,8 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-start",
 }));
 
-export default function Navbar() {
+// eslint-disable-next-line react/prop-types, no-unused-vars
+export default function Navbar({ toggleTheme, themeD }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
@@ -98,7 +104,13 @@ export default function Navbar() {
               <img src={logoImg} alt="logo" width={60} />
             </Link>
           </Typography>
-
+          <FormGroup>
+            <FormControlLabel
+              control={<Switch defaultChecked />}
+              type="button"
+              onClick={toggleTheme}
+            />
+          </FormGroup>
           <IconButton
             color="inherit"
             aria-label="open drawer"

@@ -28,3 +28,12 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.dark .title {
+  color: white
+}
+
+.dark .little-title {
+  color : white
+}
+

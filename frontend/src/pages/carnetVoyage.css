@@ -31,6 +31,9 @@ h5 {
   font-weight: 400;
   margin: 0 auto;
 }
+.dark .title-voyage{
+  color:white
+}
 
 @media screen and (min-width: 600px) {
   .container-hotel {
